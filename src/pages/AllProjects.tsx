@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProjectCard from '@/components/ProjectCard';
@@ -12,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select';
-import { Filter, Grid3X3, ListFilter } from 'lucide-react';
+import { Filter, Grid3X3, ListFilter, ExternalLink, Github } from 'lucide-react';
 
 // Import project data
 import { projects, projectsWithClassInfo } from '@/data/projects';
@@ -121,15 +122,23 @@ export default function AllProjects() {
                     delay={150 * index}
                   >
                     <div className="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-xl shadow-sm">
-                      <div className="md:w-1/3 aspect-video overflow-hidden rounded-md">
+                      <Link 
+                        to={`/projects/${project.title.replace(/\s+/g, '-').toLowerCase()}`}
+                        className="md:w-1/3 aspect-video overflow-hidden rounded-md"
+                      >
                         <img 
                           src={project.image} 
                           alt={project.title}
-                          className="object-cover w-full h-full"
+                          className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
                         />
-                      </div>
+                      </Link>
                       <div className="md:w-2/3">
-                        <h3 className="heading-sm mb-2">{project.title}</h3>
+                        <Link 
+                          to={`/projects/${project.title.replace(/\s+/g, '-').toLowerCase()}`}
+                          className="block"
+                        >
+                          <h3 className="heading-sm mb-2 hover:text-primary transition-colors">{project.title}</h3>
+                        </Link>
                         <p className="text-muted-foreground mb-4">{project.description}</p>
                         
                         <div className="flex flex-wrap gap-2 mb-4">
@@ -155,13 +164,21 @@ export default function AllProjects() {
                         )}
                         
                         <div className="flex space-x-4">
+                          <Link
+                            to={`/projects/${project.title.replace(/\s+/g, '-').toLowerCase()}`}
+                            className="text-sm font-medium text-primary hover:underline"
+                          >
+                            View Details
+                          </Link>
+                          
                           <a 
                             href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm font-medium text-primary hover:underline"
+                            className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline"
                           >
-                            GitHub Repository
+                            <Github size={16} className="mr-1" />
+                            <span>Repository</span>
                           </a>
                           
                           {project.liveUrl && (
@@ -169,9 +186,10 @@ export default function AllProjects() {
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-sm font-medium text-primary hover:underline"
+                              className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline"
                             >
-                              Live Demo
+                              <ExternalLink size={16} className="mr-1" />
+                              <span>Live Demo</span>
                             </a>
                           )}
                         </div>

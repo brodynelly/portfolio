@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { ExternalLink, Github, ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 interface TechItem {
   name: string;
@@ -43,29 +44,36 @@ export default function ProjectCard({
     }
   };
 
+  const projectUrl = `/projects/${title.replace(/\s+/g, '-').toLowerCase()}`;
+
   return (
     <div className="overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg">
-      {/* Project Image */}
-      <div className="relative aspect-video overflow-hidden bg-muted">
-        <img
-          src={image}
-          alt={title}
-          className={cn(
-            "object-cover w-full h-full transition-opacity duration-700",
-            imageLoaded ? "opacity-100" : "opacity-0"
+      {/* Project Image - Make it clickable */}
+      <Link to={projectUrl} className="block">
+        <div className="relative aspect-video overflow-hidden bg-muted">
+          <img
+            src={image}
+            alt={title}
+            className={cn(
+              "object-cover w-full h-full transition-opacity duration-700",
+              imageLoaded ? "opacity-100" : "opacity-0"
+            )}
+            onLoad={() => setImageLoaded(true)}
+          />
+          {!imageLoaded && (
+            <div className="absolute inset-0 flex items-center justify-center bg-muted">
+              <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
+            </div>
           )}
-          onLoad={() => setImageLoaded(true)}
-        />
-        {!imageLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center bg-muted">
-            <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
-          </div>
-        )}
-      </div>
+        </div>
+      </Link>
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="heading-sm mb-3">{title}</h3>
+        {/* Title - Make it clickable */}
+        <Link to={projectUrl}>
+          <h3 className="heading-sm mb-3 hover:text-primary transition-colors">{title}</h3>
+        </Link>
         <p className="text-muted-foreground mb-4">{description}</p>
 
         {/* Tech Stack */}
@@ -118,8 +126,15 @@ export default function ProjectCard({
           </div>
         </div>
 
-        {/* Links */}
+        {/* View Details Button */}
         <div className="flex space-x-3">
+          <Link 
+            to={projectUrl}
+            className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline"
+          >
+            <span>View Details</span>
+          </Link>
+          
           <a 
             href={githubUrl}
             target="_blank"
