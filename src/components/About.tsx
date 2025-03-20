@@ -1,12 +1,36 @@
 
 import AnimatedSection from './AnimatedSection';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import TimelineItem from './TimelineItem';
 
 export default function About() {
   const socialLinks = [
     { icon: Github, href: "https://github.com", label: "GitHub" },
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Mail, href: "mailto:brody@example.com", label: "Email" },
+  ];
+
+  const timelineItems = [
+    {
+      date: "2022 - Present",
+      title: "Lab Research Assistant",
+      description: "Developing a full-stack application for IoT device data processing and visualization."
+    },
+    {
+      date: "2021 - 2022",
+      title: "Study Abroad - London",
+      description: "International academic experience focusing on global software development practices."
+    },
+    {
+      date: "2020 - Present",
+      title: "Computer Science, University of Missouri",
+      description: "Focusing on software engineering, algorithms, and distributed systems."
+    },
+    {
+      date: "2019 - 2020",
+      title: "Freelance Web Developer",
+      description: "Designed and implemented responsive websites for local businesses."
+    },
   ];
 
   return (
@@ -47,6 +71,21 @@ export default function About() {
                   <link.icon className="h-5 w-5" />
                 </a>
               ))}
+            </div>
+
+            <div className="pt-6">
+              <h3 className="heading-sm text-primary mb-4">Experience Timeline</h3>
+              <div className="mt-6">
+                {timelineItems.map((item, index) => (
+                  <TimelineItem 
+                    key={item.title}
+                    date={item.date}
+                    title={item.title}
+                    description={item.description}
+                    isLast={index === timelineItems.length - 1}
+                  />
+                ))}
+              </div>
             </div>
           </AnimatedSection>
           

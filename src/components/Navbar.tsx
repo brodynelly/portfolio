@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,6 +20,13 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navItems = [
+    { label: 'About', href: '/#about' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Skills', href: '/#skills' },
+    { label: 'Contact', href: '/#contact' },
+  ];
+
   return (
     <header 
       className={cn(
@@ -29,18 +37,18 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold tracking-tighter">Brody</a>
+        <Link to="/" className="text-2xl font-bold tracking-tighter">Brody</Link>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10">
-          {['About', 'Projects', 'Skills', 'Contact'].map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
+          {navItems.map((item) => (
+            <Link 
+              key={item.label} 
+              to={item.href} 
               className="hover-link text-sm font-medium tracking-wide transition-colors"
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </nav>
 
@@ -62,15 +70,15 @@ export default function Navbar() {
         )}
       >
         <div className="container mx-auto px-6 py-6 flex flex-col space-y-4">
-          {['About', 'Projects', 'Skills', 'Contact'].map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
+          {navItems.map((item) => (
+            <Link 
+              key={item.label} 
+              to={item.href} 
               className="text-lg font-medium py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </div>
       </nav>
