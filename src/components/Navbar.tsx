@@ -2,11 +2,12 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
@@ -20,11 +21,28 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    setIsMenuOpen(false);
+    
+    // Check if we're on the homepage
+    if (location.pathname !== '/') {
+      // Navigate to homepage with the hash
+      window.location.href = `/${sectionId}`;
+      return;
+    }
+    
+    // If we're already on homepage, just scroll to the section
+    const element = document.getElementById(sectionId.replace('#', ''));
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const navItems = [
-    { label: 'About', href: '/#about' },
+    { label: 'About', href: '#about' },
     { label: 'Projects', href: '/projects' },
-    { label: 'Skills', href: '/#skills' },
-    { label: 'Contact', href: '/#contact' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -42,13 +60,23 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10">
           {navItems.map((item) => (
-            <Link 
-              key={item.label} 
-              to={item.href} 
-              className="hover-link text-sm font-medium tracking-wide transition-colors"
-            >
-              {item.label}
-            </Link>
+            item.href.startsWith('#') ? (
+              <button 
+                key={item.label} 
+                onClick={() => scrollToSection(item.href)}
+                className="hover-link text-sm font-medium tracking-wide transition-colors cursor-pointer"
+              >
+                {item.label}
+              </button>
+            ) : (
+              <Link 
+                key={item.label} 
+                to={item.href} 
+                className="hover-link text-sm font-medium tracking-wide transition-colors"
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </nav>
 
@@ -71,14 +99,24 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 py-6 flex flex-col space-y-4">
           {navItems.map((item) => (
-            <Link 
-              key={item.label} 
-              to={item.href} 
-              className="text-lg font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
+            item.href.startsWith('#') ? (
+              <button 
+                key={item.label} 
+                onClick={() => scrollToSection(item.href)}
+                className="text-lg font-medium py-2 text-left"
+              >
+                {item.label}
+              </button>
+            ) : (
+              <Link 
+                key={item.label} 
+                to={item.href} 
+                className="text-lg font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </div>
       </nav>
