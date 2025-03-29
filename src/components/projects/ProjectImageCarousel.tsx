@@ -5,7 +5,8 @@ import {
   CarouselContent, 
   CarouselItem, 
   CarouselNext, 
-  CarouselPrevious 
+  CarouselPrevious,
+  type CarouselApi
 } from "@/components/ui/carousel";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
@@ -17,6 +18,26 @@ interface ProjectImageCarouselProps {
 
 export default function ProjectImageCarousel({ images, title }: ProjectImageCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+
+  // Update the active index when the carousel changes
+  const onApiChange = (api: CarouselApi | null) => {
+    if (!api) return;
+    
+    const setIndex = () => {
+      const currentIndex = api.selectedScrollSnap();
+      setActiveIndex(currentIndex);
+    };
+    
+    api.on("select", setIndex);
+    
+    // Initial index
+    setIndex();
+    
+    return () => {
+      api.off("select", setIndex);
+    };
+  };
 
   if (!images || images.length === 0) {
     return null;
@@ -39,12 +60,8 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
     <div className="space-y-4">
       <Carousel
         className="w-full"
-        onSelect={(api) => {
-          if (api && typeof api.selectedScrollSnap === 'function') {
-            const selectedIndex = api.selectedScrollSnap();
-            setActiveIndex(selectedIndex);
-          }
-        }}
+        setApi={setApi}
+        onApiChange={onApiChange}
       >
         <CarouselContent>
           {images.map((image, index) => (
@@ -71,13 +88,7 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
               <button
                 key={index}
                 onClick={() => {
-                  const carouselElement = document.querySelector('[aria-roledescription="carousel"]');
-                  if (carouselElement) {
-                    const slides = carouselElement.querySelectorAll('[aria-roledescription="slide"]');
-                    if (slides && slides.length > index) {
-                      (slides[index] as HTMLElement).click();
-                    }
-                  }
+                  if (api) api.scrollTo(index);
                   setActiveIndex(index);
                 }}
                 className={cn(
