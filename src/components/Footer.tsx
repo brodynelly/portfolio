@@ -21,31 +21,27 @@ export default function Footer() {
             </div>
             
             <div className="flex space-x-4">
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="p-2 rounded-full text-muted-foreground hover:text-primary transition-colors hover:bg-secondary transform hover:scale-110 transition-transform"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="p-2 rounded-full text-muted-foreground hover:text-primary transition-colors hover:bg-secondary transform hover:scale-110 transition-transform"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a 
-                href="mailto:brody@example.com"
-                aria-label="Email"
-                className="p-2 rounded-full text-muted-foreground hover:text-primary transition-colors hover:bg-secondary transform hover:scale-110 transition-transform"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
+              {[
+                { icon: Github, href: "https://github.com", label: "GitHub" },
+                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:brody@example.com", label: "Email" }
+              ].map((social, index) => (
+                <AnimatedSection 
+                  key={social.label} 
+                  animation="scale-in" 
+                  delay={100 * index}
+                >
+                  <a 
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="p-2 rounded-full text-muted-foreground hover:text-primary transition-colors hover:bg-secondary transform hover:scale-110 transition-transform"
+                  >
+                    <social.icon className="h-5 w-5" />
+                  </a>
+                </AnimatedSection>
+              ))}
             </div>
           </div>
         </AnimatedSection>
@@ -57,14 +53,21 @@ export default function Footer() {
             </p>
             
             <div className="flex space-x-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors relative group">
-                Privacy Policy
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors relative group">
-                Terms of Service
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              {[
+                { label: "Privacy Policy", href: "#" },
+                { label: "Terms of Service", href: "#" }
+              ].map((link, index) => (
+                <AnimatedSection
+                  key={link.label}
+                  animation="slide-in-bottom"
+                  delay={200 * index}
+                >
+                  <a href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors relative group">
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </AnimatedSection>
+              ))}
             </div>
           </div>
         </AnimatedSection>

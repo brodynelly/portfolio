@@ -7,19 +7,33 @@ import { Link, useLocation } from 'react-router-dom';
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
       const offset = window.scrollY;
+      
+      // Check if scrolled past threshold
       setScrolled(offset > 50);
+      
+      // Hide/show navbar based on scroll direction
+      if (currentScrollY > 300) {
+        setIsVisible(currentScrollY < lastScrollY);
+      } else {
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const scrollToSection = (sectionId: string) => {
     setIsMenuOpen(false);
@@ -51,7 +65,8 @@ export default function Navbar() {
         "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out",
         scrolled 
           ? "bg-white/80 backdrop-blur-md py-4 shadow-sm" 
-          : "bg-transparent py-6"
+          : "bg-transparent py-6",
+        isVisible ? "translate-y-0" : "-translate-y-full"
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
