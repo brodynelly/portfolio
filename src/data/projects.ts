@@ -10,6 +10,7 @@ export interface Project {
   tech: TechItem[];
   challenges: string[];
   image: string;
+  images?: string[];
   githubUrl: string;
   liveUrl?: string;
 }

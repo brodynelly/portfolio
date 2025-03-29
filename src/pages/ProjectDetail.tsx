@@ -42,8 +42,8 @@ export default function ProjectDetail() {
   }
 
   // Convert single image to array if needed
-  const projectImages = Array.isArray(project.images) 
-    ? project.images 
+  const projectImages = project.images && project.images.length > 0
+    ? project.images
     : project.image 
       ? [project.image]
       : [];

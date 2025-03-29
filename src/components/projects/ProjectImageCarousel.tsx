@@ -39,7 +39,7 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
     <div className="space-y-4">
       <Carousel
         className="w-full"
-        onSelect={(idx) => setActiveIndex(idx)}
+        onSelect={setActiveIndex}
       >
         <CarouselContent>
           {images.map((image, index) => (

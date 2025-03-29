@@ -24,13 +24,13 @@ export default function ProjectsList({ projects, classes }: ProjectsListProps) {
               className="md:w-1/3 aspect-video overflow-hidden rounded-md relative group"
             >
               <img 
-                src={Array.isArray(project.images) ? project.images[0] : project.image} 
+                src={project.images && project.images.length > 0 ? project.images[0] : project.image} 
                 alt={project.title}
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
               />
               
               {/* Multiple images indicator */}
-              {Array.isArray(project.images) && project.images.length > 1 && (
+              {project.images && project.images.length > 1 && (
                 <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md flex items-center">
                   <Image className="w-3 h-3 mr-1" />
                   {project.images.length}
