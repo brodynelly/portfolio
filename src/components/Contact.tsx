@@ -1,98 +1,161 @@
+
 import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Send } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
-import { Mail, Phone, Send } from 'lucide-react';
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export default function Contact() {
-  const [formState, setFormState] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     message: ''
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
+    
+    // Simulate API call
     setTimeout(() => {
+      console.log('Form submitted:', formData);
       setIsSubmitting(false);
       setSubmitSuccess(true);
-      setFormState({
-        name: '',
-        email: '',
-        message: ''
-      });
-
-      // Reset success message after some time
+      
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+      
+      // Reset success message after 5 seconds
       setTimeout(() => setSubmitSuccess(false), 5000);
     }, 1500);
   };
-  return <section id="contact" className="section-padding bg-secondary">
-      <div className="container-width">
+  
+  return (
+    <section id="contact" className="section-padding">
+      <div className="container-width max-w-5xl mx-auto">
         <AnimatedSection animation="fade-in">
-          <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-white rounded-full mb-4">
-            Contact
+          <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-primary/10 rounded-full mb-4 text-primary">
+            Contact Me
           </span>
-          <h2 className="heading-lg mb-6">Get In Touch</h2>
-          <p className="text-muted-foreground max-w-2xl mb-12">
-            I'm currently open to new opportunities and collaborations. Feel free to reach out if you'd like to discuss a project or potential position.
-          </p>
+          <h2 className="heading-lg mb-12">
+            Let's Work Together!
+          </h2>
         </AnimatedSection>
-
-        <div className=" gap-12 items-start">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <AnimatedSection animation="fade-in-right" delay={300}>
-            
-          </AnimatedSection>
-          
-          <AnimatedSection animation="fade-in-left" delay={600}>
+            {/* Content inside AnimatedSection */}
             <div className="space-y-8">
               <div>
-                <h3 className="heading-sm mb-6">Contact Information</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="mr-4 p-2 bg-white rounded-full">
-                      <Mail className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Email</h4>
-                      <a href="mailto:brody@example.com" className="text-muted-foreground hover:text-primary transition-colors">
-                        brody@example.com
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="mr-4 p-2 bg-white rounded-full">
-                      <Phone className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Phone</h4>
-                      <a href="tel:+15551234567" className="text-muted-foreground hover:text-primary transition-colors">
-                        (555) 123-4567
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <h3 className="heading-sm">Get in Touch</h3>
+                <p className="text-muted-foreground mt-2">
+                  Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
+                </p>
               </div>
               
               <div>
-                <h3 className="heading-sm mb-6">Resume</h3>
-                <p className="text-muted-foreground mb-4">
-                  Download my resume for a complete overview of my experience, education, and skills.
-                </p>
-                <a href="#" className="inline-flex items-center px-4 py-2 bg-white border border-primary text-primary rounded-md font-medium transition-colors hover:bg-primary hover:text-white">
-                  Download Resume (PDF)
+                <h4 className="font-medium mb-1">Email</h4>
+                <a href="mailto:contact@example.com" className="text-primary hover:underline">
+                  contact@example.com
                 </a>
+              </div>
+              
+              <div>
+                <h4 className="font-medium mb-1">Connect</h4>
+                <div className="flex space-x-4">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    LinkedIn
+                  </a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    GitHub
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    Twitter
+                  </a>
+                </div>
               </div>
             </div>
           </AnimatedSection>
+          
+          <AnimatedSection animation="fade-in-left" delay={500}>
+            {/* Contact form inside AnimatedSection */}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <Input
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="bg-secondary border-0"
+                />
+              </div>
+              
+              <div>
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="bg-secondary border-0"
+                />
+              </div>
+              
+              <div>
+                <Textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="bg-secondary border-0 min-h-32"
+                />
+              </div>
+              
+              <Button 
+                type="submit" 
+                className="w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <span className="mr-2">Sending...</span>
+                    <span className="animate-spin">⟳</span>
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="ml-2 h-4 w-4" />
+                  </>
+                )}
+              </Button>
+              
+              {submitSuccess && (
+                <div className="bg-green-50 text-green-700 px-4 py-3 rounded-md text-sm">
+                  Your message has been sent successfully!
+                </div>
+              )}
+            </form>
+          </AnimatedSection>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
