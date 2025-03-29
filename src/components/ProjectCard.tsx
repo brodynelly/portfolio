@@ -30,6 +30,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const [expanded, setExpanded] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleExpanded = () => setExpanded(!expanded);
 
@@ -47,7 +48,11 @@ export default function ProjectCard({
   const projectUrl = `/projects/${title.replace(/\s+/g, '-').toLowerCase()}`;
 
   return (
-    <div className="overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg">
+    <div 
+      className="overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg transform hover:-translate-y-2"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* Project Image - Make it clickable */}
       <Link to={projectUrl} className="block">
         <div className="relative aspect-video overflow-hidden bg-muted">
@@ -55,8 +60,9 @@ export default function ProjectCard({
             src={image}
             alt={title}
             className={cn(
-              "object-cover w-full h-full transition-opacity duration-700",
-              imageLoaded ? "opacity-100" : "opacity-0"
+              "object-cover w-full h-full transition-all duration-700",
+              imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105",
+              isHovered ? "scale-105" : "scale-100"
             )}
             onLoad={() => setImageLoaded(true)}
           />
@@ -80,13 +86,18 @@ export default function ProjectCard({
         <div className="mb-4">
           <h4 className="text-sm font-medium mb-2">Tech Stack</h4>
           <div className="flex flex-wrap gap-2">
-            {tech.slice(0, 5).map((item) => (
+            {tech.slice(0, 5).map((item, index) => (
               <span 
                 key={item.name}
                 className={cn(
-                  "text-xs px-2 py-1 rounded-full",
+                  "text-xs px-2 py-1 rounded-full transition-all",
                   getCategoryColor(item.category)
                 )}
+                style={{ 
+                  transitionDelay: `${index * 50}ms`,
+                  transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
+                  boxShadow: isHovered ? '0 2px 4px rgba(0,0,0,0.1)' : 'none'
+                }}
               >
                 {item.name}
               </span>
@@ -102,11 +113,11 @@ export default function ProjectCard({
         {/* Collapsible Challenges Section */}
         <div className="mb-4">
           <button
-            className="flex items-center justify-between w-full text-sm font-medium text-left focus:outline-none"
+            className="flex items-center justify-between w-full text-sm font-medium text-left focus:outline-none hover:text-primary transition-colors"
             onClick={toggleExpanded}
           >
             <span>Technical Challenges</span>
-            {expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            {expanded ? <ChevronUp size={16} className="transition-transform" /> : <ChevronDown size={16} className="transition-transform" />}
           </button>
 
           <div 
@@ -117,7 +128,15 @@ export default function ProjectCard({
           >
             <ul className="space-y-2 text-sm text-muted-foreground">
               {challenges.map((challenge, index) => (
-                <li key={index} className="flex items-start">
+                <li 
+                  key={index} 
+                  className="flex items-start transition-all"
+                  style={{ 
+                    transitionDelay: `${index * 100}ms`,
+                    transform: expanded ? 'translateX(0)' : 'translateX(-10px)',
+                    opacity: expanded ? 1 : 0
+                  }}
+                >
                   <span className="mr-2 text-primary">•</span>
                   {challenge}
                 </li>
@@ -130,7 +149,7 @@ export default function ProjectCard({
         <div className="flex space-x-3">
           <Link 
             to={projectUrl}
-            className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline"
+            className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-transform hover:translate-x-1"
           >
             <span>View Details</span>
           </Link>
@@ -139,7 +158,7 @@ export default function ProjectCard({
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline"
+            className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-transform hover:translate-x-1"
           >
             <Github size={16} />
             <span>Repository</span>
@@ -150,7 +169,7 @@ export default function ProjectCard({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline"
+              className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-transform hover:translate-x-1"
             >
               <ExternalLink size={16} />
               <span>Live Demo</span>

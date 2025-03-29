@@ -60,13 +60,86 @@
         from { opacity: 0; }
         to { opacity: 1; }
       }
+      
+      /* Add cursor animations */
+      .custom-cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgba(59, 130, 246, 0.5);
+        transform: translate(-50%, -50%);
+        mix-blend-mode: difference;
+        pointer-events: none;
+        transition: width 0.3s, height 0.3s, background-color 0.3s;
+        z-index: 9999;
+      }
+      
+      /* Add smooth scrolling to all pages */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Add hover animation class */
+      .hover-grow {
+        transition: transform 0.3s ease;
+      }
+      .hover-grow:hover {
+        transform: scale(1.05);
+      }
+      
+      /* Add spin slow animation */
+      @keyframes spin-slow {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .animate-spin-slow {
+        animation: spin-slow 20s linear infinite;
+      }
     </style>
   </head>
 
   <body>
+    <div id="cursor" class="custom-cursor"></div>
     <div id="root"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <script>
+      // Custom cursor effect
+      const cursor = document.getElementById('cursor');
+      
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+      
+      document.addEventListener('mousedown', () => {
+        cursor.style.width = '15px';
+        cursor.style.height = '15px';
+        cursor.style.backgroundColor = 'rgba(79, 70, 229, 0.6)';
+      });
+      
+      document.addEventListener('mouseup', () => {
+        cursor.style.width = '20px';
+        cursor.style.height = '20px';
+        cursor.style.backgroundColor = 'rgba(59, 130, 246, 0.5)';
+      });
+      
+      document.querySelectorAll('a, button').forEach(element => {
+        element.addEventListener('mouseenter', () => {
+          cursor.style.width = '30px';
+          cursor.style.height = '30px';
+          cursor.style.backgroundColor = 'rgba(59, 130, 246, 0.3)';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          cursor.style.width = '20px';
+          cursor.style.height = '20px';
+          cursor.style.backgroundColor = 'rgba(59, 130, 246, 0.5)';
+        });
+      });
+    </script>
   </body>
 </html>

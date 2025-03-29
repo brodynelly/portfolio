@@ -55,26 +55,30 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold tracking-tighter">Brody</Link>
+        <Link to="/" className="text-2xl font-bold tracking-tighter transition-transform hover:scale-105">Brody</Link>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10">
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             item.href.startsWith('#') ? (
               <button 
                 key={item.label} 
                 onClick={() => scrollToSection(item.href)}
-                className="hover-link text-sm font-medium tracking-wide transition-colors cursor-pointer"
+                className="hover-link text-sm font-medium tracking-wide transition-colors cursor-pointer relative group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </button>
             ) : (
               <Link 
                 key={item.label} 
                 to={item.href} 
-                className="hover-link text-sm font-medium tracking-wide transition-colors"
+                className="hover-link text-sm font-medium tracking-wide transition-colors relative group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </Link>
             )
           ))}
@@ -82,7 +86,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden focus:outline-none" 
+          className="md:hidden focus:outline-none transition-transform hover:scale-110" 
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -98,12 +102,13 @@ export default function Navbar() {
         )}
       >
         <div className="container mx-auto px-6 py-6 flex flex-col space-y-4">
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             item.href.startsWith('#') ? (
               <button 
                 key={item.label} 
                 onClick={() => scrollToSection(item.href)}
-                className="text-lg font-medium py-2 text-left"
+                className="text-lg font-medium py-2 text-left transform transition-transform hover:translate-x-2"
+                style={{ transitionDelay: `${index * 50}ms` }}
               >
                 {item.label}
               </button>
@@ -111,8 +116,9 @@ export default function Navbar() {
               <Link 
                 key={item.label} 
                 to={item.href} 
-                className="text-lg font-medium py-2"
+                className="text-lg font-medium py-2 transform transition-transform hover:translate-x-2"
                 onClick={() => setIsMenuOpen(false)}
+                style={{ transitionDelay: `${index * 50}ms` }}
               >
                 {item.label}
               </Link>
