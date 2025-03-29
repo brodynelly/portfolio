@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Carousel, 
   CarouselContent, 
@@ -21,23 +21,22 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
   const [api, setApi] = useState<CarouselApi>();
 
   // Update the active index when the carousel changes
-  const onApiChange = (api: CarouselApi | null) => {
+  useEffect(() => {
     if (!api) return;
-    
-    const setIndex = () => {
-      const currentIndex = api.selectedScrollSnap();
-      setActiveIndex(currentIndex);
+
+    const onSelect = () => {
+      setActiveIndex(api.selectedScrollSnap());
     };
     
-    api.on("select", setIndex);
+    api.on("select", onSelect);
     
     // Initial index
-    setIndex();
+    onSelect();
     
     return () => {
-      api.off("select", setIndex);
+      api.off("select", onSelect);
     };
-  };
+  }, [api]);
 
   if (!images || images.length === 0) {
     return null;
@@ -61,7 +60,6 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
       <Carousel
         className="w-full"
         setApi={setApi}
-        onApiChange={onApiChange}
       >
         <CarouselContent>
           {images.map((image, index) => (
