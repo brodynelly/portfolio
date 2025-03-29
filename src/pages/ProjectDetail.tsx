@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
+import ProjectImageCarousel from '@/components/projects/ProjectImageCarousel';
 
 export default function ProjectDetail() {
   const { projectId } = useParams();
@@ -40,6 +41,13 @@ export default function ProjectDetail() {
     );
   }
 
+  // Convert single image to array if needed
+  const projectImages = Array.isArray(project.images) 
+    ? project.images 
+    : project.image 
+      ? [project.image]
+      : [];
+
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'frontend': return 'bg-blue-50 text-blue-700';
@@ -64,15 +72,13 @@ export default function ProjectDetail() {
             </Link>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-              {/* Project Image and Basic Info */}
+              {/* Project Image Carousel and Basic Info */}
               <div className="lg:col-span-2">
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg mb-8">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                {/* Image Carousel */}
+                <ProjectImageCarousel 
+                  images={projectImages}
+                  title={project.title}
+                />
                 
                 <h1 className="heading-lg mb-4">{project.title}</h1>
                 <p className="text-lg text-muted-foreground mb-8">{project.description}</p>

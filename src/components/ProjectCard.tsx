@@ -18,6 +18,7 @@ interface ProjectCardProps {
   tech: TechItem[];
   challenges: string[];
   image: string;
+  images?: string[];
   githubUrl: string;
   liveUrl?: string;
 }
@@ -28,6 +29,7 @@ export default function ProjectCard({
   tech,
   challenges,
   image,
+  images,
   githubUrl,
   liveUrl
 }: ProjectCardProps) {
@@ -78,6 +80,7 @@ export default function ProjectCard({
       <ProjectCardImage 
         title={title}
         image={image}
+        images={images}
         projectUrl={projectUrl}
         isHovered={isHovered}
       />

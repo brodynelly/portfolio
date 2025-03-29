@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Image } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
 import { ProjectWithClass } from '@/data/projects';
 
@@ -21,13 +21,21 @@ export default function ProjectsList({ projects, classes }: ProjectsListProps) {
           <div className="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-xl shadow-sm">
             <Link 
               to={`/projects/${project.title.replace(/\s+/g, '-').toLowerCase()}`}
-              className="md:w-1/3 aspect-video overflow-hidden rounded-md"
+              className="md:w-1/3 aspect-video overflow-hidden rounded-md relative group"
             >
               <img 
-                src={project.image} 
+                src={Array.isArray(project.images) ? project.images[0] : project.image} 
                 alt={project.title}
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
               />
+              
+              {/* Multiple images indicator */}
+              {Array.isArray(project.images) && project.images.length > 1 && (
+                <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md flex items-center">
+                  <Image className="w-3 h-3 mr-1" />
+                  {project.images.length}
+                </div>
+              )}
             </Link>
             <div className="md:w-2/3">
               <Link 
