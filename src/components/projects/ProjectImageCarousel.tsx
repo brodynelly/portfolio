@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/carousel";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
+import { SingleImage } from './carousel/SingleImage';
+import { ThumbnailNavigation } from './carousel/ThumbnailNavigation';
 
 interface ProjectImageCarouselProps {
   images: string[];
@@ -17,10 +19,10 @@ interface ProjectImageCarouselProps {
 }
 
 export default function ProjectImageCarousel({ images, title }: ProjectImageCarouselProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Update the active index when the carousel changes
+  // Handle API changes and update active index
   useEffect(() => {
     if (!api) return;
 
@@ -38,21 +40,14 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
     };
   }, [api]);
 
+  // Edge cases handling
   if (!images || images.length === 0) {
     return null;
   }
 
-  // If there's only one image, just show it without carousel controls
+  // For single image, use a simpler component
   if (images.length === 1) {
-    return (
-      <div className="aspect-video rounded-xl overflow-hidden shadow-lg mb-8">
-        <img 
-          src={images[0]} 
-          alt={`${title} screenshot`}
-          className="w-full h-full object-cover"
-        />
-      </div>
-    );
+    return <SingleImage image={images[0]} title={title} />;
   }
 
   return (
@@ -80,29 +75,14 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
       
       {/* Thumbnail navigation */}
       {images.length > 1 && (
-        <ScrollArea className="w-full">
-          <div className="flex gap-2 py-2">
-            {images.map((image, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  if (api) api.scrollTo(index);
-                  setActiveIndex(index);
-                }}
-                className={cn(
-                  "h-16 w-24 rounded-md overflow-hidden flex-shrink-0 transition-all duration-200 opacity-70 hover:opacity-100",
-                  activeIndex === index && "ring-2 ring-primary opacity-100"
-                )}
-              >
-                <img 
-                  src={image} 
-                  alt={`Thumbnail ${index + 1}`}
-                  className="h-full w-full object-cover"
-                />
-              </button>
-            ))}
-          </div>
-        </ScrollArea>
+        <ThumbnailNavigation 
+          images={images} 
+          activeIndex={activeIndex} 
+          onThumbnailClick={(index) => {
+            if (api) api.scrollTo(index);
+            setActiveIndex(index);
+          }} 
+        />
       )}
     </div>
   );
