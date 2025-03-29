@@ -2,8 +2,15 @@
 import AnimatedSection from './AnimatedSection';
 import SkillCard from './SkillCard';
 import { Code, Server, Database, Terminal, BarChart, Laptop } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Skills() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+  
   const skills = [
     {
       title: "Frontend Development",
@@ -70,12 +77,17 @@ export default function Skills() {
   return (
     <section id="skills" className="section-padding bg-white">
       <div className="container-width">
-        <AnimatedSection animation="fade-in">
-          <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-secondary rounded-full mb-4">
+        <AnimatedSection 
+          animation="fade-in" 
+          className="mb-12"
+        >
+          <span className={`inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-secondary rounded-full mb-4 transition-all duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             Skills
           </span>
-          <h2 className="heading-lg mb-6">Technical Expertise</h2>
-          <p className="text-muted-foreground max-w-3xl mb-12">
+          <h2 className={`heading-lg mb-6 transition-all duration-700 delay-100 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            Technical Expertise
+          </h2>
+          <p className={`text-muted-foreground max-w-3xl mb-12 transition-all duration-700 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             My technical foundation spans frontend and backend development, with specialized experience in data visualization, embedded systems, and database optimization.
           </p>
         </AnimatedSection>
@@ -85,8 +97,9 @@ export default function Skills() {
             <AnimatedSection 
               key={skill.title} 
               animation="scale-in" 
-              delay={100 * index}
+              delay={150 * index}
               threshold={0.15}
+              className="transition-all duration-500"
             >
               <SkillCard {...skill} />
             </AnimatedSection>

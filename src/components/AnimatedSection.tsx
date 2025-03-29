@@ -1,6 +1,8 @@
-import React, { ReactNode } from 'react';
+
+import React, { ReactNode, useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { cn } from '@/lib/utils';
+
 interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
@@ -9,6 +11,7 @@ interface AnimatedSectionProps {
   threshold?: number;
   id?: string;
 }
+
 export default function AnimatedSection({
   children,
   className,
@@ -17,16 +20,28 @@ export default function AnimatedSection({
   threshold = 0.1,
   id
 }: AnimatedSectionProps) {
-  const {
-    ref,
-    isVisible
-  } = useScrollAnimation({
-    threshold
-  });
-  return <div id={id} ref={ref} style={{
-    animationDelay: `${delay}ms`,
-    animationFillMode: 'forwards'
-  }} className="">
+  const { ref, isVisible } = useScrollAnimation({ threshold });
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <div 
+      id={id} 
+      ref={ref} 
+      style={{
+        animationDelay: `${delay}ms`,
+        animationFillMode: 'forwards'
+      }} 
+      className={cn(
+        className,
+        isVisible && mounted && `animate-${animation}`,
+        !isVisible && 'opacity-0'
+      )}
+    >
       {children}
-    </div>;
+    </div>
+  );
 }
