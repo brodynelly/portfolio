@@ -50,43 +50,55 @@ export default function About() {
             className="space-y-6"
           >
             <h3 className="heading-sm text-primary">Professional Journey</h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <AnimatedSection animation="fade-in" delay={400} className="text-muted-foreground leading-relaxed">
               I'm a Full-Stack Developer with a passion for crafting scalable web solutions. Currently pursuing a degree in Computer Science at the University of Missouri, including a valuable study abroad experience in London.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
+            </AnimatedSection>
+            <AnimatedSection animation="fade-in" delay={500} className="text-muted-foreground leading-relaxed">
               In my laboratory role, I'm developing a comprehensive full-stack application handling AI-driven data for IoT devices. This project integrates real-time data processing with interactive visualizations.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
+            </AnimatedSection>
+            <AnimatedSection animation="fade-in" delay={600} className="text-muted-foreground leading-relaxed">
               My approach to development focuses on clean code, performance optimization, and thoughtful user experiences. I'm continuously expanding my knowledge in modern web technologies and software architecture.
-            </p>
+            </AnimatedSection>
             
             <div className="flex items-center space-x-4 pt-4">
-              {socialLinks.map((link) => (
-                <a 
+              {socialLinks.map((link, index) => (
+                <AnimatedSection 
                   key={link.label}
-                  href={link.href}
-                  aria-label={link.label}
-                  className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center transition-transform hover:scale-110"
+                  animation="scale-in" 
+                  delay={700 + (index * 100)}
                 >
-                  <link.icon className="h-5 w-5" />
-                </a>
+                  <a 
+                    href={link.href}
+                    aria-label={link.label}
+                    className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center transition-transform hover:scale-110"
+                  >
+                    <link.icon className="h-5 w-5" />
+                  </a>
+                </AnimatedSection>
               ))}
             </div>
 
-            <div className="pt-6">
-              <h3 className="heading-sm text-primary mb-4">Experience Timeline</h3>
-              <div className="mt-6">
-                {timelineItems.map((item, index) => (
-                  <TimelineItem 
-                    key={item.title}
-                    date={item.date}
-                    title={item.title}
-                    description={item.description}
-                    isLast={index === timelineItems.length - 1}
-                  />
-                ))}
+            <AnimatedSection animation="fade-in" delay={1000}>
+              <div className="pt-6">
+                <h3 className="heading-sm text-primary mb-4">Experience Timeline</h3>
+                <div className="mt-6">
+                  {timelineItems.map((item, index) => (
+                    <AnimatedSection 
+                      key={item.title}
+                      animation="slide-in-bottom" 
+                      delay={1100 + (index * 150)}
+                    >
+                      <TimelineItem 
+                        date={item.date}
+                        title={item.title}
+                        description={item.description}
+                        isLast={index === timelineItems.length - 1}
+                      />
+                    </AnimatedSection>
+                  ))}
+                </div>
               </div>
-            </div>
+            </AnimatedSection>
           </AnimatedSection>
           
           <AnimatedSection 
@@ -97,49 +109,35 @@ export default function About() {
               <h3 className="heading-sm mb-6 text-primary">Tech Expertise</h3>
               
               <div className="space-y-6">
-                <div>
-                  <h4 className="font-semibold mb-2">Languages</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['JavaScript', 'TypeScript', 'Python', 'Assembly'].map((lang) => (
-                      <span key={lang} className="px-3 py-1 bg-white rounded-full text-sm">
-                        {lang}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold mb-2">Frontend</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['React', 'Next.js', 'TailwindCSS', 'Framer Motion'].map((tech) => (
-                      <span key={tech} className="px-3 py-1 bg-white rounded-full text-sm">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold mb-2">Backend</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['Node.js', 'Express.js', 'PostgreSQL', 'Docker', 'Django'].map((tech) => (
-                      <span key={tech} className="px-3 py-1 bg-white rounded-full text-sm">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold mb-2">Tools & Services</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['Git', 'AWS', 'Vercel', 'CI/CD', 'REST APIs'].map((tool) => (
-                      <span key={tool} className="px-3 py-1 bg-white rounded-full text-sm">
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                {[
+                  { title: 'Languages', skills: ['JavaScript', 'TypeScript', 'Python', 'Assembly'] },
+                  { title: 'Frontend', skills: ['React', 'Next.js', 'TailwindCSS', 'Framer Motion'] },
+                  { title: 'Backend', skills: ['Node.js', 'Express.js', 'PostgreSQL', 'Docker', 'Django'] },
+                  { title: 'Tools & Services', skills: ['Git', 'AWS', 'Vercel', 'CI/CD', 'REST APIs'] }
+                ].map((category, categoryIndex) => (
+                  <AnimatedSection 
+                    key={category.title}
+                    animation="fade-in" 
+                    delay={800 + (categoryIndex * 150)}
+                  >
+                    <div>
+                      <h4 className="font-semibold mb-2">{category.title}</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {category.skills.map((skill, skillIndex) => (
+                          <AnimatedSection 
+                            key={skill}
+                            animation="scale-in" 
+                            delay={1000 + (categoryIndex * 100) + (skillIndex * 50)}
+                          >
+                            <span className="px-3 py-1 bg-white rounded-full text-sm hover:bg-primary hover:text-white transition-colors duration-300">
+                              {skill}
+                            </span>
+                          </AnimatedSection>
+                        ))}
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                ))}
               </div>
             </div>
           </AnimatedSection>
