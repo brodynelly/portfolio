@@ -77,6 +77,94 @@ export const projects: Project[] = [
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
   },
+  {
+    title: "Web Journaling Application Concept",
+    description: "A mock-up design for a daily journaling application with drawable entries for iPad pencil. This concept explores layout design and UI decisions for a guided journaling app.",
+    tech: [
+      { name: "React", category: "frontend" as const },
+      { name: "JavaScript", category: "language" as const },
+      { name: "CSS", category: "frontend" as const },
+      { name: "Netlify", category: "deployment" as const },
+    ],
+    challenges: [
+      "Designed an intuitive interface for digital journaling with Apple Pencil support",
+      "Created a guided journaling experience to help users build a consistent routine",
+      "Implemented drawable entry capabilities that mimic writing on paper",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1470&auto=format&fit=crop", 
+      "https://images.unsplash.com/photo-1517842536804-bf6629e2c291?q=80&w=1470&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544164559-2e84642d931c?q=80&w=1470&auto=format&fit=crop"
+    ],
+    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1470&auto=format&fit=crop",
+    githubUrl: "https://github.com",
+    liveUrl: "https://marvelous-kelpie-866eb4.netlify.app/",
+  },
+  {
+    title: "ThreeJS Graphics Demonstration",
+    description: "A graphical demonstration using ThreeJS to visualize 3D graphics in JavaScript. This project was created to learn and explore ThreeJS capabilities.",
+    tech: [
+      { name: "ThreeJS", category: "frontend" as const },
+      { name: "JavaScript", category: "language" as const },
+      { name: "HTML5", category: "frontend" as const },
+      { name: "CSS", category: "frontend" as const },
+    ],
+    challenges: [
+      "Implemented 3D rendering with ThreeJS for interactive graphics",
+      "Created optimized models and scenes for web-based 3D visualization",
+      "Built responsive controls for camera manipulation and object interaction",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1544164559-2e84642d931c?q=80&w=1470&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1623946724421-364fd73e811b?q=80&w=1470&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1541752177894-e6dae16ad3e6?q=80&w=1348&auto=format&fit=crop"
+    ],
+    image: "https://images.unsplash.com/photo-1544164559-2e84642d931c?q=80&w=1470&auto=format&fit=crop",
+    githubUrl: "https://github.com",
+    liveUrl: "https://stalwart-kelpie-24b105.netlify.app/",
+  },
+  {
+    title: "Calculator App (C# & WPF)",
+    description: "A calculator application built with C# and displayed using Windows Presentation Foundation (WPF). This project was completed for a .NET/C# class.",
+    tech: [
+      { name: "C#", category: "language" as const },
+      { name: "WPF", category: "frontend" as const },
+      { name: ".NET", category: "backend" as const },
+    ],
+    challenges: [
+      "Created a responsive calculator interface using WPF controls",
+      "Implemented mathematical operations with proper order of operations",
+      "Designed a user-friendly layout with keyboard shortcuts",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?q=80&w=1740&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1594980596870-8aa52a78d8cd?q=80&w=1470&auto=format&fit=crop"
+    ],
+    image: "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?q=80&w=1740&auto=format&fit=crop",
+    githubUrl: "https://github.com",
+  },
+  {
+    title: "Library Management System",
+    description: "A comprehensive library management system for storing book records, tracking librarians and patrons, and recording book transactions. Utilizes MySQL for the database and Python for the backend.",
+    tech: [
+      { name: "Python", category: "language" as const },
+      { name: "MySQL", category: "database" as const },
+      { name: "SQL", category: "language" as const },
+    ],
+    challenges: [
+      "Designed a normalized database schema for efficient data storage and retrieval",
+      "Implemented Python backend to handle complex SQL queries",
+      "Created user-friendly interfaces for different roles (librarians, patrons)",
+      "Developed a transaction system for tracking book checkouts and returns",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1528&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1528&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1583468982228-19f19271fdd3?q=80&w=1470&auto=format&fit=crop"
+    ],
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1528&auto=format&fit=crop",
+    githubUrl: "https://github.com",
+  },
 ];
 
 // Extended project data with class information
@@ -92,6 +180,22 @@ export const projectsWithClassInfo: ProjectWithClass[] = [
   {
     ...projects[2],
     classId: "personal",
+  },
+  {
+    ...projects[3],
+    classId: "personal",
+  },
+  {
+    ...projects[4],
+    classId: "personal",
+  },
+  {
+    ...projects[5],
+    classId: "cs4320",
+  },
+  {
+    ...projects[6],
+    classId: "cs3380",
   },
   {
     title: "Advanced Priority Queue Management in C",
@@ -236,4 +340,3 @@ export const projectsWithClassInfo: ProjectWithClass[] = [
     classId: "cs3050",
   },
 ];
-

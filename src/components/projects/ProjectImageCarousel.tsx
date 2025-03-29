@@ -39,9 +39,10 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
     <div className="space-y-4">
       <Carousel
         className="w-full"
-        onSelect={(index) => {
-          if (typeof index === 'number') {
-            setActiveIndex(index);
+        onSelect={(api) => {
+          if (api) {
+            const selectedIndex = api.selectedScrollSnap();
+            setActiveIndex(selectedIndex);
           }
         }}
       >
