@@ -40,7 +40,7 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
       <Carousel
         className="w-full"
         onSelect={(api) => {
-          if (api) {
+          if (api && typeof api.selectedScrollSnap === 'function') {
             const selectedIndex = api.selectedScrollSnap();
             setActiveIndex(selectedIndex);
           }
