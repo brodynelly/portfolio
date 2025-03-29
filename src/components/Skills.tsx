@@ -85,7 +85,8 @@ export default function Skills() {
             <AnimatedSection 
               key={skill.title} 
               animation="scale-in" 
-              delay={150 * index}
+              delay={100 * index}
+              threshold={0.15}
             >
               <SkillCard {...skill} />
             </AnimatedSection>

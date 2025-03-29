@@ -15,7 +15,7 @@ export default function SkillCard({ title, icon, items, className }: SkillCardPr
   return (
     <div 
       className={cn(
-        "bg-white rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md",
+        "bg-white rounded-xl p-6 shadow-sm transition-all duration-200 hover:shadow-md",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}
@@ -23,13 +23,13 @@ export default function SkillCard({ title, icon, items, className }: SkillCardPr
     >
       <div className="flex items-start mb-4">
         <div className={cn(
-          "rounded-lg p-2 bg-secondary mr-4 transition-all duration-300",
+          "rounded-lg p-2 bg-secondary mr-4 transition-all duration-200",
           isHovered ? "bg-primary/10" : ""
         )}>
           {icon}
         </div>
         <h3 className={cn(
-          "heading-sm transition-colors duration-300",
+          "heading-sm transition-colors duration-200",
           isHovered ? "text-primary" : ""
         )}>
           {title}
@@ -40,15 +40,15 @@ export default function SkillCard({ title, icon, items, className }: SkillCardPr
         {items.map((item, index) => (
           <li 
             key={index} 
-            className="flex items-center text-muted-foreground transition-all duration-300"
+            className="flex items-center text-muted-foreground transition-all duration-200"
             style={{ 
-              transform: isHovered ? `translateX(${index % 2 === 0 ? 3 : 2}px)` : 'translateX(0)',
-              transitionDelay: `${index * 50}ms`
+              transform: isHovered ? `translateX(${index % 2 === 0 ? 1.5 : 1}px)` : 'translateX(0)',
+              transitionDelay: `${index * 30}ms`
             }}
           >
             <span className={cn(
-              "w-1.5 h-1.5 bg-primary rounded-full mr-2 transition-all duration-300",
-              isHovered ? "scale-125" : ""
+              "w-1.5 h-1.5 bg-primary rounded-full mr-2 transition-all duration-200",
+              isHovered ? "scale-110" : ""
             )} />
             {item}
           </li>
