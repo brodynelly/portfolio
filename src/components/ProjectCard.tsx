@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ExternalLink, Github, ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
@@ -31,8 +31,32 @@ export default function ProjectCard({
   const [expanded, setExpanded] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const toggleExpanded = () => setExpanded(!expanded);
+
+  // Add intersection observer to detect when card is in viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const element = document.getElementById(`project-${title.replace(/\s+/g, '-').toLowerCase()}`);
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, [title]);
 
   const getCategoryColor = (category: TechItem['category']) => {
     switch (category) {
@@ -49,9 +73,18 @@ export default function ProjectCard({
 
   return (
     <div 
-      className="overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg transform hover:-translate-y-2"
+      id={`project-${title.replace(/\s+/g, '-').toLowerCase()}`}
+      className={cn(
+        "overflow-hidden rounded-xl bg-white shadow-md transition-all duration-700 transform",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20",
+        isHovered ? "shadow-xl scale-[1.03] -translate-y-3" : ""
+      )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      style={{
+        transitionDelay: isVisible ? '150ms' : '0ms',
+        boxShadow: isHovered ? '0 10px 40px rgba(0, 0, 0, 0.12)' : ''
+      }}
     >
       {/* Project Image - Make it clickable */}
       <Link to={projectUrl} className="block">
@@ -60,17 +93,29 @@ export default function ProjectCard({
             src={image}
             alt={title}
             className={cn(
-              "object-cover w-full h-full transition-all duration-700",
-              imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105",
-              isHovered ? "scale-105" : "scale-100"
+              "object-cover w-full h-full transition-all duration-1000",
+              imageLoaded ? "opacity-100" : "opacity-0",
+              isHovered ? "scale-110 blur-[1px]" : "scale-100"
             )}
             onLoad={() => setImageLoaded(true)}
           />
+          
           {!imageLoaded && (
             <div className="absolute inset-0 flex items-center justify-center bg-muted">
               <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
             </div>
           )}
+          
+          <div 
+            className={cn(
+              "absolute inset-0 bg-primary/10 backdrop-blur-sm transition-opacity duration-500 flex items-center justify-center",
+              isHovered ? "opacity-100" : "opacity-0"
+            )}
+          >
+            <span className="px-4 py-2 bg-white/90 rounded-full text-primary font-medium transform transition-transform duration-500 scale-90">
+              View Project
+            </span>
+          </div>
         </div>
       </Link>
 
@@ -78,9 +123,19 @@ export default function ProjectCard({
       <div className="p-6">
         {/* Title - Make it clickable */}
         <Link to={projectUrl}>
-          <h3 className="heading-sm mb-3 hover:text-primary transition-colors">{title}</h3>
+          <h3 className={cn(
+            "heading-sm mb-3 transition-all duration-500",
+            isHovered ? "text-primary translate-x-1" : ""
+          )}>
+            {title}
+          </h3>
         </Link>
-        <p className="text-muted-foreground mb-4">{description}</p>
+        <p className={cn(
+          "text-muted-foreground mb-4 transition-opacity duration-500",
+          isHovered ? "opacity-90" : "opacity-80"
+        )}>
+          {description}
+        </p>
 
         {/* Tech Stack */}
         <div className="mb-4">
@@ -90,20 +145,25 @@ export default function ProjectCard({
               <span 
                 key={item.name}
                 className={cn(
-                  "text-xs px-2 py-1 rounded-full transition-all",
+                  "text-xs px-2 py-1 rounded-full transition-all duration-500",
                   getCategoryColor(item.category)
                 )}
                 style={{ 
-                  transitionDelay: `${index * 50}ms`,
-                  transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
-                  boxShadow: isHovered ? '0 2px 4px rgba(0,0,0,0.1)' : 'none'
+                  transitionDelay: `${(index * 50) + 100}ms`,
+                  transform: isHovered ? 'translateY(-5px)' : 'translateY(0)',
+                  boxShadow: isHovered ? '0 4px 6px rgba(0,0,0,0.1)' : 'none'
                 }}
               >
                 {item.name}
               </span>
             ))}
             {tech.length > 5 && (
-              <span className="text-xs px-2 py-1 rounded-full bg-gray-50 text-gray-700">
+              <span className="text-xs px-2 py-1 rounded-full bg-gray-50 text-gray-700 transition-all duration-500"
+                style={{
+                  transitionDelay: '350ms',
+                  transform: isHovered ? 'translateY(-5px)' : 'translateY(0)'
+                }}
+              >
                 +{tech.length - 5} more
               </span>
             )}
@@ -113,16 +173,28 @@ export default function ProjectCard({
         {/* Collapsible Challenges Section */}
         <div className="mb-4">
           <button
-            className="flex items-center justify-between w-full text-sm font-medium text-left focus:outline-none hover:text-primary transition-colors"
+            className={cn(
+              "flex items-center justify-between w-full text-sm font-medium text-left focus:outline-none transition-all duration-300",
+              isHovered ? "text-primary" : ""
+            )}
             onClick={toggleExpanded}
           >
             <span>Technical Challenges</span>
-            {expanded ? <ChevronUp size={16} className="transition-transform" /> : <ChevronDown size={16} className="transition-transform" />}
+            {expanded ? 
+              <ChevronUp size={16} className={cn(
+                "transition-transform duration-300",
+                isHovered ? "rotate-[-10deg]" : ""
+              )} /> : 
+              <ChevronDown size={16} className={cn(
+                "transition-transform duration-300",
+                isHovered ? "rotate-[10deg]" : ""
+              )} />
+            }
           </button>
 
           <div 
             className={cn(
-              "overflow-hidden transition-all duration-300",
+              "overflow-hidden transition-all duration-700",
               expanded ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"
             )}
           >
@@ -130,14 +202,14 @@ export default function ProjectCard({
               {challenges.map((challenge, index) => (
                 <li 
                   key={index} 
-                  className="flex items-start transition-all"
+                  className="flex items-start transition-all duration-500"
                   style={{ 
-                    transitionDelay: `${index * 100}ms`,
-                    transform: expanded ? 'translateX(0)' : 'translateX(-10px)',
+                    transitionDelay: `${index * 150}ms`,
+                    transform: expanded ? 'translateX(0)' : 'translateX(-20px)',
                     opacity: expanded ? 1 : 0
                   }}
                 >
-                  <span className="mr-2 text-primary">•</span>
+                  <span className="mr-2 text-primary animate-pulse">•</span>
                   {challenge}
                 </li>
               ))}
@@ -149,7 +221,10 @@ export default function ProjectCard({
         <div className="flex space-x-3">
           <Link 
             to={projectUrl}
-            className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-transform hover:translate-x-1"
+            className={cn(
+              "inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-all duration-500",
+              isHovered ? "translate-x-2" : "translate-x-0"
+            )}
           >
             <span>View Details</span>
           </Link>
@@ -158,7 +233,13 @@ export default function ProjectCard({
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-transform hover:translate-x-1"
+            className={cn(
+              "inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-all duration-500",
+              isHovered ? "translate-x-2" : "translate-x-0"
+            )}
+            style={{
+              transitionDelay: isHovered ? '100ms' : '0ms'
+            }}
           >
             <Github size={16} />
             <span>Repository</span>
@@ -169,7 +250,13 @@ export default function ProjectCard({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-transform hover:translate-x-1"
+              className={cn(
+                "inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-all duration-500",
+                isHovered ? "translate-x-2" : "translate-x-0"
+              )}
+              style={{
+                transitionDelay: isHovered ? '200ms' : '0ms'
+              }}
             >
               <ExternalLink size={16} />
               <span>Live Demo</span>

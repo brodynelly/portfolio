@@ -34,8 +34,12 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="section-padding bg-white">
-      <div className="container-width">
+    <section id="about" className="section-padding bg-white relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute -top-32 -left-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      
+      <div className="container-width relative z-10">
         <AnimatedSection animation="fade-in">
           <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-secondary rounded-full mb-4">
             About Me
@@ -70,7 +74,7 @@ export default function About() {
                   <a 
                     href={link.href}
                     aria-label={link.label}
-                    className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center transition-transform hover:scale-110"
+                    className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-primary/20 hover:bg-primary hover:text-white"
                   >
                     <link.icon className="h-5 w-5" />
                   </a>
@@ -80,13 +84,20 @@ export default function About() {
 
             <AnimatedSection animation="fade-in" delay={1000}>
               <div className="pt-6">
-                <h3 className="heading-sm text-primary mb-4">Experience Timeline</h3>
-                <div className="mt-6">
+                <h3 className="heading-sm text-primary mb-4 relative">
+                  <span className="relative z-10">Experience Timeline</span>
+                  <span className="absolute bottom-0 left-0 h-2 w-0 bg-secondary transition-all duration-1000 animate-[width_1s_ease-in-out_forwards]" style={{ animationDelay: '1.2s', width: '30%' }}></span>
+                </h3>
+                <div className="mt-6 relative">
+                  {/* Timeline highlight effect that follows scroll */}
+                  <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary to-transparent h-full"></div>
+                  
                   {timelineItems.map((item, index) => (
                     <AnimatedSection 
                       key={item.title}
                       animation="slide-in-bottom" 
-                      delay={1100 + (index * 150)}
+                      delay={1100 + (index * 200)}
+                      className="transform transition-all duration-500 hover:translate-x-1"
                     >
                       <TimelineItem 
                         date={item.date}
@@ -105,7 +116,7 @@ export default function About() {
             animation="fade-in-left" 
             delay={600}
           >
-            <div className="bg-secondary p-8 rounded-lg">
+            <div className="bg-secondary p-8 rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
               <h3 className="heading-sm mb-6 text-primary">Tech Expertise</h3>
               
               <div className="space-y-6">
@@ -129,7 +140,7 @@ export default function About() {
                             animation="scale-in" 
                             delay={1000 + (categoryIndex * 100) + (skillIndex * 50)}
                           >
-                            <span className="px-3 py-1 bg-white rounded-full text-sm hover:bg-primary hover:text-white transition-colors duration-300">
+                            <span className="px-3 py-1 bg-white rounded-full text-sm transition-all duration-500 hover:bg-primary hover:text-white hover:scale-110 hover:shadow-md">
                               {skill}
                             </span>
                           </AnimatedSection>
