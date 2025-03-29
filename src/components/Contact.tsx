@@ -63,7 +63,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                    placeholder="Your name"
+                    placeholder="Enter your name"
                   />
                 </div>
                 
@@ -79,7 +79,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                    placeholder="Your email address"
+                    placeholder="Enter your email address"
                   />
                 </div>
                 
@@ -95,7 +95,7 @@ export default function Contact() {
                     required
                     rows={5}
                     className="w-full px-4 py-3 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
-                    placeholder="How can I help you?"
+                    placeholder="Enter your message here"
                   />
                 </div>
                 

@@ -16,8 +16,8 @@ export default function ProjectCardTitle({
   return (
     <Link to={projectUrl}>
       <h3 className={cn(
-        "heading-sm mb-3 transition-all duration-500",
-        isHovered ? "text-primary translate-x-1" : ""
+        "heading-sm mb-3 transition-all duration-300",
+        isHovered ? "text-primary translate-x-0.5" : ""
       )}>
         {title}
       </h3>
