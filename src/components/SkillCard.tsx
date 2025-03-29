@@ -15,7 +15,7 @@ export default function SkillCard({ title, icon, items, className }: SkillCardPr
   return (
     <div 
       className={cn(
-        "bg-white rounded-xl p-6 shadow-sm transition-all duration-200 hover:shadow-md",
+        "bg-white rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md transform-gpu",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}

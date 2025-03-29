@@ -55,12 +55,9 @@ export default function ProjectsList({ projects, classes }: ProjectsListProps) {
               </div>
               
               {project.classId && (
-                <Link 
-                  to={`/class/${project.classId}`}
-                  className="inline-block px-2 py-1 text-xs font-medium bg-blue-50 text-blue-700 rounded mb-4 hover:bg-blue-100 transition-colors"
-                >
+                <span className="inline-block px-2 py-1 text-xs font-medium bg-blue-50 text-blue-700 rounded mb-4">
                   {classes.find(c => c.id === project.classId)?.name || project.classId}
-                </Link>
+                </span>
               )}
               
               <div className="flex space-x-4">
