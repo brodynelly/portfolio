@@ -70,11 +70,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section-padding bg-white">
       <div className="container-width">
-        <AnimatedSection 
-          animation="fade-in" 
-          className="mb-12"
-          threshold={0.2}
-        >
+        <AnimatedSection animation="fade-in">
           <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-secondary rounded-full mb-4">
             Skills
           </span>
@@ -88,10 +84,9 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <AnimatedSection 
               key={skill.title} 
-              animation={index % 2 === 0 ? "fade-in-right" : "fade-in-left"} 
-              delay={150 * index}
-              threshold={0.1}
-              className="transform-gpu"
+              animation="scale-in" 
+              delay={100 * index}
+              threshold={0.15}
             >
               <SkillCard {...skill} />
             </AnimatedSection>

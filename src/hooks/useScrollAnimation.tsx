@@ -15,11 +15,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Add a small delay to make the animation more noticeable
-          setTimeout(() => {
-            setIsVisible(true);
-          }, 100);
-          
+          setIsVisible(true);
           if (ref.current) observer.unobserve(ref.current);
         }
       },

@@ -1,11 +1,39 @@
-
 import { useState } from 'react';
 import AnimatedSection from './AnimatedSection';
 import { Mail, Phone, Send } from 'lucide-react';
-
 export default function Contact() {
-  return (
-    <section id="contact" className="section-padding bg-secondary">
+  const [formState, setFormState] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value
+    });
+  };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitSuccess(true);
+      setFormState({
+        name: '',
+        email: '',
+        message: ''
+      });
+
+      // Reset success message after some time
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    }, 1500);
+  };
+  return <section id="contact" className="section-padding bg-secondary">
       <div className="container-width">
         <AnimatedSection animation="fade-in">
           <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-white rounded-full mb-4">
@@ -17,7 +45,11 @@ export default function Contact() {
           </p>
         </AnimatedSection>
 
-        <div className="gap-12 items-start">
+        <div className=" gap-12 items-start">
+          <AnimatedSection animation="fade-in-right" delay={300}>
+            
+          </AnimatedSection>
+          
           <AnimatedSection animation="fade-in-left" delay={600}>
             <div className="space-y-8">
               <div>
@@ -62,6 +94,5 @@ export default function Contact() {
           </AnimatedSection>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }

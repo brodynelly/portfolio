@@ -28,34 +28,13 @@ export default function AnimatedSection({
 }: AnimatedSectionProps) {
   const { ref, isVisible } = useScrollAnimation({ threshold });
 
-  const getAnimationClass = () => {
-    if (!isVisible) return 'opacity-0';
-    
-    switch(animation) {
-      case 'fade-in':
-        return 'animate-fade-in';
-      case 'fade-in-right':
-        return 'animate-fade-in-right';
-      case 'fade-in-left':
-        return 'animate-fade-in-left';
-      case 'slide-in-bottom':
-        return 'animate-slide-in-bottom';
-      case 'blur-in':
-        return 'animate-blur-in';
-      case 'scale-in':
-        return 'animate-scale-in';
-      default:
-        return 'animate-fade-in';
-    }
-  };
-
   return (
     <div
       id={id}
       ref={ref}
       className={cn(
         className,
-        getAnimationClass()
+        isVisible ? `animate-${animation}` : 'opacity-0',
       )}
       style={{ 
         animationDelay: `${delay}ms`,
