@@ -34,7 +34,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <AnimatedSection 
               key={project.title} 
-              animation="slide-in-bottom" 
+              animation="fade-in-right" 
               delay={300 * index}
               className="h-full"
             >

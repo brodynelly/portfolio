@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -106,7 +105,7 @@ export default function AllProjects() {
                 {filteredProjects.map((project, index) => (
                   <AnimatedSection 
                     key={project.title} 
-                    animation="slide-in-bottom" 
+                    animation="fade-in-right" 
                     delay={150 * index}
                   >
                     <ProjectCard {...project} />
@@ -118,7 +117,7 @@ export default function AllProjects() {
                 {filteredProjects.map((project, index) => (
                   <AnimatedSection 
                     key={project.title} 
-                    animation="fade-in" 
+                    animation="fade-in-right" 
                     delay={150 * index}
                   >
                     <div className="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-xl shadow-sm">
