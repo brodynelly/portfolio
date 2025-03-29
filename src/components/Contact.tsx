@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import AnimatedSection from './AnimatedSection';
 import { Mail, Phone, Send } from 'lucide-react';
@@ -45,9 +46,9 @@ export default function Contact() {
           </p>
         </AnimatedSection>
 
-        <div className=" gap-12 items-start">
+        <div className="gap-12 items-start">
           <AnimatedSection animation="fade-in-right" delay={300}>
-            
+            {/* Form will go here */}
           </AnimatedSection>
           
           <AnimatedSection animation="fade-in-left" delay={600}>
