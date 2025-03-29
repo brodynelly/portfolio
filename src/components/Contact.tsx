@@ -1,52 +1,54 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Send } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
-
 interface FormData {
   name: string;
   email: string;
   message: string;
 }
-
 export default function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     message: ''
   });
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       console.log('Form submitted:', formData);
       setIsSubmitting(false);
       setSubmitSuccess(true);
-      
+
       // Reset form
-      setFormData({ name: '', email: '', message: '' });
-      
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitSuccess(false), 5000);
     }, 1500);
   };
-  
-  return (
-    <section id="contact" className="section-padding">
+  return <section id="contact" className="section-padding">
       <div className="container-width max-w-5xl mx-auto">
         <AnimatedSection animation="fade-in">
           <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-primary/10 rounded-full mb-4 text-primary">
@@ -96,66 +98,25 @@ export default function Contact() {
             {/* Contact form inside AnimatedSection */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Input
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="bg-secondary border-0"
-                />
+                
               </div>
               
               <div>
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="bg-secondary border-0"
-                />
+                
               </div>
               
               <div>
-                <Textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="bg-secondary border-0 min-h-32"
-                />
+                
               </div>
               
-              <Button 
-                type="submit" 
-                className="w-full"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <span className="mr-2">Sending...</span>
-                    <span className="animate-spin">⟳</span>
-                  </>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="ml-2 h-4 w-4" />
-                  </>
-                )}
-              </Button>
               
-              {submitSuccess && (
-                <div className="bg-green-50 text-green-700 px-4 py-3 rounded-md text-sm">
+              
+              {submitSuccess && <div className="bg-green-50 text-green-700 px-4 py-3 rounded-md text-sm">
                   Your message has been sent successfully!
-                </div>
-              )}
+                </div>}
             </form>
           </AnimatedSection>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
