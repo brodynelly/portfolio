@@ -4,6 +4,11 @@ export interface TechItem {
   category: "frontend" | "backend" | "database" | "deployment" | "language";
 }
 
+export interface DocSection {
+  title: string;
+  content: string;
+}
+
 export interface Project {
   title: string;
   description: string;
@@ -13,6 +18,7 @@ export interface Project {
   images?: string[];
   githubUrl: string;
   liveUrl?: string;
+  documentation?: DocSection[];
 }
 
 export interface ProjectWithClass extends Project {

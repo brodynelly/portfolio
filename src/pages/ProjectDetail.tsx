@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Github, ExternalLink, Tag } from 'lucide-react';
+import { ArrowLeft, Code2, ExternalLink, Tag, FileText } from 'lucide-react';
 import { projectsWithClassInfo } from '@/data/projects';
 import AnimatedSection from '@/components/AnimatedSection';
 import Navbar from '@/components/Navbar';
@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 import ProjectImageCarousel from '@/components/projects/ProjectImageCarousel';
+import Documentation from '@/components/documentation/Documentation';
 
 export default function ProjectDetail() {
   const { projectId } = useParams();
@@ -44,7 +45,7 @@ export default function ProjectDetail() {
   // Convert single image to array if needed
   const projectImages = project.images && project.images.length > 0
     ? project.images
-    : project.image 
+    : project.image
       ? [project.image]
       : [];
 
@@ -62,7 +63,7 @@ export default function ProjectDetail() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       <main className="pt-28 pb-16">
         <div className="container-width">
           <AnimatedSection animation="fade-in">
@@ -70,22 +71,22 @@ export default function ProjectDetail() {
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Projects
             </Link>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
               {/* Project Image Carousel and Basic Info */}
               <div className="lg:col-span-2">
                 {/* Image Carousel */}
-                <ProjectImageCarousel 
+                <ProjectImageCarousel
                   images={projectImages}
                   title={project.title}
                 />
-                
+
                 <h1 className="heading-lg mb-4">{project.title}</h1>
                 <p className="text-lg text-muted-foreground mb-8">{project.description}</p>
-                
+
                 <div className="flex flex-wrap gap-3 mb-8">
                   {project.tech.map((item) => (
-                    <span 
+                    <span
                       key={item.name}
                       className={cn(
                         "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm",
@@ -97,23 +98,23 @@ export default function ProjectDetail() {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="flex flex-wrap gap-4 mb-12">
                   <Button asChild>
-                    <a 
+                    <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center"
                     >
-                      <Github className="mr-2 h-4 w-4" />
+                      <Code2 className="mr-2 h-4 w-4" />
                       View Repository
                     </a>
                   </Button>
-                  
+
                   {project.liveUrl && (
                     <Button asChild variant="outline">
-                      <a 
+                      <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -126,7 +127,7 @@ export default function ProjectDetail() {
                   )}
                 </div>
               </div>
-              
+
               {/* Project Details */}
               <div className="lg:col-span-1">
                 <Tabs defaultValue="challenges" className="w-full">
@@ -134,7 +135,7 @@ export default function ProjectDetail() {
                     <TabsTrigger value="challenges">Challenges</TabsTrigger>
                     <TabsTrigger value="details">Details</TabsTrigger>
                   </TabsList>
-                  
+
                   <TabsContent value="challenges" className="space-y-4">
                     <div className="bg-secondary/50 rounded-xl p-6">
                       <h3 className="text-lg font-semibold mb-4">Technical Challenges</h3>
@@ -148,22 +149,22 @@ export default function ProjectDetail() {
                       </ul>
                     </div>
                   </TabsContent>
-                  
+
                   <TabsContent value="details" className="space-y-4">
                     <div className="bg-secondary/50 rounded-xl p-6">
                       <h3 className="text-lg font-semibold mb-4">Project Details</h3>
-                      
+
                       {project.classId && (
                         <div className="mb-4">
                           <h4 className="text-sm font-medium mb-1">Course</h4>
                           <p className="text-muted-foreground">
-                            {project.classId === 'personal' 
-                              ? 'Personal Project' 
+                            {project.classId === 'personal'
+                              ? 'Personal Project'
                               : project.classId.toUpperCase()}
                           </p>
                         </div>
                       )}
-                      
+
                       <div className="mb-4">
                         <h4 className="text-sm font-medium mb-1">Category</h4>
                         <div className="flex flex-wrap gap-2">
@@ -185,10 +186,21 @@ export default function ProjectDetail() {
                 </Tabs>
               </div>
             </div>
+
+            {/* Documentation Section - Full Width */}
+            {project.documentation && project.documentation.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-2xl font-semibold mb-6 flex items-center">
+                  <FileText className="mr-2 h-5 w-5" />
+                  Documentation
+                </h2>
+                <Documentation sections={project.documentation} projectTitle={project.title} />
+              </div>
+            )}
           </AnimatedSection>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

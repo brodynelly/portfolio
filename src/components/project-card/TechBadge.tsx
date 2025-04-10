@@ -33,7 +33,7 @@ export default function TechBadge({ item, index, isHovered }: TechBadgeProps) {
       style={{ 
         transitionDelay: `${(index * 50) + 100}ms`,
         transform: isHovered ? 'translateY(-5px)' : 'translateY(0)',
-        boxShadow: isHovered ? '0 4px 6px rgba(0,0,0,0.1)' : 'none'
+        boxShadow: isHovered ? '0 0px 0px rgba(0,0,0,0.1)' : 'none'
       }}
     >
       {item.name}

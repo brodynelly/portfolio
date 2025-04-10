@@ -1,7 +1,57 @@
 
 import { ArrowDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { motion } from "framer-motion"
 import { useEffect, useState } from 'react';
+
+function Bubble({ x, y, size, color }: { x: number; y: number; size: number; color: string }) {
+  return (
+    <motion.circle
+      cx={x}
+      cy={y}
+      r={size}
+      fill={color}
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{
+        opacity: [0.7, 0.3, 0.7],
+        scale: [1, 1.2, 1],
+        x: x + Math.random() * 100 - 50,
+        y: y + Math.random() * 100 - 50,
+      }}
+      transition={{
+        duration: 5 + Math.random() * 10,
+        repeat: Number.POSITIVE_INFINITY,
+        repeatType: "reverse",
+      }}
+    />
+  )
+}
+
+function FloatingBubbles() {
+  const [bubbles, setBubbles] = useState<Array<{ id: number; x: number; y: number; size: number; color: string }>>([])
+
+  useEffect(() => {
+    const newBubbles = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      size: Math.random() * 20 + 5,
+      color: `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.3)`,
+    }))
+    setBubbles(newBubbles)
+  }, [])
+
+  return (
+    <div className="absolute inset-0 pointer-events-none">
+      <svg className="w-full h-full">
+        <title>Floating Bubbles</title>
+        {bubbles.map((bubble) => (
+          <Bubble key={bubble.id} {...bubble} />
+        ))}
+      </svg>
+    </div>
+  )
+}
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -12,9 +62,12 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <FloatingBubbles />
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/60 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-secondary/40 z-0" />
       
+
+
       {/* Moving background elements with enhanced animations */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full filter blur-3xl animate-floating" style={{ animationDelay: '0s' }} />
@@ -37,7 +90,7 @@ export default function Hero() {
             )}
             style={{ transitionDelay: '300ms' }}
           >
-            Full-Stack Developer
+            Software Engineer
           </span>
           
           <h1 
@@ -71,7 +124,7 @@ export default function Hero() {
             style={{ transitionDelay: '1200ms' }}
           >
             <a 
-              href="#projects" 
+              href="/projects" 
               className="px-8 py-3 bg-primary text-primary-foreground rounded-md font-medium transition-all hover:translate-y-[-2px] hover:shadow-lg"
             >
               View Projects

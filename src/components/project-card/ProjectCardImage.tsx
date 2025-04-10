@@ -30,9 +30,9 @@ export default function ProjectCardImage({
           src={displayImage}
           alt={title}
           className={cn(
-            "object-cover w-full h-full transition-all duration-1000",
+            "object-cover w-full h-full transition-all duration-300",
             imageLoaded ? "opacity-100" : "opacity-0",
-            isHovered ? "scale-110 blur-[1px]" : "scale-100"
+            isHovered ? "scale-110 blur-[0.1px]" : "scale-100"
           )}
           onLoad={() => setImageLoaded(true)}
         />
@@ -53,7 +53,7 @@ export default function ProjectCardImage({
         
         <div 
           className={cn(
-            "absolute inset-0 bg-primary/10 backdrop-blur-sm transition-opacity duration-500 flex items-center justify-center",
+            "absolute inset-0 bg-primary/10 backdrop-blur-sm transition-opacity duration-250 flex items-center justify-center",
             isHovered ? "opacity-100" : "opacity-0"
           )}
         >

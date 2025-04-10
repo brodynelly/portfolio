@@ -31,7 +31,7 @@ export default function Projects() {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.slice(0, 6).map((project, index) => (
             <AnimatedSection 
               key={project.title} 
               animation="fade-in-right" 

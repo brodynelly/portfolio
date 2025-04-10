@@ -65,15 +65,15 @@ export default function ProjectCard({
     <div 
       id={`project-${title.replace(/\s+/g, '-').toLowerCase()}`}
       className={cn(
-        "overflow-hidden rounded-xl bg-white shadow-md transition-all duration-700 transform",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20",
-        isHovered ? "shadow-xl scale-[1.03] -translate-y-3" : ""
+        "overflow-hidden rounded-xl bg-white shadow-md ",
+        isVisible ? "transform transition-all duration-300 opacity-100 translate-y-0" : "opacity-0 translate-y-20",
+        isHovered ? "transform transition-all duration-300 shadow-lg scale-[1.02] -translate-y-0" : ""
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
         transitionDelay: isVisible ? '150ms' : '0ms',
-        boxShadow: isHovered ? '0 10px 40px rgba(0, 0, 0, 0.12)' : ''
+        boxShadow: isHovered ? '0 5px 20px rgba(0, 0, 0, 0.12)' : ''
       }}
     >
       {/* Project Image */}

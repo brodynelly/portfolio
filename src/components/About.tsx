@@ -5,31 +5,36 @@ import TimelineItem from './TimelineItem';
 
 export default function About() {
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:brody@example.com", label: "Email" },
+    { icon: Github, href: "https://github.com/brodynelly", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/brody-nelson/", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:bsn3g9@umsystem.edu", label: "Email" },
   ];
 
   const timelineItems = [
     {
+      date: "2025 - Present",
+      title: "Co-Presedent of The Mizzou Satellite Club",
+      description: "The active co-presedint of the Mizzou Satellite Club, where I am responsible for leading the development of the Ground Station Controll Interface and Web Development."
+    },
+    {
+      date: "2025 - Present",
+      title: "Micro-Credential in AI-empowered Spacial Computing",
+      description: "Awarded from UMKC Data Science and Innovation Center for the completion of a specialized course focused on AI-empowered spacial computing."
+    },    
+    {
+      date: "2024 - Present",
+      title: "Software Engineer, Precision Digital Agriculture Research Lab",
+      description: "Where I am leading the development of a full-stack web app integrating AI to enhance analytics for agricultural research."
+    },
+    {
+      date: "2023 - 2024",
+      title: "Study Abroad - Westminster, London",
+      description: "International academic experience where I spent 3 months studying at the University of Westminster in the heart of london."
+    },
+    {
       date: "2022 - Present",
-      title: "Lab Research Assistant",
-      description: "Developing a full-stack application for IoT device data processing and visualization."
-    },
-    {
-      date: "2021 - 2022",
-      title: "Study Abroad - London",
-      description: "International academic experience focusing on global software development practices."
-    },
-    {
-      date: "2020 - Present",
-      title: "Computer Science, University of Missouri",
-      description: "Focusing on software engineering, algorithms, and distributed systems."
-    },
-    {
-      date: "2019 - 2020",
-      title: "Freelance Web Developer",
-      description: "Designed and implemented responsive websites for local businesses."
+      title: "Bachelor of Science in Computer Science, University of Missouri",
+      description: "Focused on systems and application development using C, C#/.NET, JavaScript, Node.js, and Python."
     },
   ];
 
@@ -55,10 +60,9 @@ export default function About() {
           >
             <h3 className="heading-sm text-primary">Professional Journey</h3>
             <AnimatedSection animation="fade-in" delay={400} className="text-muted-foreground leading-relaxed">
-              I'm a Full-Stack Developer with a passion for crafting scalable web solutions. Currently pursuing a degree in Computer Science at the University of Missouri, including a valuable study abroad experience in London.
-            </AnimatedSection>
+            I'm currently pursuing a Bachelor of Science in Computer Science at the University of Missouri, with a semester abroad completed at the University of Westminster in London. My focus lies in systems and application development using languages and frameworks such as C, C#/.NET, JavaScript, Node.js, and Python. This technical foundation supports a professional mindset driven by curiosity, problem-solving, and a commitment to pushing the boundaries of agricultural technology through continuous learning and innovation.            </AnimatedSection>
             <AnimatedSection animation="fade-in" delay={500} className="text-muted-foreground leading-relaxed">
-              In my laboratory role, I'm developing a comprehensive full-stack application handling AI-driven data for IoT devices. This project integrates real-time data processing with interactive visualizations.
+            As a Software Engineer with the Percision Digital Agriculture Research Lab at Mizzou CAFNR, I’m leading the development of a full-stack web app integrating AI to enhance analytics for agricultural research, contributing to the advancement of data-driven decision-making in farming. on developing cutting-edge applications to revolutionize agricultural research.
             </AnimatedSection>
             <AnimatedSection animation="fade-in" delay={600} className="text-muted-foreground leading-relaxed">
               My approach to development focuses on clean code, performance optimization, and thoughtful user experiences. I'm continuously expanding my knowledge in modern web technologies and software architecture.
@@ -97,7 +101,7 @@ export default function About() {
                       key={item.title}
                       animation="slide-in-bottom" 
                       delay={1100 + (index * 200)}
-                      className="transform transition-all duration-500 hover:translate-x-1"
+                      className="transform transition-all duration-500 hover:translate-x-[-3px]"
                     >
                       <TimelineItem 
                         date={item.date}
@@ -116,13 +120,13 @@ export default function About() {
             animation="fade-in-left" 
             delay={600}
           >
-            <div className="bg-secondary p-8 rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+            <div className="bg-secondary p-8 rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-lg hover:scale-[1.01]">
               <h3 className="heading-sm mb-6 text-primary">Tech Expertise</h3>
               
               <div className="space-y-6">
                 {[
-                  { title: 'Languages', skills: ['JavaScript', 'TypeScript', 'Python', 'Assembly'] },
-                  { title: 'Frontend', skills: ['React', 'Next.js', 'TailwindCSS', 'Framer Motion'] },
+                  { title: 'Languages', skills: ['C/C++/C#', 'Java', 'JavaScript', 'Swift','TypeScript', 'Python', 'Assembly', 'SQL',  ] },
+                  { title: 'Frontend', skills: ['React', 'Angular', 'Vue.js', 'React-Native', 'Next.js', 'TailwindCSS'] },
                   { title: 'Backend', skills: ['Node.js', 'Express.js', 'PostgreSQL', 'Docker', 'Django'] },
                   { title: 'Tools & Services', skills: ['Git', 'AWS', 'Vercel', 'CI/CD', 'REST APIs'] }
                 ].map((category, categoryIndex) => (
