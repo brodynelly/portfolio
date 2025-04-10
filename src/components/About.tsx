@@ -1,12 +1,12 @@
 
 import AnimatedSection from './AnimatedSection';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, Mail } from 'lucide-react';
 import TimelineItem from './TimelineItem';
 
 export default function About() {
   const socialLinks = [
-    { icon: Github, href: "https://github.com/brodynelly", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/brody-nelson/", label: "LinkedIn" },
+    { icon: GithubIcon, href: "https://github.com/brodynelly", label: "GitHub" },
+    { icon: LinkedinIcon, href: "https://www.linkedin.com/in/brody-nelson/", label: "LinkedIn" },
     { icon: Mail, href: "mailto:bsn3g9@umsystem.edu", label: "Email" },
   ];
 
@@ -20,7 +20,7 @@ export default function About() {
       date: "2025 - Present",
       title: "Micro-Credential in AI-empowered Spacial Computing",
       description: "Awarded from UMKC Data Science and Innovation Center for the completion of a specialized course focused on AI-empowered spacial computing."
-    },    
+    },
     {
       date: "2024 - Present",
       title: "Software Engineer, Precision Digital Agriculture Research Lab",
@@ -43,7 +43,7 @@ export default function About() {
       {/* Background decorative elements */}
       <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute -top-32 -left-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-      
+
       <div className="container-width relative z-10">
         <AnimatedSection animation="fade-in">
           <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-secondary rounded-full mb-4">
@@ -53,8 +53,8 @@ export default function About() {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <AnimatedSection 
-            animation="fade-in-right" 
+          <AnimatedSection
+            animation="fade-in-right"
             delay={300}
             className="space-y-6"
           >
@@ -67,15 +67,15 @@ export default function About() {
             <AnimatedSection animation="fade-in" delay={600} className="text-muted-foreground leading-relaxed">
               My approach to development focuses on clean code, performance optimization, and thoughtful user experiences. I'm continuously expanding my knowledge in modern web technologies and software architecture.
             </AnimatedSection>
-            
+
             <div className="flex items-center space-x-4 pt-4">
               {socialLinks.map((link, index) => (
-                <AnimatedSection 
+                <AnimatedSection
                   key={link.label}
-                  animation="scale-in" 
+                  animation="scale-in"
                   delay={700 + (index * 100)}
                 >
-                  <a 
+                  <a
                     href={link.href}
                     aria-label={link.label}
                     className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-primary/20 hover:bg-primary hover:text-white"
@@ -95,15 +95,15 @@ export default function About() {
                 <div className="mt-6 relative">
                   {/* Timeline highlight effect that follows scroll */}
                   <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary to-transparent h-full"></div>
-                  
+
                   {timelineItems.map((item, index) => (
-                    <AnimatedSection 
+                    <AnimatedSection
                       key={item.title}
-                      animation="slide-in-bottom" 
+                      animation="slide-in-bottom"
                       delay={1100 + (index * 200)}
                       className="transform transition-all duration-500 hover:translate-x-[-3px]"
                     >
-                      <TimelineItem 
+                      <TimelineItem
                         date={item.date}
                         title={item.title}
                         description={item.description}
@@ -115,33 +115,33 @@ export default function About() {
               </div>
             </AnimatedSection>
           </AnimatedSection>
-          
-          <AnimatedSection 
-            animation="fade-in-left" 
+
+          <AnimatedSection
+            animation="fade-in-left"
             delay={600}
           >
             <div className="bg-secondary p-8 rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-lg hover:scale-[1.01]">
               <h3 className="heading-sm mb-6 text-primary">Tech Expertise</h3>
-              
+
               <div className="space-y-6">
                 {[
-                  { title: 'Languages', skills: ['C/C++/C#', 'Java', 'JavaScript', 'Swift','TypeScript', 'Python', 'Assembly', 'SQL',  ] },
-                  { title: 'Frontend', skills: ['React', 'Angular', 'Vue.js', 'React-Native', 'Next.js', 'TailwindCSS'] },
-                  { title: 'Backend', skills: ['Node.js', 'Express.js', 'PostgreSQL', 'Docker', 'Django'] },
-                  { title: 'Tools & Services', skills: ['Git', 'AWS', 'Vercel', 'CI/CD', 'REST APIs'] }
+                  { title: 'Languages', skills: ['C/C++/C#', 'Assembly', 'Python', 'Java', 'JavaScript', 'TypeScript', 'SQL'] },
+                  { title: 'Systems & Embedded', skills: ['ARM', 'AVR', 'RTOS', 'Microcontrollers', 'IoT', 'Hardware Interfaces'] },
+                  { title: 'Software & Applications', skills: ['OOP', 'Design Patterns', 'TDD', 'Cross-Platform', 'Performance Optimization'] },
+                  { title: 'Agricultural Tech', skills: ['Precision Agriculture', 'Geospatial Analysis', 'Sensor Networks', 'ML for Crops'] }
                 ].map((category, categoryIndex) => (
-                  <AnimatedSection 
+                  <AnimatedSection
                     key={category.title}
-                    animation="fade-in" 
+                    animation="fade-in"
                     delay={800 + (categoryIndex * 150)}
                   >
                     <div>
                       <h4 className="font-semibold mb-2">{category.title}</h4>
                       <div className="flex flex-wrap gap-2">
                         {category.skills.map((skill, skillIndex) => (
-                          <AnimatedSection 
+                          <AnimatedSection
                             key={skill}
-                            animation="scale-in" 
+                            animation="scale-in"
                             delay={1000 + (categoryIndex * 100) + (skillIndex * 50)}
                           >
                             <span className="px-3 py-1 bg-white rounded-full text-sm transition-all duration-500 hover:bg-primary hover:text-white hover:scale-110 hover:shadow-md">
