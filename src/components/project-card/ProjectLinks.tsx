@@ -1,7 +1,7 @@
 
-import { Link } from 'react-router-dom';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Code2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ScrollToTopLink } from '@/components/ui/scroll-to-top-link';
 
 interface ProjectLinksProps {
   projectUrl: string;
@@ -10,15 +10,15 @@ interface ProjectLinksProps {
   isHovered: boolean;
 }
 
-export default function ProjectLinks({ 
-  projectUrl, 
-  githubUrl, 
-  liveUrl, 
-  isHovered 
+export default function ProjectLinks({
+  projectUrl,
+  githubUrl,
+  liveUrl,
+  isHovered
 }: ProjectLinksProps) {
   return (
     <div className="flex space-x-3">
-      <Link 
+      <ScrollToTopLink
         to={projectUrl}
         className={cn(
           "inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-all duration-500",
@@ -26,9 +26,9 @@ export default function ProjectLinks({
         )}
       >
         <span>View Details</span>
-      </Link>
-      
-      <a 
+      </ScrollToTopLink>
+
+      <a
         href={githubUrl}
         target="_blank"
         rel="noopener noreferrer"
@@ -40,12 +40,12 @@ export default function ProjectLinks({
           transitionDelay: isHovered ? '100ms' : '0ms'
         }}
       >
-        <Github size={16} />
+        <Code2 size={16} />
         <span>Repository</span>
       </a>
-      
+
       {liveUrl && (
-        <a 
+        <a
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"

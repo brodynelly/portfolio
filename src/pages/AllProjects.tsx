@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AnimatedSection from '@/components/AnimatedSection';
@@ -13,7 +13,12 @@ import EmptyState from '@/components/projects/EmptyState';
 export default function AllProjects() {
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [selectedClass, setSelectedClass] = useState<string>('all');
-  
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const classes = [
     { id: 'all', name: 'All Projects' },
     { id: 'cs4320', name: 'CS4320 - Software Engineering' },
@@ -23,30 +28,30 @@ export default function AllProjects() {
     { id: 'personal', name: 'Personal Projects' },
   ];
 
-  const filteredProjects = selectedClass === 'all' 
-    ? projectsWithClassInfo 
+  const filteredProjects = selectedClass === 'all'
+    ? projectsWithClassInfo
     : projectsWithClassInfo.filter(project => project.classId === selectedClass);
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       <main className="pt-28 pb-16">
         <section className="container-width">
-          <ProjectsHeader 
+          <ProjectsHeader
             selectedClass={selectedClass}
             setSelectedClass={setSelectedClass}
             setView={setView}
             classes={classes}
           />
-          
+
           <AnimatedSection animation="fade-in" delay={300}>
-            <FilterInfo 
+            <FilterInfo
               selectedClass={selectedClass}
               classes={classes}
               projectCount={filteredProjects.length}
             />
-            
+
             {filteredProjects.length > 0 ? (
               view === 'grid' ? (
                 <ProjectsGrid projects={filteredProjects} />
@@ -59,7 +64,7 @@ export default function AllProjects() {
           </AnimatedSection>
         </section>
       </main>
-      
+
       <Footer />
     </div>
   );

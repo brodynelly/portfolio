@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { ScrollToTopLink } from '@/components/ui/scroll-to-top-link';
 import { ArrowLeft, Code2, ExternalLink, Tag, FileText } from 'lucide-react';
 import { projectsWithClassInfo } from '@/data/projects';
 import AnimatedSection from '@/components/AnimatedSection';
@@ -32,9 +33,9 @@ export default function ProjectDetail() {
             <p className="text-muted-foreground mb-8">
               Sorry, we couldn't find the project you're looking for.
             </p>
-            <Link to="/projects">
+            <ScrollToTopLink to="/projects">
               <Button>Back to Projects</Button>
-            </Link>
+            </ScrollToTopLink>
           </div>
         </main>
         <Footer />
@@ -67,10 +68,10 @@ export default function ProjectDetail() {
       <main className="pt-28 pb-16">
         <div className="container-width">
           <AnimatedSection animation="fade-in">
-            <Link to="/projects" className="inline-flex items-center text-sm font-medium text-primary hover:underline mb-8">
+            <ScrollToTopLink to="/projects" className="inline-flex items-center text-sm font-medium text-primary hover:underline mb-8">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Projects
-            </Link>
+            </ScrollToTopLink>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
               {/* Project Image Carousel and Basic Info */}
