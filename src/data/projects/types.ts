@@ -19,6 +19,7 @@ export interface Project {
   githubUrl: string;
   liveUrl?: string;
   documentation?: DocSection[];
+  isViewAllCard?: boolean;
 }
 
 export interface ProjectWithClass extends Project {

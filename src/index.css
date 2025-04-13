@@ -63,27 +63,27 @@
   .glass {
     @apply bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border border-white border-opacity-20;
   }
-  
+
   .section-padding {
     @apply py-20 px-6 md:px-12 lg:px-24;
   }
-  
+
   .container-width {
     @apply max-w-7xl mx-auto;
   }
-  
+
   .heading-xl {
     @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
   }
-  
+
   .heading-lg {
     @apply text-3xl md:text-4xl font-bold tracking-tight;
   }
-  
+
   .heading-md {
     @apply text-2xl md:text-3xl font-bold;
   }
-  
+
   .heading-sm {
     @apply text-xl md:text-2xl font-semibold;
   }
@@ -101,6 +101,11 @@ html {
 
 ::-webkit-scrollbar-track {
   background: hsl(var(--background));
+}
+
+/* Custom 3D perspective */
+.perspective-1000 {
+  perspective: 1000px;
 }
 
 ::-webkit-scrollbar-thumb {
