@@ -1,8 +1,7 @@
-
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import ProjectCardImage from './project-card/ProjectCardImage';
-import ProjectCardTitle from './project-card/ProjectCardTitle';
+import StackedProjectCardImage from './project-card/StackedProjectCardImage';
+import StackedProjectCardTitle from './project-card/StackedProjectCardTitle';
 import TechStack from './project-card/TechStack';
 import ChallengesList from './project-card/ChallengesList';
 import ProjectLinks from './project-card/ProjectLinks';
@@ -12,7 +11,7 @@ interface TechItem {
   category: 'frontend' | 'backend' | 'database' | 'deployment' | 'language';
 }
 
-interface ProjectCardProps {
+interface StackedProjectCardProps {
   title: string;
   description: string;
   tech: TechItem[];
@@ -23,7 +22,7 @@ interface ProjectCardProps {
   liveUrl?: string;
 }
 
-export default function ProjectCard({
+export default function StackedProjectCard({
   title,
   description,
   tech,
@@ -32,52 +31,25 @@ export default function ProjectCard({
   images,
   githubUrl,
   liveUrl
-}: ProjectCardProps) {
+}: StackedProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  
+
   const projectUrl = `/projects/${title.replace(/\s+/g, '-').toLowerCase()}`;
 
-  // Add intersection observer to detect when card is in viewport
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    const element = document.getElementById(`project-${title.replace(/\s+/g, '-').toLowerCase()}`);
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-    };
-  }, [title]);
-
   return (
-    <div 
-      id={`project-${title.replace(/\s+/g, '-').toLowerCase()}`}
+    <div
       className={cn(
-        "overflow-hidden rounded-xl bg-white shadow-md ",
-        isVisible ? "transform transition-all duration-300 opacity-100 translate-y-0" : "opacity-0 translate-y-20",
+        "overflow-hidden rounded-xl bg-white shadow-md w-full",
         isHovered ? "transform transition-all duration-300 shadow-lg scale-[1.02] -translate-y-0" : ""
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
-        transitionDelay: isVisible ? '150ms' : '0ms',
         boxShadow: isHovered ? '0 5px 20px rgba(0, 0, 0, 0.12)' : ''
       }}
     >
       {/* Project Image */}
-      <ProjectCardImage 
+      <StackedProjectCardImage
         title={title}
         image={image}
         images={images}
@@ -87,13 +59,12 @@ export default function ProjectCard({
 
       {/* Content */}
       <div className="p-6">
-        {/* Title */}
-        <ProjectCardTitle 
+        {/* Title - Not clickable */}
+        <StackedProjectCardTitle
           title={title}
-          projectUrl={projectUrl}
           isHovered={isHovered}
         />
-        
+
         <p className={cn(
           "text-muted-foreground mb-4 transition-opacity duration-500",
           isHovered ? "opacity-90" : "opacity-80"
@@ -108,7 +79,7 @@ export default function ProjectCard({
         <ChallengesList challenges={challenges} isHovered={isHovered} />
 
         {/* Links */}
-        <ProjectLinks 
+        <ProjectLinks
           projectUrl={projectUrl}
           githubUrl={githubUrl}
           liveUrl={liveUrl}

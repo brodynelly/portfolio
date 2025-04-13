@@ -1,10 +1,8 @@
-
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Image } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-interface ProjectCardImageProps {
+interface StackedProjectCardImageProps {
   title: string;
   image: string;
   images?: string[];
@@ -12,19 +10,19 @@ interface ProjectCardImageProps {
   isHovered: boolean;
 }
 
-export default function ProjectCardImage({ 
+export default function StackedProjectCardImage({ 
   title, 
   image, 
   images,
   projectUrl, 
   isHovered 
-}: ProjectCardImageProps) {
+}: StackedProjectCardImageProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const hasMultipleImages = images && images.length > 1;
   const displayImage = images && images.length > 0 ? images[0] : image;
 
   return (
-    <Link to={projectUrl} className="block">
+    <div className="block">
       <div className="relative aspect-video overflow-hidden bg-muted">
         <img
           src={displayImage}
@@ -50,18 +48,7 @@ export default function ProjectCardImage({
             {images.length}
           </div>
         )}
-        
-        <div 
-          className={cn(
-            "absolute inset-0 bg-primary/10 backdrop-blur-sm transition-opacity duration-250 flex items-center justify-center",
-            isHovered ? "opacity-100" : "opacity-0"
-          )}
-        >
-          <span className="px-4 py-2 bg-white/90 rounded-full text-primary font-medium transform transition-transform duration-500 scale-90">
-            View Project
-          </span>
-        </div>
       </div>
-    </Link>
+    </div>
   );
 }

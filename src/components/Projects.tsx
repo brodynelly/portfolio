@@ -1,10 +1,10 @@
 
 import AnimatedSection from './AnimatedSection';
-import ProjectCard from './ProjectCard';
 import { Button } from './ui/button';
 import { ChevronRight } from 'lucide-react';
 import { ScrollToTopLink } from '@/components/ui/scroll-to-top-link';
 import { projects } from '@/data/projects';
+import ProjectCardStack from './ProjectCardStack';
 
 export default function Projects() {
   return (
@@ -30,18 +30,11 @@ export default function Projects() {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.slice(0, 6).map((project, index) => (
-            <AnimatedSection
-              key={project.title}
-              animation="fade-in-right"
-              delay={300 * index}
-              className="h-full"
-            >
-              <ProjectCard {...project} />
-            </AnimatedSection>
-          ))}
-        </div>
+        <AnimatedSection animation="fade-in" delay={300}>
+          <div className="w-full max-w-md mx-auto">
+            <ProjectCardStack projects={projects} maxCards={5} />
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
