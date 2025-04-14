@@ -33,22 +33,20 @@ export default function Contact() {
               <div>
                 <h4 className="font-medium mb-1">Email</h4>
                 <a href="mailto:contact@example.com" className="text-primary hover:underline">
-                  contact@example.com
+                  bsn3g9@umsystem.edu
                 </a>
               </div>
               
               <div>
                 <h4 className="font-medium mb-1">Connect</h4>
                 <div className="flex space-x-4">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://www.linkedin.com/in/brody-nelson-ab600027a?original_referer=https%3A%2F%2Fwww.google.com%2F" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     LinkedIn
                   </a>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://github.com/brodynelly" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     GitHub
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                    Twitter
-                  </a>
+
                 </div>
               </div>
             </div>
