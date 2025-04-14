@@ -6,39 +6,173 @@ export const personalProjects: Project[] = [
     title: "Journaling Application",
     description: "A personal project to help users maintain and organize their daily journal entries with secure and efficient storage using MongoDB.",
     tech: [
-      { name: "MongoDB", category: "database" },
-      { name: "Express.js", category: "backend" },
-      { name: "Node.js", category: "backend" },
-      { name: "JavaScript", category: "language" },
-      { name: "CSS", category: "frontend" },
+      { name: "React", category: "frontend" },
+      { name: "TypeScript", category: "language" },
+      { name: "Tailwind CSS", category: "frontend" },
+      { name: "Vite", category: "deployment" },
+      { name: "Supabase", category: "database" },
+      { name: "Lucide Icons", category: "frontend" }, 
     ],
     challenges: [
-      "Designed flexible document schemas to accommodate various journal entry formats",
-      "Implemented secure user authentication to protect private journal content",
-      "Created an intuitive UI for efficient journal entry management",
+      "Implemented a responsive, iOS-style interface with smooth animations and transitions",
+      "Created a flexible handwriting canvas with pressure sensitivity and tool selection",
+      "Built an intelligent prompt system for daily writing inspiration",
+      "Developed a comprehensive mood tracking system with visual feedback",
+      "Integrated multimedia support for images, voice notes, and handwritten content",
+      "Designed an intuitive timeline view for journal entries with rich metadata"
+    ],
+    images: [
+      "https://sdmntprwestus.oaiusercontent.com/files/00000000-4b38-6230-96fe-258b438beb8a/raw?se=2025-04-14T21%3A05%3A33Z&sp=r&sv=2024-08-04&sr=b&scid=f5ed274c-e76d-5e98-b66a-3f27308e2752&skoid=51916beb-8d6a-49b8-8b29-ca48ed86557e&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-14T11%3A52%3A14Z&ske=2025-04-15T11%3A52%3A14Z&sks=b&skv=2024-08-04&sig=tWt7xI1miekis3biFOh4TpXz0jdUu46QFtBsrEyuLUY%3D", 
+      "https://private-user-images.githubusercontent.com/127979848/427188707-aacea867-a493-4fbd-b876-1e81d7732b3f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjExNDUsIm5iZiI6MTc0NDY2MDg0NSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDI3MTg4NzA3LWFhY2VhODY3LWE0OTMtNGZiZC1iODc2LTFlODFkNzczMmIzZi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMDAwNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zNjZkMGQwODBkY2EyYTUwZmFkZTIzNzdlNGQ1OWM0NjhjMDU3YzAwNjViMjZhYThkYjQzOWI2ZjdjODMzYWY5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.T09u0THj99UBcjGpdi8McXtaALmASZJkY62m6VrZpZE",
+      "https://private-user-images.githubusercontent.com/127979848/427188853-aadcc4e3-45ca-4edc-9f45-f5e7e824e797.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjExNDUsIm5iZiI6MTc0NDY2MDg0NSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDI3MTg4ODUzLWFhZGNjNGUzLTQ1Y2EtNGVkYy05ZjQ1LWY1ZTdlODI0ZTc5Ny5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMDAwNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00N2EyMzQwNjdlYTI3NzI2MWY3ZGM3NTkwNDVmN2E0NDIwZmEzZjU0OTQyMDhkYmQ2ZGViNjk3YTdkMTExYzNmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.u5kz1qSwnqrCutvKCMBa2HZIrc01nEx5_bH4GO3qkRo", 
+      "https://private-user-images.githubusercontent.com/127979848/427188980-67c3b4cf-c432-4845-8118-fb4fc54c1d29.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjExNDUsIm5iZiI6MTc0NDY2MDg0NSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDI3MTg4OTgwLTY3YzNiNGNmLWM0MzItNDg0NS04MTE4LWZiNGZjNTRjMWQyOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMDAwNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zMTU0NTBiMjg4ZmFkYWMxMzRmY2JiZTRhZjQ3YjczNDQxNWU2YjUzZTcxODExNGJlYmQ1ZTc0ZDk5NzQ5ZmFkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.0b9guxSASbIhxtf4hd14Y1xHIguFTX3wPYnonWTzm00", 
+      "https://private-user-images.githubusercontent.com/127979848/427189142-1b0c646b-479e-4f25-b3e3-36bcb7eb24f6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjExNDUsIm5iZiI6MTc0NDY2MDg0NSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDI3MTg5MTQyLTFiMGM2NDZiLTQ3OWUtNGYyNS1iM2UzLTM2YmNiN2ViMjRmNi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMDAwNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0xMWNiYTU0MmFhNWY3NmJiMzg4ZmRmOWY5NTI2NGY5Mjg1YjZkODY1ODllMzcxMjc1Mjg4ZWZiZjk4ZmRiY2IxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.NoO-ewlHXivvLnpqjhK1uY1k9hqzsjvOmlvenwYrIhs", 
+      "https://private-user-images.githubusercontent.com/127979848/427189387-8971540b-1547-497c-8495-36f90142d60b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjExNDUsIm5iZiI6MTc0NDY2MDg0NSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDI3MTg5Mzg3LTg5NzE1NDBiLTE1NDctNDk3Yy04NDk1LTM2ZjkwMTQyZDYwYi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMDAwNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hMDgyZjhiYzc1YWU1OTlhMGIzMTBiYzM0ZGFhNmY1ZDIxZTIyNjA5NWU1ZTNhZTZkMjBiMzBkMTc5ZWMzODExJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.g4QWFItBbWZL4-cHRIQWoroHl844NJxnRBrZpq9VEvk",
     ],
     image: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1470&auto=format&fit=crop",
-    githubUrl: "https://github.com",
-    liveUrl: "https://www.youtube.com",
+    githubUrl: "https://github.com/brodynelly/Web-Journaling-Application-",
+    liveUrl: " https://marvelous-kelpie-866eb4.netlify.app/",
     documentation: [
       {
         title: "Overview",
-        content: "# Journaling Application\n\nThis application provides users with a digital journaling platform that combines the therapeutic benefits of traditional journaling with modern digital convenience.\n\n## Key Features\n\n- **Daily Entries**: Create and organize journal entries by date\n- **Rich Text Formatting**: Express yourself with formatting options\n- **Mood Tracking**: Track your emotional state over time\n- **Search Functionality**: Easily find past entries\n- **Privacy Controls**: Keep your thoughts secure"
+        content: `# Modern Journaling Application
+  
+  This application provides a premium journaling experience inspired by Apple's iOS Journal app, combining beautiful design with powerful features.
+  
+  ## Key Features
+  
+  - **Rich Entry Creation**: Support for text, handwriting, images, and voice notes
+  - **Intelligent Prompts**: Daily writing suggestions to inspire reflection
+  - **Mood Tracking**: Visual mood tracking with emoji and color indicators
+  - **Timeline View**: Chronological organization of entries with metadata
+  - **Handwriting Support**: Canvas-based handwriting with pressure sensitivity
+  - **Location Tagging**: Add location context to your entries
+  - **Activity Tracking**: Record activities and steps associated with entries
+  - **End-to-End Encryption**: Secure storage of all journal content`
       },
       {
         title: "Architecture",
-        content: "## System Architecture\n\n### Frontend\nThe frontend is built with vanilla JavaScript, HTML, and CSS, focusing on a clean and intuitive user interface.\n\n### Backend\nThe backend uses Express.js running on Node.js with the following components:\n\n- **Authentication Service**: Handles user registration and login\n- **Journal Service**: Manages journal entries and metadata\n- **Search Service**: Provides full-text search capabilities\n\n### Database\nMongoDB was chosen for its flexibility with document schemas, allowing for:\n\n- Varied journal entry formats\n- Rich metadata storage\n- Efficient querying\n\n```javascript\n// Example Journal Entry Schema\nconst journalEntrySchema = new mongoose.Schema({\n  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },\n  date: { type: Date, default: Date.now },\n  title: { type: String, required: true },\n  content: { type: String, required: true },\n  mood: { type: String, enum: ['happy', 'sad', 'neutral', 'anxious', 'excited'] },\n  tags: [{ type: String }],\n  isPrivate: { type: Boolean, default: true }\n});\n```"
+        content: `## System Architecture
+  
+  ### Frontend
+  Built with React and TypeScript, utilizing modern web technologies:
+  
+  - Vite for fast development and optimized builds
+  - Tailwind CSS for responsive styling
+  - Canvas API for handwriting support
+  - Web Audio API for voice recording
+  - Service Workers for offline capability
+  
+  ### Database
+  Supabase provides a secure and scalable backend:
+  
+  \`\`\`typescript
+  // Example Entry Type
+  interface Entry {
+    id: string;
+    title: string;
+    content: string;
+    date: Date;
+    mood: string;
+    images: string[];
+    tags: string[];
+    audioUrl?: string;
+    handwritingData?: string;
+    location?: string;
+    activity?: {
+      type: string;
+      duration?: number;
+      steps?: number;
+      icon: string;
+    };
+    music?: {
+      track: string;
+      artist: string;
+      icon: string;
+    };
+  }
+  \`\`\``
       },
       {
         title: "Implementation",
-        content: "## Implementation Details\n\n### Authentication\n\nThe application uses JWT (JSON Web Tokens) for authentication, providing a secure and stateless authentication mechanism.\n\n```javascript\n// JWT Authentication Middleware\nconst authenticateToken = (req, res, next) => {\n  const authHeader = req.headers['authorization'];\n  const token = authHeader && authHeader.split(' ')[1];\n  \n  if (token == null) return res.sendStatus(401);\n  \n  jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {\n    if (err) return res.sendStatus(403);\n    req.user = user;\n    next();\n  });\n};\n```\n\n### Data Storage\n\nJournal entries are stored in MongoDB with indexes on user ID, date, and tags for efficient retrieval.\n\n### Text Search\n\nThe application implements MongoDB's text search capabilities for finding entries based on content.\n\n```javascript\n// Example search implementation\napp.get('/api/entries/search', authenticateToken, async (req, res) => {\n  try {\n    const { query } = req.query;\n    const entries = await JournalEntry.find({\n      userId: req.user.id,\n      $text: { $search: query }\n    }).sort({ score: { $meta: 'textScore' } });\n    \n    res.json(entries);\n  } catch (error) {\n    res.status(500).json({ message: error.message });\n  }\n});\n```"
+        content: `## Implementation Details
+  
+  ### Handwriting Support
+  The application implements a sophisticated handwriting system:
+  
+  \`\`\`typescript
+  const HandwritingCanvas: React.FC<HandwritingCanvasProps> = ({ onSave, initialData }) => {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [isDrawing, setIsDrawing] = useState(false);
+    const [tool, setTool] = useState<'pen' | 'eraser'>('pen');
+    const [color, setColor] = useState('#000000');
+    const [lineWidth, setLineWidth] = useState(2);
+  
+    // Canvas initialization and drawing logic
+    useEffect(() => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lineWidth;
+    }, [color, lineWidth]);
+  };
+  \`\`\`
+  
+  ### Mood Tracking
+  Comprehensive mood tracking with visual feedback:
+  
+  \`\`\`typescript
+  function getMoodColor(mood: string): string {
+    switch (mood.toLowerCase()) {
+      case 'happy': return 'bg-yellow-400';
+      case 'peaceful': return 'bg-blue-400';
+      case 'thoughtful': return 'bg-purple-400';
+      case 'neutral': return 'bg-gray-400';
+      case 'sad': return 'bg-blue-300';
+      case 'anxious': return 'bg-orange-400';
+      default: return 'bg-gray-400';
+    }
+  }`
       },
       {
         title: "User Guide",
-        content: "## User Guide\n\n### Getting Started\n\n1. **Create an Account**: Sign up with your email and a secure password\n2. **Login**: Access your journal dashboard\n3. **Create Your First Entry**: Click the 'New Entry' button\n\n### Writing Entries\n\n- **Title**: Give your entry a meaningful title\n- **Content**: Write your thoughts, experiences, or reflections\n- **Mood**: Select your current emotional state\n- **Tags**: Add relevant tags for easier searching later\n- **Privacy**: Choose whether the entry is private or shareable\n\n### Searching and Filtering\n\n- Use the search bar to find entries by content\n- Filter entries by date, mood, or tags\n- Sort entries chronologically or by title\n\n### Account Management\n\n- Update your profile information\n- Change your password regularly\n- Enable two-factor authentication for added security"
+        content: `## User Guide
+  
+  ### Getting Started
+  
+  1. **Welcome Screen**: Introduction to key features
+  2. **Timeline View**: Chronological display of journal entries
+  3. **New Entry**: Multiple ways to capture your thoughts
+     - Text entry with formatting
+     - Handwriting with pressure sensitivity
+     - Voice notes
+     - Image attachments
+     - Location tagging
+     - Mood selection
+  
+  ### Writing Features
+  
+  - **Daily Prompts**: Intelligent suggestions for writing topics
+  - **Rich Media**: Support for images, audio, and handwriting
+  - **Mood Tracking**: Visual mood selection with emoji
+  - **Tags**: Organize entries with custom tags
+  - **Location**: Add location context to entries
+  
+  ### Privacy & Security
+  
+  - End-to-end encryption for all entries
+  - Biometric authentication support
+  - Private by default with no sharing features
+  - Secure cloud backup with Supabase`
       }
     ]
-  },
+  }, 
   {
     title: "iCARE Health Management Systems",
     description: "A comprehensive healthcare management system built with Django that streamlines patient care, document management, and healthcare provider workflows. Features role-based access control, customizable medical documents, and PDF generation capabilities.",
