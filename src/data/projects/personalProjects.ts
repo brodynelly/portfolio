@@ -39,7 +39,7 @@ export const personalProjects: Project[] = [
   
   This application provides a premium journaling experience inspired by Apple's iOS Journal app, combining beautiful design with powerful features.
   
-  ## Key Features
+  # Key Features
   
   - **Rich Entry Creation**: Support for text, handwriting, images, and voice notes
   - **Intelligent Prompts**: Daily writing suggestions to inspire reflection
@@ -52,10 +52,7 @@ export const personalProjects: Project[] = [
       },
       {
         title: "Architecture",
-        content: `## System Architecture
-  
-  ### Frontend
-  Built with React and TypeScript, utilizing modern web technologies:
+        content: `#System Architecture \n\n  ## Frontend \n\n Built with React and TypeScript, utilizing modern web technologies:
   
   - Vite for fast development and optimized builds
   - Tailwind CSS for responsive styling
@@ -63,7 +60,7 @@ export const personalProjects: Project[] = [
   - Web Audio API for voice recording
   - Service Workers for offline capability
   
-  ### Database
+  ## Database
   Supabase provides a secure and scalable backend:
   
   \`\`\`typescript
@@ -281,11 +278,11 @@ images: [
       "Built responsive controls for camera manipulation and object interaction",
     ],
     images: [
-      "https://images.unsplash.com/photo-1544164559-2e84642d931c?q=80&w=1470&auto=format&fit=crop",
+      "https://private-user-images.githubusercontent.com/127979848/433564426-90df8e67-0660-4c98-b995-f39477c5095e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjczNTAsIm5iZiI6MTc0NDY2NzA1MCwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTY0NDI2LTkwZGY4ZTY3LTA2NjAtNGM5OC1iOTk1LWYzOTQ3N2M1MDk1ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTQ0MTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMjBkYWE2NzI3ZjAxMWFiM2ZhZWQwNGJlMmYwNTYxN2JlNWMyNjAyMDFiNzVhZmY2OTVmZGViNTFhNTUxM2FjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.QZQwKNnwBKbKfm9qWype1Ly1NMEk4Z1uoL0_vrhxQyw",
       "https://images.unsplash.com/photo-1623946724421-364fd73e811b?q=80&w=1470&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1541752177894-e6dae16ad3e6?q=80&w=1348&auto=format&fit=crop"
     ],
-    image: "https://images.unsplash.com/photo-1544164559-2e84642d931c?q=80&w=1470&auto=format&fit=crop",
+    image: "https://private-user-images.githubusercontent.com/127979848/433564426-90df8e67-0660-4c98-b995-f39477c5095e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjczNTAsIm5iZiI6MTc0NDY2NzA1MCwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTY0NDI2LTkwZGY4ZTY3LTA2NjAtNGM5OC1iOTk1LWYzOTQ3N2M1MDk1ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTQ0MTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMjBkYWE2NzI3ZjAxMWFiM2ZhZWQwNGJlMmYwNTYxN2JlNWMyNjAyMDFiNzVhZmY2OTVmZGViNTFhNTUxM2FjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.QZQwKNnwBKbKfm9qWype1Ly1NMEk4Z1uoL0_vrhxQyw",
     githubUrl: "https://github.com",
     liveUrl: "https://stalwart-kelpie-24b105.netlify.app/",
     documentation: [
@@ -312,31 +309,41 @@ images: [
     ]
   },
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured online store with product management, cart functionality, and payment processing.",
+    title: "Precision Automated Agricultural Lab Web application",
+    description: "PAAL (Precision Agriculture and Animal Livestock) Monitoring System is a comprehensive web application designed for agricultural operations management. This system provides real-time monitoring, data analytics, and management tools for farms, barns, stalls, and livestock.",
     tech: [
-      { name: "React", category: "frontend" },
+      { name: "Next.js", category: "frontend" },
       { name: "Node.js", category: "backend" },
       { name: "Express.js", category: "backend" },
       { name: "MongoDB", category: "database" },
-      { name: "Stripe", category: "backend" },
     ],
     challenges: [
-      "Implemented secure payment processing with Stripe",
-      "Created a responsive design that works across all devices",
-      "Built a custom CMS for product management",
+      "Implemented a real-time monitoring system for farm operations",
+      "Developed a user-friendly interface for livestock management",
+      "Integrated data analytics for informed decision-making",
+      "Ensured secure data handling and compliance with agricultural regulations",
     ],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1470&auto=format&fit=crop",
+    images: [
+      "https://private-user-images.githubusercontent.com/127979848/433558697-da037532-0020-4eb0-9b76-4258d6ba896f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTU4Njk3LWRhMDM3NTMyLTAwMjAtNGViMC05Yjc2LTQyNThkNmJhODk2Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYzVjMGZmNWE3MjBjMWIzMjhhOWNiZDgxZjU0MzEzMTE3NzI0OTM0M2YyY2MzNmFlZGNhZTE2YjM2ZWQwODA1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.IBaq02t30OslpacnbTGguP0FDjqXaV2_kGjVKjAdy5U",
+      "https://private-user-images.githubusercontent.com/127979848/433501752-e4a53ab5-0ae9-4c91-9c1c-99a66e07fc44.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAxNzUyLWU0YTUzYWI1LTBhZTktNGM5MS05YzFjLTk5YTY2ZTA3ZmM0NC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04MThiMmY2OGFiZDJmNjg2YTc2ZWFmNzljOTM5Njg0Y2I0MDAyZTc4MTI5Yjg4MWUzMmE3ZGQwM2Q1MmMwN2I5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.z2Fu5JQoGYNl-s2QiJDbKjVjMI8b4GdXtBU-DZC0Aro", 
+      "https://private-user-images.githubusercontent.com/127979848/433501938-9de3e31f-11f5-4f76-aa04-0e9f52bd9029.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAxOTM4LTlkZTNlMzFmLTExZjUtNGY3Ni1hYTA0LTBlOWY1MmJkOTAyOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kYWRmOWY1Zjg2NDM1NzQ4NTg0ZjY3ZTM2Y2I1YTY1ODYzYmU3MjFmMjVjOTkzODIwNzUxMTJjODcyZGNiMmZkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ut1NQ-0-EhLGlsuQRCk5qWzOPwVGAN1Pq5ef0zueH6I", 
+      "https://private-user-images.githubusercontent.com/127979848/433502130-d9c74fbe-a29b-4ed4-92e1-c1dc08e64d3d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAyMTMwLWQ5Yzc0ZmJlLWEyOWItNGVkNC05MmUxLWMxZGMwOGU2NGQzZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hZGUwNDIyMzdmZjYyOWI4NDcyZjhiMGNkNDEwZGIwZjZmNjNmM2RlNjgxZjUxNTliZDNjMDZiODY1MjNkN2Q3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Z_W96CeBmNNxSkIyEk7BJe5K1Nxa6WHr29CrFyqPUw0", 
+      "https://private-user-images.githubusercontent.com/127979848/433502223-4d24e899-e9cc-4e2d-b6dd-a62c105df1f3.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAyMjIzLTRkMjRlODk5LWU5Y2MtNGUyZC1iNmRkLWE2MmMxMDVkZjFmMy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00MzJiMWI5ODBmNTJkNzY4ODIyYTMxNjQ5ZWI2MDI2ZDI1ODgxMTZkNGE1NmY4MTE0YTRmODIzYWZjM2UzNzZiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.YEJx0cp5Ta9dn7LO7tGUqWF6EuVRabGsuUlZdA3_r1o", 
+      "https://private-user-images.githubusercontent.com/127979848/433502375-f939b86f-8c17-410b-aa9c-c1e560a06817.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAyMzc1LWY5MzliODZmLThjMTctNDEwYi1hYTljLWMxZTU2MGEwNjgxNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNjQzMDYxOTQ1NWJhNzdlZmQ2NTdkY2QyOTJiNjY5OWZkNDkxZmMxNjgyZDI0MjZhNjgxOGVmNzQ4MmY5NzBiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.I7OkIo188Sh7S0JS2CAKkHGaZDuO3UWCsLF3JzsDgGs", 
+      "https://private-user-images.githubusercontent.com/127979848/433502599-0f7e0674-d776-4f2f-b7a3-2727064a7a66.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAyNTk5LTBmN2UwNjc0LWQ3NzYtNGYyZi1iN2EzLTI3MjcwNjRhN2E2Ni5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wYWFlM2VlOWJjZTI0YjY3ZjdiM2EwZjc5N2Y5ZGU5NjEyOWM2NjY0ZjBmZWYwNmY1ZWFjNDRlNmE4ODc2YjE2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.OPf3_ycLNmhbQe6S3XTFzHmTPB_IG34Agh3RXD82YpY", 
+      "https://private-user-images.githubusercontent.com/127979848/433503168-b7c27691-75c7-4686-9700-345628a8ea93.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAzMTY4LWI3YzI3NjkxLTc1YzctNDY4Ni05NzAwLTM0NTYyOGE4ZWE5My5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03MmMyMGQ2ZDQ4YjUxYzA0ZjAxYTJjMTc4NTgyNjI4MTYyZjIwYTMzMjVkMTk2ZGIwMTg2YzlhNTA3Y2I1Y2QzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2OpI2g_l_ZocJeBjzJTNLobVzqsY83Q8dQcovdGulIU", 
+    ], 
+    image: "https://private-user-images.githubusercontent.com/127979848/433558697-da037532-0020-4eb0-9b76-4258d6ba896f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTU4Njk3LWRhMDM3NTMyLTAwMjAtNGViMC05Yjc2LTQyNThkNmJhODk2Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYzVjMGZmNWE3MjBjMWIzMjhhOWNiZDgxZjU0MzEzMTE3NzI0OTM0M2YyY2MzNmFlZGNhZTE2YjM2ZWQwODA1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.IBaq02t30OslpacnbTGguP0FDjqXaV2_kGjVKjAdy5U",
     githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
     documentation: [
       {
         title: "Overview",
-        content: "# E-Commerce Platform\n\nThis project is a comprehensive e-commerce solution that provides businesses with everything needed to run an online store. It features a modern, responsive frontend coupled with a robust backend for inventory management, order processing, and secure payments.\n\n## Key Features\n\n- **Product Management**: Comprehensive catalog with categories, variants, and attributes\n- **Shopping Cart**: Persistent cart with real-time updates and saved items\n- **Checkout Process**: Streamlined, multi-step checkout with address validation\n- **Payment Processing**: Secure integration with Stripe for multiple payment methods\n- **User Accounts**: Customer profiles with order history and saved preferences\n- **Admin Dashboard**: Complete store management interface for business owners\n- **Analytics**: Sales reporting and customer behavior insights"
+        content: "## PAAL Monitoring System PAAL (Precision Agriculture and Animal Livestock) \n\n Monitoring System is a comprehensive web application designed for agricultural operations management. This system provides real-time monitoring, data analytics, and management tools for farms, barns, stalls, and livestock. \n\n ** Overview ** \n PAAL Monitoring System is an enterprise-grade application that helps farm owners and managers monitor and manage their agricultural operations efficiently. The system provides a user-friendly interface for tracking livestock health, farm conditions, and operational metrics. \n\n  ** Features ** \n - **Real-time Monitoring**: Track all your farm operations with real-time data and analytics \n- **Enterprise Security**: Industry-leading security protocols to protect your data \n- **Advanced Analytics**: Make data-driven decisions with comprehensive analytics \n- **Role-Based Access Control**: Admin and Farmer user roles with appropriate permissions \n- **Farm Management**: View and edit farm details, barns, stalls, and livestock \n- **System Administration**: Backup & restore, maintenance, and system logs " 
+
       },
       {
         title: "Architecture",
-        content: "## System Architecture\n\n### Frontend Architecture\n\nThe frontend is built with React, utilizing a component-based architecture for maximum reusability and maintainability.\n\n- **State Management**: Redux for global state with Redux Toolkit for simplified logic\n- **Routing**: React Router with protected routes for admin sections\n- **Styling**: Styled Components with a custom theming system\n- **Form Handling**: Formik with Yup validation schemas\n\n### Backend Architecture\n\nThe backend follows a RESTful API design with Node.js and Express.js.\n\n- **API Structure**: Resource-based endpoints with consistent response formats\n- **Authentication**: JWT-based auth with refresh tokens and role-based access control\n- **Database**: MongoDB with Mongoose ODM for data modeling\n- **Payment Processing**: Stripe API integration with webhooks for event handling\n\n### System Diagram\n\nThe system architecture follows a modern three-tier design with:\n\n- Frontend React application communicating with backend API\n- Express.js API server handling business logic\n- MongoDB database for data persistence\n- Stripe integration for payment processing\n\n### Database Schema\n\nThe MongoDB database uses the following main collections:\n\n- **Products**: Product information, variants, pricing, and inventory\n- **Categories**: Hierarchical category structure with metadata\n- **Users**: Customer and admin user accounts with authentication data\n- **Orders**: Order details, status, payment information, and history\n- **Carts**: Active shopping carts with product selections and quantities"
+        content: "## System Architecture - **Tech Stack**\n\n**Frontend**\n- Next.js 14 \n- React \n- TailwindCSS \n- Recharts for data visualization \n- Radix UI for accessible components\n\n **Backend**  \n-Node.js \n- Express\n- MongoDB (configured as a replica set for high availability & authentication)\n- Mongoose"
       },
       {
         title: "Implementation Details",
