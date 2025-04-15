@@ -6,7 +6,7 @@ import { academicProjects } from './academicProjects';
 
 // Combine all projects
 export const projects: Project[] = [
-  ...healthcareProjects,
+  // ...healthcareProjects,
   ...personalProjects.slice(0, 3),  // Take only the first 3 personal projects for the main list
   ...academicProjects.slice(0, 3),   // Take only the first 3 academic projects for the main list
 ];
@@ -14,7 +14,7 @@ export const projects: Project[] = [
 // Create mapped projects with class info
 export const projectsWithClassInfo: ProjectWithClass[] = [
   // Healthcare project
-  { ...healthcareProjects[0], classId: "cs3380" },
+  // { ...healthcareProjects[0], classId: "cs3380" },
   
   // Personal projects
   ...personalProjects.map(project => ({ ...project, classId: "personal" })),

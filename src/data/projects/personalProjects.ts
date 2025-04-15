@@ -1,7 +1,59 @@
 
 import { Project } from './types';
+import PAALCOVER from '../../../public/PAAL/cover.png'
 
 export const personalProjects: Project[] = [
+  
+  {
+    title: "Precision Automated Agricultural Lab Web application",
+    description: "PAAL (Precision Agriculture and Animal Livestock) Monitoring System is a comprehensive web application designed for agricultural operations management. This system provides real-time monitoring, data analytics, and management tools for farms, barns, stalls, and livestock.",
+    tech: [
+      { name: "Next.js", category: "frontend" },
+      { name: "Node.js", category: "backend" },
+      { name: "Express.js", category: "backend" },
+      { name: "MongoDB", category: "database" },
+    ],
+    challenges: [
+      "Implemented a real-time monitoring system for farm operations",
+      "Developed a user-friendly interface for livestock management",
+      "Integrated data analytics for informed decision-making",
+      "Ensured secure data handling and compliance with agricultural regulations",
+    ],
+    images: [
+      PAALCOVER,
+      "../../../public/PAAL/login.png",
+      "../../../public/PAAL/dashboard.png",
+      "../../../public/PAAL/adminDash.png",
+      "../../../public/PAAL/adminControl.png",
+      "../../../public/PAAL/addFarm.png",
+      "../../../public/PAAL/pigtwo.png",
+    ],
+    image: "https://private-user-images.githubusercontent.com/127979848/433558697-da037532-0020-4eb0-9b76-4258d6ba896f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTU4Njk3LWRhMDM3NTMyLTAwMjAtNGViMC05Yjc2LTQyNThkNmJhODk2Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYzVjMGZmNWE3MjBjMWIzMjhhOWNiZDgxZjU0MzEzMTE3NzI0OTM0M2YyY2MzNmFlZGNhZTE2YjM2ZWQwODA1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.IBaq02t30OslpacnbTGguP0FDjqXaV2_kGjVKjAdy5U",
+    githubUrl: "https://github.com",
+    documentation: [
+      {
+        title: "Overview",
+        content: "## PAAL Monitoring System\n\nPAAL (Precision Agriculture and Animal Livestock) Monitoring System is a comprehensive web application designed for agricultural operations management. This system provides real-time monitoring, data analytics, and management tools for farms, barns, stalls, and livestock.\n\n**Features**\n\n- **Real-time Monitoring**: Track all your farm operations with real-time data and analytics\n- **Enterprise Security**: Industry-leading security protocols to protect your data\n- **Advanced Analytics**: Make data-driven decisions with comprehensive analytics\n- **Role-Based Access Control**: Admin and Farmer user roles with appropriate permissions\n- **Farm Management**: View and edit farm details, barns, stalls, and livestock\n- **System Administration**: Backup & restore, maintenance, and system logs"
+      },
+      {
+        title: "Architecture",
+        content: "## System Architecture\n\n**Frontend**\n- Next.js 14\n- React\n- TailwindCSS\n- Recharts (data visualization)\n- Radix UI (accessible components)\n\n**Backend**\n- Node.js\n- Express\n- MongoDB (replica set, internal auth)\n- Mongoose"
+      },
+      {
+        title: "Implementation Details",
+        content: "## Implementation Details\n\n**Livestock Monitoring Infrastructure**\n- **Posture Schema**: Flexible data structure for storing per-pig time-series posture scores\n- **Batch Segmentation**: Pigs are grouped by batch ID for comparative analysis\n- **Historical Data Indexing**: Each pig’s metrics are indexed by timestamp for fast querying\n- **Graph Integration**: Posture scores rendered using dynamic charts within the dashboard\n\n**Database Automation**\n- **Seed Scripts**: Populate your database with default test records and posture data\n- **Backup Strategy**: Git-integrated dump and restore scripts for portable development\n- **Replica Set Configuration**: rs0 initialized for high-availability and authentication\n\n**API Interaction Layer**\n- **RESTful Routes**: Fully documented endpoints for pig management, batch uploading, and posture analytics\n- **File Upload Support**: Accepts ZIPs of CSVs through a dedicated upload route\n- **Multer Integration**: Handles multipart/form-data for ZIP processing on the server\n- **Batch Insertions**: Optimized MongoDB bulk insert for large CSV files"
+      },
+      {
+        title: "Admin Dashboard",
+        content: "## Admin Dashboard\n\n**Dashboard Overview**\n\nThe Admin Dashboard is the primary control center for system administrators to view, manage, and interact with all facets of the application environment.\n\n1. **System Analytics**:\n   - Visualized metrics including farm count, active users, and recent database events\n   - Admin-only access to global configuration statistics and update logs\n\n2. **Farm Oversight**:\n   - Global view of all registered farms\n   - View/edit barn and stall metadata per farm\n   - Assign pigs to stalls and monitor posture activity\n\n3. **User Management**:\n   - Create and manage Farmer accounts\n   - Assign Farmers to specific farms\n   - Role control and user permissions for safe delegation\n\n4. **System Tools**:\n   - Access the automated backup interface\n   - View real-time logs from system services\n   - Trigger restore operations when needed\n\n**Administrative Interface**\n- **Modular Layout**: Cards, tables, and dropdowns allow for intuitive navigation\n- **Real-Time Insights**: Automatically refreshed components reflect database state\n- **Scoped Access**: All Admin tools are protected via authentication guardrails"
+      },
+      {
+        title: "User Experience",
+        content: "## User Experience\n\n**Farmer Workflow**\n\n1. **Onboarding Experience**:\n   - Farmers are guided through a multi-step wizard to register their first farm, barn, and stall\n   - Smart prompts and validations ensure required metadata is complete\n\n2. **Daily Dashboard**:\n   - Displays live updates of pig posture data\n   - Aggregated analytics show average health scores, anomalies, and activity spikes\n\n3. **Data Interaction**:\n   - Users can filter posture data by time (7/30/90/180/365 days)\n   - Graphs support toggling pigs by ID and viewing historical posture trends\n\n4. **Mobile Optimization**:\n   - Touch-friendly chart views for quick scroll and swipe-based filtering\n   - Responsive cards and modals adjust to smaller devices\n   - Mobile-first workflows for farmers on the move\n\n**Performance & UX Optimizations**\n- Lazy loading of heavy data components\n- Indexed queries for all posture retrieval\n- CDN usage for static asset distribution\n- Dedicated WebSocket channels (future) for live posture event streams"
+      }
+    ]
+
+  },
   {
     title: "Journaling Application",
     description: "A personal project to help users maintain and organize their daily journal entries with secure and efficient storage using MongoDB.",
@@ -11,7 +63,7 @@ export const personalProjects: Project[] = [
       { name: "Tailwind CSS", category: "frontend" },
       { name: "Vite", category: "deployment" },
       { name: "Supabase", category: "database" },
-      { name: "Lucide Icons", category: "frontend" }, 
+      { name: "Lucide Icons", category: "frontend" },
     ],
     challenges: [
       "Implemented a responsive, iOS-style interface with smooth animations and transitions",
@@ -22,154 +74,86 @@ export const personalProjects: Project[] = [
       "Designed an intuitive timeline view for journal entries with rich metadata"
     ],
     images: [
-      "https://sdmntprwestus.oaiusercontent.com/files/00000000-4b38-6230-96fe-258b438beb8a/raw?se=2025-04-14T21%3A05%3A33Z&sp=r&sv=2024-08-04&sr=b&scid=f5ed274c-e76d-5e98-b66a-3f27308e2752&skoid=51916beb-8d6a-49b8-8b29-ca48ed86557e&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-14T11%3A52%3A14Z&ske=2025-04-15T11%3A52%3A14Z&sks=b&skv=2024-08-04&sig=tWt7xI1miekis3biFOh4TpXz0jdUu46QFtBsrEyuLUY%3D", 
-      "https://private-user-images.githubusercontent.com/127979848/427188707-aacea867-a493-4fbd-b876-1e81d7732b3f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjExNDUsIm5iZiI6MTc0NDY2MDg0NSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDI3MTg4NzA3LWFhY2VhODY3LWE0OTMtNGZiZC1iODc2LTFlODFkNzczMmIzZi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMDAwNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zNjZkMGQwODBkY2EyYTUwZmFkZTIzNzdlNGQ1OWM0NjhjMDU3YzAwNjViMjZhYThkYjQzOWI2ZjdjODMzYWY5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.T09u0THj99UBcjGpdi8McXtaALmASZJkY62m6VrZpZE",
-      "https://private-user-images.githubusercontent.com/127979848/427188853-aadcc4e3-45ca-4edc-9f45-f5e7e824e797.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjExNDUsIm5iZiI6MTc0NDY2MDg0NSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDI3MTg4ODUzLWFhZGNjNGUzLTQ1Y2EtNGVkYy05ZjQ1LWY1ZTdlODI0ZTc5Ny5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMDAwNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00N2EyMzQwNjdlYTI3NzI2MWY3ZGM3NTkwNDVmN2E0NDIwZmEzZjU0OTQyMDhkYmQ2ZGViNjk3YTdkMTExYzNmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.u5kz1qSwnqrCutvKCMBa2HZIrc01nEx5_bH4GO3qkRo", 
-      "https://private-user-images.githubusercontent.com/127979848/427188980-67c3b4cf-c432-4845-8118-fb4fc54c1d29.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjExNDUsIm5iZiI6MTc0NDY2MDg0NSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDI3MTg4OTgwLTY3YzNiNGNmLWM0MzItNDg0NS04MTE4LWZiNGZjNTRjMWQyOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMDAwNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zMTU0NTBiMjg4ZmFkYWMxMzRmY2JiZTRhZjQ3YjczNDQxNWU2YjUzZTcxODExNGJlYmQ1ZTc0ZDk5NzQ5ZmFkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.0b9guxSASbIhxtf4hd14Y1xHIguFTX3wPYnonWTzm00", 
-      "https://private-user-images.githubusercontent.com/127979848/427189142-1b0c646b-479e-4f25-b3e3-36bcb7eb24f6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjExNDUsIm5iZiI6MTc0NDY2MDg0NSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDI3MTg5MTQyLTFiMGM2NDZiLTQ3OWUtNGYyNS1iM2UzLTM2YmNiN2ViMjRmNi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMDAwNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0xMWNiYTU0MmFhNWY3NmJiMzg4ZmRmOWY5NTI2NGY5Mjg1YjZkODY1ODllMzcxMjc1Mjg4ZWZiZjk4ZmRiY2IxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.NoO-ewlHXivvLnpqjhK1uY1k9hqzsjvOmlvenwYrIhs", 
-      "https://private-user-images.githubusercontent.com/127979848/427189387-8971540b-1547-497c-8495-36f90142d60b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjExNDUsIm5iZiI6MTc0NDY2MDg0NSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDI3MTg5Mzg3LTg5NzE1NDBiLTE1NDctNDk3Yy04NDk1LTM2ZjkwMTQyZDYwYi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMDAwNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hMDgyZjhiYzc1YWU1OTlhMGIzMTBiYzM0ZGFhNmY1ZDIxZTIyNjA5NWU1ZTNhZTZkMjBiMzBkMTc5ZWMzODExJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.g4QWFItBbWZL4-cHRIQWoroHl844NJxnRBrZpq9VEvk",
+      "../../../public/JournalingApp/cover.png",
+      "../../../public/JournalingApp/home.png",
+      "../../../public/JournalingApp/welcome.png",
+      "../../../public/JournalingApp/entries.png",
+      "../../../public/JournalingApp/newentry.png",
+      "../../../public/JournalingApp/sidebar.png",
     ],
     image: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1470&auto=format&fit=crop",
     githubUrl: "https://github.com/brodynelly/Web-Journaling-Application-",
     liveUrl: " https://marvelous-kelpie-866eb4.netlify.app/",
-    documentation: [
+    documentation:
+      [
+        {
+          title: "Overview",
+          content: "## Modern Journaling Application\n\nThe Modern Journaling Application is a sleek, feature-rich platform inspired by Apple's iOS Journal app. It is engineered for users seeking a beautiful and functional environment for daily self-reflection, creative writing, and emotional tracking.\n\n**Key Features**\n\n- **Rich Entry Creation**: Capture thoughts with support for text, handwriting, images, and voice recordings\n- **Intelligent Prompts**: Daily writing suggestions tailored to inspire and encourage reflection\n- **Mood Tracking**: Emoji and color-coded indicators to reflect your emotional state over time\n- **Timeline View**: Chronologically organized journal entries with intuitive navigation\n- **Handwriting Support**: Canvas-based drawing with support for pressure-sensitive styluses\n- **Location Tagging**: Geolocation features to embed places and memories within your entries\n- **Activity Logging**: Automatically associate daily steps and activities with each entry\n- **End-to-End Encryption**: All data is securely encrypted both at rest and in transit"
+        },
+        {
+          title: "Architecture",
+          content: "## System Architecture\n\n**Frontend**\n- React with TypeScript for maintainable, scalable UI development\n- Vite for ultra-fast builds and live development\n- Tailwind CSS for responsive, utility-first styling\n- Canvas API for fluid handwriting capture\n- Web Audio API for native browser voice note recording\n- Service Workers enabling offline journaling experiences\n\n**Backend**\n- Supabase as a managed PostgreSQL database with real-time capabilities\n- Authentication, storage, and secure API layer via Supabase SDK\n\n**Entry Data Model**\n- Fully extensible journal entry object with metadata support including mood, media, tags, and activity logs"
+        },
+        {
+          title: "Implementation Details",
+          content: "## Implementation Details\n\n**Handwriting System**\n- Pressure-sensitive canvas interface captures strokes in real time\n- Toggle tools between pen and eraser modes\n- Customizable brush color and stroke width for personalization\n\n**Mood Tracking System**\n- Visual moods tied to specific color identifiers\n- Emotion states saved as metadata alongside each journal entry\n- Supports trend visualizations and data exports\n\n**Data Synchronization**\n- Entries are synced via Supabase APIs in real-time\n- Offline-first architecture ensures entries persist during loss of connectivity\n\n**Media Management**\n- Integrated voice note recorder linked to journal sessions\n- Image uploads stored securely via Supabase Storage bucket\n- Optional activity metadata for logging duration, steps, and location"
+        },
+        {
+          title: "User Guide",
+          content: "## User Guide\n\n**Getting Started**\n1. **Welcome Screen**: A brief overview introducing users to journaling tools\n2. **Timeline View**: Scrollable list of entries organized by date\n3. **Create Entry**: Tap into rich journaling with one of many input modes\n\n**Journal Entry Options**\n- **Text**: Rich text editor for expressive writing\n- **Handwriting**: Write or sketch directly on the screen\n- **Voice Notes**: Dictate feelings or record conversations\n- **Media**: Attach images to enrich journal content\n- **Mood**: Choose a mood icon to reflect your state of mind\n- **Location**: Automatically or manually tag your location\n\n**Writing Aids**\n- **Daily Prompts**: Curated inspiration delivered daily\n- **Tags**: Categorize entries for better organization\n- **Activity Tracker**: Track movement and contextual behaviors tied to moments\n\n**Security & Privacy**\n- End-to-end encryption ensures journal data remains confidential\n- Biometric authentication available for app access\n- No public sharing or cloud syncing by default\n- Supabase-secured encrypted backups allow safe cloud storage"
+        }
+      ]
+    },
+
+
+  {
+    title: "Spanish Article Translater",
+    description: "A web application that allows users to translate articles from spanish to english.",
+    tech: [
+      { name: "React", category: "frontend" },
+      { name: "Google Translate API", category: "backend" },
+      { name: "JavaScript", category: "language" },
+      { name: "TailwindCSS", category: "frontend" },
+      { name: "GitHub Pages", category: "deployment" },
+    ],
+    challenges: [
+      "Integrated the Google Translate API to provide accurate translations",
+      "Developed a user-friendly interface for article translation",
+      "Ensured responsive design for optimal user experience",
+      "Implemented error handling for API requests and user input validation",
+    ],
+    images: [
+      "../../../public/articleTranslator/cover.png",
+      "../../../public/articleTranslator/home.png",
+      "../../../public/articleTranslator/translate.png",
+    ],
+    image: "../../../public/articleTranslator/cover.png",
+    githubUrl: "https://github.com/brodynelly/translation-website",
+    liveUrl: "https://brodynelly.github.io/admin/dashboard",
+    documentation:[
       {
         title: "Overview",
-        content: `# Modern Journaling Application
-  
-  This application provides a premium journaling experience inspired by Apple's iOS Journal app, combining beautiful design with powerful features.
-  
-  # Key Features
-  
-  - **Rich Entry Creation**: Support for text, handwriting, images, and voice notes
-  - **Intelligent Prompts**: Daily writing suggestions to inspire reflection
-  - **Mood Tracking**: Visual mood tracking with emoji and color indicators
-  - **Timeline View**: Chronological organization of entries with metadata
-  - **Handwriting Support**: Canvas-based handwriting with pressure sensitivity
-  - **Location Tagging**: Add location context to your entries
-  - **Activity Tracking**: Record activities and steps associated with entries
-  - **End-to-End Encryption**: Secure storage of all journal content`
+        content: "## Article Translator\n\nThe Article Translator is a lightweight yet powerful web-based tool that enables users to translate full-length articles into multiple languages with high accuracy. Designed for writers, researchers, and global readers, it integrates the Google Translate API within a fast, intuitive React frontend.\n\n**Core Features**\n\n- **Multilingual Support**: Translate articles into over 100+ supported languages\n- **Side-by-Side Viewer**: Read original and translated text simultaneously\n- **Auto Language Detection**: Automatically identifies source language\n- **Manual Language Override**: Easily select preferred source and target languages\n- **Paste & Upload Modes**: Input content manually or upload `.txt`/`.md` files\n- **Optimized for Speed**: Fast, efficient translations with real-time UI updates\n- **Responsive Design**: Fully optimized for both desktop and mobile devices\n- **Smart Error Feedback**: Handles API issues, invalid inputs, and character limits with clarity"
       },
       {
         title: "Architecture",
-        content: `#System Architecture \n\n  ## Frontend \n\n Built with React and TypeScript, utilizing modern web technologies:
-  
-  - Vite for fast development and optimized builds
-  - Tailwind CSS for responsive styling
-  - Canvas API for handwriting support
-  - Web Audio API for voice recording
-  - Service Workers for offline capability
-  
-  ## Database
-  Supabase provides a secure and scalable backend:
-  
-  \`\`\`typescript
-  // Example Entry Type
-  interface Entry {
-    id: string;
-    title: string;
-    content: string;
-    date: Date;
-    mood: string;
-    images: string[];
-    tags: string[];
-    audioUrl?: string;
-    handwritingData?: string;
-    location?: string;
-    activity?: {
-      type: string;
-      duration?: number;
-      steps?: number;
-      icon: string;
-    };
-    music?: {
-      track: string;
-      artist: string;
-      icon: string;
-    };
-  }
-  \`\`\``
+        content: "## System Architecture\n\n**Frontend**\n- Built with React and TypeScript for scalability and type safety\n- Vite for blazing-fast development and optimized builds\n- Tailwind CSS for responsive UI and modular design\n- Axios for handling async requests to the translation API\n\n**Backend / External Services**\n- Google Translate API handles text translation requests\n- Optional use of a lightweight Node.js proxy server for managing API keys securely (if needed in production)\n\n**Component Breakdown**\n- **LanguageSelector**: Dropdowns to choose source and target languages\n- **TextInputArea**: Rich textarea with autosizing and Markdown support\n- **TranslationPane**: Displays translated output alongside original\n- **UploadManager**: Processes and sanitizes uploaded text files for translation\n- **ErrorAlert**: Reusable alert banner for displaying API or UI issues"
       },
       {
-        title: "Implementation",
-        content: `## Implementation Details
-  
-  ### Handwriting Support
-  The application implements a sophisticated handwriting system:
-  
-  \`\`\`typescript
-  const HandwritingCanvas: React.FC<HandwritingCanvasProps> = ({ onSave, initialData }) => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [isDrawing, setIsDrawing] = useState(false);
-    const [tool, setTool] = useState<'pen' | 'eraser'>('pen');
-    const [color, setColor] = useState('#000000');
-    const [lineWidth, setLineWidth] = useState(2);
-  
-    // Canvas initialization and drawing logic
-    useEffect(() => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.strokeStyle = color;
-      ctx.lineWidth = lineWidth;
-    }, [color, lineWidth]);
-  };
-  \`\`\`
-  
-  ### Mood Tracking
-  Comprehensive mood tracking with visual feedback:
-  
-  \`\`\`typescript
-  function getMoodColor(mood: string): string {
-    switch (mood.toLowerCase()) {
-      case 'happy': return 'bg-yellow-400';
-      case 'peaceful': return 'bg-blue-400';
-      case 'thoughtful': return 'bg-purple-400';
-      case 'neutral': return 'bg-gray-400';
-      case 'sad': return 'bg-blue-300';
-      case 'anxious': return 'bg-orange-400';
-      default: return 'bg-gray-400';
-    }
-  }`
+        title: "Implementation Details",
+        content: "## Implementation Details\n\n**Google Translate API Integration**\n- Translations performed using `translateText` endpoint with dynamically selected languages\n- Supports batch translation of paragraph blocks for performance\n- API key stored securely using environment variables or serverless proxy for production\n\n**Auto Detection Workflow**\n- Source language is auto-detected using Google's `detectLanguage` endpoint when no source is manually selected\n- Target language defaults to the user’s browser locale if unspecified\n\n**Translation State Management**\n- React context manages language preferences, API results, and error states\n- Debounced input listener minimizes unnecessary API calls during typing\n\n**File Upload Pipeline**\n- Accepts `.txt` and `.md` formats\n- Strips unsupported characters, markdown headers, or symbols as needed\n- Renders original and translated versions side-by-side\n\n**Error Handling**\n- Gracefully manages rate limits, content length limits, unsupported languages, and malformed responses\n- Alerts users with human-readable messages, not raw API codes"
       },
       {
         title: "User Guide",
-        content: `## User Guide
-  
-  ### Getting Started
-  
-  1. **Welcome Screen**: Introduction to key features
-  2. **Timeline View**: Chronological display of journal entries
-  3. **New Entry**: Multiple ways to capture your thoughts
-     - Text entry with formatting
-     - Handwriting with pressure sensitivity
-     - Voice notes
-     - Image attachments
-     - Location tagging
-     - Mood selection
-  
-  ### Writing Features
-  
-  - **Daily Prompts**: Intelligent suggestions for writing topics
-  - **Rich Media**: Support for images, audio, and handwriting
-  - **Mood Tracking**: Visual mood selection with emoji
-  - **Tags**: Organize entries with custom tags
-  - **Location**: Add location context to entries
-  
-  ### Privacy & Security
-  
-  - End-to-end encryption for all entries
-  - Biometric authentication support
-  - Private by default with no sharing features
-  - Secure cloud backup with Supabase`
+        content: "## User Guide\n\n**Translating Text Manually**\n\n1. **Paste Article Content**\n   - Copy any text-based article into the original input area\n\n2. **Select Languages**\n   - By default, the app detects your input language\n   - You may override the detected language by choosing from the dropdown\n   - Choose your target language from the right-hand selector\n\n3. **Translate**\n   - Click the **Translate** button to send the content to the Google Translate API\n   - The translated version appears instantly in the right-hand panel\n\n**Uploading Articles**\n\n1. **Click Upload Button**\n   - Upload `.txt` or `.md` files from your local machine\n   - Content is sanitized and prepared for translation\n\n2. **Review and Translate**\n   - Review the input in the text area, select your languages, then click **Translate**\n\n**Translation Output Features**\n- See original vs translated version in a split view\n- Copy the result to clipboard using the action buttons\n- Clear all content to reset the session at any time"
+      },
+      {
+        title: "Future Directions",
+        content: "## Future Directions\n\n**Planned Features**\n\n1. **Translation History**\n   - Save and review past translations locally or via secure login\n   - Label and tag translations for future reference\n\n2. **Export Options**\n   - Export translated articles to `.txt`, `.pdf`, or `.docx` formats\n   - Download dual-language files with original + translated content side-by-side\n\n3. **Extended File Support**\n   - Add support for `.docx`, `.html`, and `.pdf` input formats\n\n4. **AI-Powered Enhancements**\n   - Intelligent paragraph grouping for large documents\n   - Optional tone-matching and context-preserving translation mode\n\n5. **Authentication Layer (Pro Version)**\n   - Create accounts for saving translation preferences\n   - Premium users get increased character limits and API performance tier\n\n**Technical Roadmap**\n\n- **Phase 1**: Core MVP with Google Translate integration, manual/paste/upload support\n- **Phase 2**: File export tools, error logging, accessibility updates\n- **Phase 3**: Account-based translation memory and user dashboards\n- **Phase 4**: Advanced AI features (tone detection, adaptive translation models)"
       }
     ]
-  }, 
+
+  },
   {
     title: "iCARE Health Management Systems",
     description: "A comprehensive healthcare management system built with Django that streamlines patient care, document management, and healthcare provider workflows. Features role-based access control, customizable medical documents, and PDF generation capabilities.",
@@ -184,17 +168,16 @@ export const personalProjects: Project[] = [
       "Implemented complex role-based access control for doctors, nurses, and administrators",
       "Developed a flexible document system with customizable fields and PDF generation",
       "Created a geocode-based organization system for patient and provider management",
-      "Integrated multiple Django apps for modular functionality while maintaining data consistency", 
+      "Integrated multiple Django apps for modular functionality while maintaining data consistency",
     ],
-images: [
-      "https://private-user-images.githubusercontent.com/127979848/433532753-3e47f786-4a8e-4b22-8a82-9ca337fad865.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjA2MDksIm5iZiI6MTc0NDY2MDMwOSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTMyNzUzLTNlNDdmNzg2LTRhOGUtNGIyMi04YTgyLTljYTMzN2ZhZDg2NS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQxOTUxNDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mNGU5NTFmNGI1YmQ0MTZlNGMzNTI0ZWJhYWEwOGZlZGQ0ODZlZWE1YTQzZjM4YmRlODZkMGJlMzZlMTc5OWIyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.57ej8OFd4NhiXrC-lpuxTfbbhXeRznlO3EK-9ZeSRMg",
-      "https://private-user-images.githubusercontent.com/127979848/433514158-06b74985-378c-4dd2-8515-770670809478.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NTkyNDMsIm5iZiI6MTc0NDY1ODk0MywicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTE0MTU4LTA2Yjc0OTg1LTM3OGMtNGRkMi04NTE1LTc3MDY3MDgwOTQ3OC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQxOTI5MDNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0xMmFiMmRkNTZlZjU4NjRkMjA4MzlkODEzYWUyNzIyOWE2MjYwOGViN2RjNTZhYjI2NTYxOWU1MjcwMWM5ODEzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.e8vzYQNOw3n4PENpyBCWiSbmKyqoVViBtn5JateSyVM",
-      "https://private-user-images.githubusercontent.com/127979848/433514499-468f9897-7297-42f1-be9a-0ed71b471509.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NTkyNDMsIm5iZiI6MTc0NDY1ODk0MywicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTE0NDk5LTQ2OGY5ODk3LTcyOTctNDJmMS1iZTlhLTBlZDcxYjQ3MTUwOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQxOTI5MDNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yZTkxM2YxNzEwY2EyNzQ3M2E2ZWIxNWM5NGQwYmRmMjk2ZDgxNTJmODk1NzJiYTFhOWU5ZTgxYTE3MDFmYTNmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2lY4gdsxRwGw-l3mA1XOuH6bTGd8NFGF-j0fKbXF0uQ", 
-      "https://private-user-images.githubusercontent.com/127979848/433514662-4f7696fd-9510-4fc5-93d3-190f70434e08.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NTkyNDMsIm5iZiI6MTc0NDY1ODk0MywicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTE0NjYyLTRmNzY5NmZkLTk1MTAtNGZjNS05M2QzLTE5MGY3MDQzNGUwOC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQxOTI5MDNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03ZDYyNmU3NzM2NThkNzNhMjBkMmM0ZjVlZWFkNmMwNjY4ZDI3MDVlMjA3MmZjNzQ3Y2QyODNhYzE0NGY3ZDdkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.8AfmkTAcaiaZ8nXCCb8sD1HY6MHn4gVHYQvoN6kT9ao", 
-      "https://private-user-images.githubusercontent.com/127979848/433514872-84e5d6c9-70d3-44fd-b6d8-2d48264a3e38.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NTkyNDMsIm5iZiI6MTc0NDY1ODk0MywicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTE0ODcyLTg0ZTVkNmM5LTcwZDMtNDRmZC1iNmQ4LTJkNDgyNjRhM2UzOC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQxOTI5MDNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lOWM1ZTkwMmQ1ZTc4ZGQyNzhiMzg1ZGM1MDM4ZTIzMjA2OTIyZDNjZTk1NDEwNjgyZTFhMzliNDQ4OGY1NmRkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.dZn6lINRQB5Zz4PstU_EoPLjmJvRJExVnOevB8glsAE", 
-      "https://private-user-images.githubusercontent.com/127979848/433515126-89691628-a70f-4d0f-b817-26ec13caaed1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NTkyNDMsIm5iZiI6MTc0NDY1ODk0MywicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTE1MTI2LTg5NjkxNjI4LWE3MGYtNGQwZi1iODE3LTI2ZWMxM2NhYWVkMS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQxOTI5MDNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zODhhNGM5MTgxN2NmMWY3YTljYTg4YjFmOThjY2JmNTY5ODkzZTRkYzk3MjY4ZTk1YjdmNjc4MzY2MTg0Y2E3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.SrOXlvGe9vny_fpzW_K3n-8HvJ-mB6D1O8gz0hXXl_Y"
-   
-    ], 
+    images: [
+      "../../../public/ICARE/cover.png",
+      "../../../public/ICARE/home.png",
+      "../../../public/ICARE/patientlist.png",
+      '../../../public/iCARE/DocumentTypes.png',
+      "../../../public/iCARE/DocumentCreation.png",
+      "../../../public/iCARE/Admin.png",
+    ],
     image: "https://sdmntpreastus2.oaiusercontent.com/files/00000000-bdf0-61f6-bd6a-72eaa06cad91/raw?se=2025-04-14T20%3A45%3A57Z&sp=r&sv=2024-08-04&sr=b&scid=1e42519b-139b-538a-98fb-7378ae1064c0&skoid=3f3a9132-9530-48ef-96b7-fee5a811733f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-14T11%3A30%3A06Z&ske=2025-04-15T11%3A30%3A06Z&sks=b&skv=2024-08-04&sig=E%2BljvvrCUVD3ftVTJh492pOWDTz5nSQR7o%2BxUACQBTI%3D",
 
     githubUrl: "https://github.com/brodynelly/iCAREProject-Public",
@@ -219,51 +202,6 @@ images: [
     ]
   },
   {
-    title: "Web Journaling Application Concept",
-    description: "A mock-up design for a daily journaling application with drawable entries for iPad pencil. This concept explores layout design and UI decisions for a guided journaling app.",
-    tech: [
-      { name: "React", category: "frontend" },
-      { name: "JavaScript", category: "language" },
-      { name: "CSS", category: "frontend" },
-      { name: "Netlify", category: "deployment" },
-    ],
-    challenges: [
-      "Designed an intuitive interface for digital journaling with Apple Pencil support",
-      "Created a guided journaling experience to help users build a consistent routine",
-      "Implemented drawable entry capabilities that mimic writing on paper",
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1470&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1517842536804-bf6629e2c291?q=80&w=1470&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544164559-2e84642d931c?q=80&w=1470&auto=format&fit=crop"
-    ],
-    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1470&auto=format&fit=crop",
-    githubUrl: "https://github.com",
-    liveUrl: "https://marvelous-kelpie-866eb4.netlify.app/",
-    documentation: [
-      {
-        title: "Overview",
-        content: "# Web Journaling Application Concept\n\nThis project presents a conceptual design for a digital journaling application specifically optimized for iPad with Apple Pencil support. It explores the intersection of traditional journaling practices and modern digital capabilities.\n\n## Key Features\n\n- **Drawable Entries**: Create journal entries using Apple Pencil with natural writing feel\n- **Guided Prompts**: Daily journaling prompts to inspire reflection and consistency\n- **Template Library**: Various page layouts for different journaling styles\n- **Handwriting Recognition**: Optional conversion of handwritten text to digital text\n- **Mixed Media Support**: Combine handwriting, typing, photos, and sketches\n- **Calendar Integration**: Track journaling streaks and build consistency"
-      },
-      {
-        title: "Design Philosophy",
-        content: "## Design Philosophy\n\n### User Experience Principles\n\nThe design of this journaling application is guided by several core principles:\n\n1. **Minimal Friction**: The interface should disappear, allowing users to focus on their thoughts\n2. **Natural Writing Experience**: Digital writing should feel as natural as pen on paper\n3. **Guided but Flexible**: Provide structure for those who need it, freedom for those who don't\n4. **Calm Aesthetics**: Visual design that promotes reflection and mindfulness\n\n### Design Inspirations\n\nThe visual and interaction design draws inspiration from:\n\n- Traditional paper journals and notebooks\n- Minimalist iOS applications\n- Mindfulness and meditation apps\n- Physical journaling tools and techniques\n\n### Color Palette\n\nThe application uses a carefully selected color palette:\n\n- Primary background: Soft off-white (#F8F7F4)\n- Accent colors: Muted earth tones\n- Text: Dark charcoal (#2A2A2A)\n- Highlights: Subtle pastels for categorization\n\nThis palette creates a calm, distraction-free environment that mimics high-quality paper while maintaining good readability and contrast."
-      },
-      {
-        title: "UI Components",
-        content: "## UI Components\n\n### Main Interface Elements\n\nThe application features several key interface components designed for optimal journaling experience:\n\n- **Drawing Canvas**: High-resolution canvas optimized for Apple Pencil input\n- **Tool Palette**: Minimalist set of drawing and writing tools\n- **Template Selector**: Quick access to different page layouts\n- **Navigation Bar**: Simple controls for moving between entries\n\n### Key Screens\n\n1. **Home Dashboard**:\n   - Calendar view showing journaling streak\n   - Quick access to today's entry\n   - Recent entries preview\n   - Daily prompt suggestion\n\n2. **Entry Editor**:\n   - Full-screen canvas for writing/drawing\n   - Minimal toolbar with essential tools\n   - Template selector\n   - Media insertion options\n\n3. **Template Gallery**:\n   - Various page layouts (blank, lined, dot grid, etc.)\n   - Guided prompt templates\n   - Mood tracking templates\n   - Goal setting frameworks\n\n4. **Settings**:\n   - Personalization options\n   - Backup and sync settings\n   - Notification preferences\n   - Handwriting recognition settings"
-      },
-      {
-        title: "User Research",
-        content: "## User Research\n\n### Target Audience\n\nThe application is designed primarily for:\n\n1. **Digital Journalers**: Users who already keep journals but want the flexibility of digital tools\n2. **iPad Owners**: Users who own an iPad and Apple Pencil and want to maximize their utility\n3. **Mindfulness Practitioners**: People who journal as part of mindfulness or mental health practices\n4. **Creative Writers**: Those who use journaling for creative expression and ideation\n\n### User Testing Insights\n\nPreliminary user testing revealed several key insights:\n\n- Users strongly prefer minimal UI that doesn't distract from the writing experience\n- The feeling of pen on screen is crucial - any latency or unnatural behavior breaks immersion\n- Many users want structure (prompts, templates) but don't want to feel constrained by it\n- Privacy features are essential, as journals often contain personal thoughts\n- The ability to mix media types (writing, typing, photos) in a single entry is highly valued\n\n### Persona: Maya, 34\n\n**Background**: Graphic designer who has kept paper journals for years but wants the convenience of digital\n\n**Goals**:\n- Maintain her journaling habit while reducing physical clutter\n- Have her journal accessible across devices\n- Preserve the creative, free-form nature of her paper journaling\n\n**Pain Points**:\n- Most digital journaling apps feel too rigid and text-focused\n- Wants to draw and sketch alongside writing\n- Needs an intuitive interface that doesn't require learning complex tools"
-      },
-      {
-        title: "Future Directions",
-        content: "## Future Directions\n\n### Planned Enhancements\n\n1. **AI-Powered Insights**:\n   - Analysis of journaling patterns and mood trends\n   - Personalized prompt suggestions based on previous entries\n   - Optional sentiment analysis to track emotional well-being\n\n2. **Advanced Media Integration**:\n   - Voice memo recording and transcription\n   - Video journal entries\n   - Location tagging and weather information\n\n3. **Collaboration Features**:\n   - Shared journals for partners or families\n   - Guided group journaling for teams or classes\n   - Private sharing of selected entries with trusted contacts\n\n4. **Extended Platform Support**:\n   - Native applications for iPhone and Mac\n   - Web-based viewer with limited editing capabilities\n   - Cross-device synchronization\n\n### Technical Roadmap\n\n**Phase 1: Core Experience**\n- Perfecting the drawing experience\n- Implementing basic templates and prompts\n- Building the calendar and streak tracking\n\n**Phase 2: Enhanced Functionality**\n- Adding handwriting recognition\n- Implementing search capabilities\n- Creating advanced templates and guides\n\n**Phase 3: Ecosystem Development**\n- Building cross-platform synchronization\n- Developing companion applications\n- Implementing AI-powered features\n\n**Phase 4: Community Features**\n- Adding optional sharing capabilities\n- Creating guided group journaling tools\n- Developing journaling challenges and programs"
-      }
-    ]
-  },
-  {
     title: "ThreeJS Graphics Demonstration",
     description: "A graphical demonstration using ThreeJS to visualize 3D graphics in JavaScript. This project was created to learn and explore ThreeJS capabilities.",
     tech: [
@@ -278,12 +216,11 @@ images: [
       "Built responsive controls for camera manipulation and object interaction",
     ],
     images: [
-      "https://private-user-images.githubusercontent.com/127979848/433564426-90df8e67-0660-4c98-b995-f39477c5095e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjczNTAsIm5iZiI6MTc0NDY2NzA1MCwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTY0NDI2LTkwZGY4ZTY3LTA2NjAtNGM5OC1iOTk1LWYzOTQ3N2M1MDk1ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTQ0MTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMjBkYWE2NzI3ZjAxMWFiM2ZhZWQwNGJlMmYwNTYxN2JlNWMyNjAyMDFiNzVhZmY2OTVmZGViNTFhNTUxM2FjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.QZQwKNnwBKbKfm9qWype1Ly1NMEk4Z1uoL0_vrhxQyw",
-      "https://images.unsplash.com/photo-1623946724421-364fd73e811b?q=80&w=1470&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1541752177894-e6dae16ad3e6?q=80&w=1348&auto=format&fit=crop"
+      "../../../public/webGL/cover.png",
+      "../../../public/webGL/screenshot.png",
     ],
     image: "https://private-user-images.githubusercontent.com/127979848/433564426-90df8e67-0660-4c98-b995-f39477c5095e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjczNTAsIm5iZiI6MTc0NDY2NzA1MCwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTY0NDI2LTkwZGY4ZTY3LTA2NjAtNGM5OC1iOTk1LWYzOTQ3N2M1MDk1ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTQ0MTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMjBkYWE2NzI3ZjAxMWFiM2ZhZWQwNGJlMmYwNTYxN2JlNWMyNjAyMDFiNzVhZmY2OTVmZGViNTFhNTUxM2FjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.QZQwKNnwBKbKfm9qWype1Ly1NMEk4Z1uoL0_vrhxQyw",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/brodynelly/Three.js-WebGL-",
     liveUrl: "https://stalwart-kelpie-24b105.netlify.app/",
     documentation: [
       {
@@ -309,54 +246,56 @@ images: [
     ]
   },
   {
-    title: "Precision Automated Agricultural Lab Web application",
-    description: "PAAL (Precision Agriculture and Animal Livestock) Monitoring System is a comprehensive web application designed for agricultural operations management. This system provides real-time monitoring, data analytics, and management tools for farms, barns, stalls, and livestock.",
+    title: "Reflectly - AI-Powered Journaling App",
+    description: "A modern journaling application that leverages artificial intelligence to generate personalized daily prompts, helping users reflect more deeply and maintain consistent journaling habits. The app adapts to user preferences and emotional patterns over time.",
     tech: [
-      { name: "Next.js", category: "frontend" },
-      { name: "Node.js", category: "backend" },
-      { name: "Express.js", category: "backend" },
-      { name: "MongoDB", category: "database" },
+      { name: "React Native", category: "frontend" },
+      { name: "TypeScript", category: "language" },
+      { name: "OpenAI API", category: "backend" },
+      { name: "Firebase", category: "database" },
+      { name: "Redux", category: "frontend" },
+      { name: "Expo", category: "deployment" },
     ],
     challenges: [
-      "Implemented a real-time monitoring system for farm operations",
-      "Developed a user-friendly interface for livestock management",
-      "Integrated data analytics for informed decision-making",
-      "Ensured secure data handling and compliance with agricultural regulations",
+      "Developed an AI prompt generation system that creates personalized reflection questions",
+      "Implemented sentiment analysis to track emotional patterns and tailor future prompts",
+      "Created an elegant, animation-rich UI with smooth transitions and micro-interactions",
+      "Built a secure journaling system with end-to-end encryption for user privacy",
+      "Designed an offline-first architecture that syncs seamlessly when connectivity returns",
+      "Integrated spaced repetition algorithms to resurface important past reflections",
     ],
     images: [
-      "https://private-user-images.githubusercontent.com/127979848/433558697-da037532-0020-4eb0-9b76-4258d6ba896f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTU4Njk3LWRhMDM3NTMyLTAwMjAtNGViMC05Yjc2LTQyNThkNmJhODk2Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYzVjMGZmNWE3MjBjMWIzMjhhOWNiZDgxZjU0MzEzMTE3NzI0OTM0M2YyY2MzNmFlZGNhZTE2YjM2ZWQwODA1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.IBaq02t30OslpacnbTGguP0FDjqXaV2_kGjVKjAdy5U",
-      "https://private-user-images.githubusercontent.com/127979848/433501752-e4a53ab5-0ae9-4c91-9c1c-99a66e07fc44.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAxNzUyLWU0YTUzYWI1LTBhZTktNGM5MS05YzFjLTk5YTY2ZTA3ZmM0NC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04MThiMmY2OGFiZDJmNjg2YTc2ZWFmNzljOTM5Njg0Y2I0MDAyZTc4MTI5Yjg4MWUzMmE3ZGQwM2Q1MmMwN2I5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.z2Fu5JQoGYNl-s2QiJDbKjVjMI8b4GdXtBU-DZC0Aro", 
-      "https://private-user-images.githubusercontent.com/127979848/433501938-9de3e31f-11f5-4f76-aa04-0e9f52bd9029.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAxOTM4LTlkZTNlMzFmLTExZjUtNGY3Ni1hYTA0LTBlOWY1MmJkOTAyOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kYWRmOWY1Zjg2NDM1NzQ4NTg0ZjY3ZTM2Y2I1YTY1ODYzYmU3MjFmMjVjOTkzODIwNzUxMTJjODcyZGNiMmZkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ut1NQ-0-EhLGlsuQRCk5qWzOPwVGAN1Pq5ef0zueH6I", 
-      "https://private-user-images.githubusercontent.com/127979848/433502130-d9c74fbe-a29b-4ed4-92e1-c1dc08e64d3d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAyMTMwLWQ5Yzc0ZmJlLWEyOWItNGVkNC05MmUxLWMxZGMwOGU2NGQzZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hZGUwNDIyMzdmZjYyOWI4NDcyZjhiMGNkNDEwZGIwZjZmNjNmM2RlNjgxZjUxNTliZDNjMDZiODY1MjNkN2Q3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Z_W96CeBmNNxSkIyEk7BJe5K1Nxa6WHr29CrFyqPUw0", 
-      "https://private-user-images.githubusercontent.com/127979848/433502223-4d24e899-e9cc-4e2d-b6dd-a62c105df1f3.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAyMjIzLTRkMjRlODk5LWU5Y2MtNGUyZC1iNmRkLWE2MmMxMDVkZjFmMy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00MzJiMWI5ODBmNTJkNzY4ODIyYTMxNjQ5ZWI2MDI2ZDI1ODgxMTZkNGE1NmY4MTE0YTRmODIzYWZjM2UzNzZiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.YEJx0cp5Ta9dn7LO7tGUqWF6EuVRabGsuUlZdA3_r1o", 
-      "https://private-user-images.githubusercontent.com/127979848/433502375-f939b86f-8c17-410b-aa9c-c1e560a06817.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAyMzc1LWY5MzliODZmLThjMTctNDEwYi1hYTljLWMxZTU2MGEwNjgxNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNjQzMDYxOTQ1NWJhNzdlZmQ2NTdkY2QyOTJiNjY5OWZkNDkxZmMxNjgyZDI0MjZhNjgxOGVmNzQ4MmY5NzBiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.I7OkIo188Sh7S0JS2CAKkHGaZDuO3UWCsLF3JzsDgGs", 
-      "https://private-user-images.githubusercontent.com/127979848/433502599-0f7e0674-d776-4f2f-b7a3-2727064a7a66.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAyNTk5LTBmN2UwNjc0LWQ3NzYtNGYyZi1iN2EzLTI3MjcwNjRhN2E2Ni5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wYWFlM2VlOWJjZTI0YjY3ZjdiM2EwZjc5N2Y5ZGU5NjEyOWM2NjY0ZjBmZWYwNmY1ZWFjNDRlNmE4ODc2YjE2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.OPf3_ycLNmhbQe6S3XTFzHmTPB_IG34Agh3RXD82YpY", 
-      "https://private-user-images.githubusercontent.com/127979848/433503168-b7c27691-75c7-4686-9700-345628a8ea93.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTAzMTY4LWI3YzI3NjkxLTc1YzctNDY4Ni05NzAwLTM0NTYyOGE4ZWE5My5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03MmMyMGQ2ZDQ4YjUxYzA0ZjAxYTJjMTc4NTgyNjI4MTYyZjIwYTMzMjVkMTk2ZGIwMTg2YzlhNTA3Y2I1Y2QzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2OpI2g_l_ZocJeBjzJTNLobVzqsY83Q8dQcovdGulIU", 
-    ], 
-    image: "https://private-user-images.githubusercontent.com/127979848/433558697-da037532-0020-4eb0-9b76-4258d6ba896f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTU4Njk3LWRhMDM3NTMyLTAwMjAtNGViMC05Yjc2LTQyNThkNmJhODk2Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYzVjMGZmNWE3MjBjMWIzMjhhOWNiZDgxZjU0MzEzMTE3NzI0OTM0M2YyY2MzNmFlZGNhZTE2YjM2ZWQwODA1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.IBaq02t30OslpacnbTGguP0FDjqXaV2_kGjVKjAdy5U",
-    githubUrl: "https://github.com",
+      "../../../public/reflectly/cover.png",
+      "../../../public/reflectly/home.png",
+      "../../../public/reflectly/prompt.png",
+      "../../../public/reflectly/entry.png",
+      "../../../public/reflectly/insights.png",
+      "../../../public/reflectly/settings.png",
+    ],
+    image: "../../../public/reflectly/cover.png",
+    githubUrl: "https://github.com/brodynelly/reflectly-app",
+    liveUrl: "https://reflectly-demo.netlify.app",
     documentation: [
       {
         title: "Overview",
-        content: "## PAAL Monitoring System\n\nPAAL (Precision Agriculture and Animal Livestock) Monitoring System is a comprehensive web application designed for agricultural operations management. This system provides real-time monitoring, data analytics, and management tools for farms, barns, stalls, and livestock.\n\n**Features**\n\n- **Real-time Monitoring**: Track all your farm operations with real-time data and analytics\n- **Enterprise Security**: Industry-leading security protocols to protect your data\n- **Advanced Analytics**: Make data-driven decisions with comprehensive analytics\n- **Role-Based Access Control**: Admin and Farmer user roles with appropriate permissions\n- **Farm Management**: View and edit farm details, barns, stalls, and livestock\n- **System Administration**: Backup & restore, maintenance, and system logs"
+        content: "# Reflectly: AI-Powered Journaling\n\nReflectly is a modern journaling application that uses artificial intelligence to generate personalized daily prompts, helping users develop deeper self-awareness and maintain consistent journaling habits. The app learns from user responses and emotional patterns to create increasingly relevant prompts over time.\n\n## Key Features\n\n- **AI-Generated Prompts**: Personalized daily questions based on user history and preferences\n- **Emotion Tracking**: Visual mood tracking with sentiment analysis of journal entries\n- **Insight Generation**: AI-powered patterns and insights from your journaling history\n- **Spaced Repetition**: Strategic resurfacing of important past reflections\n- **Rich Media Support**: Text, voice notes, images, and drawing capabilities\n- **End-to-End Encryption**: Complete privacy for all journal entries\n- **Cross-Platform Sync**: Seamless experience across mobile and web platforms\n- **Offline Support**: Full functionality without an internet connection"
       },
       {
-        title: "Architecture",
-        content: "## System Architecture\n\n**Frontend**\n- Next.js 14\n- React\n- TailwindCSS\n- Recharts (data visualization)\n- Radix UI (accessible components)\n\n**Backend**\n- Node.js\n- Express\n- MongoDB (replica set, internal auth)\n- Mongoose"
+        title: "AI Prompt System",
+        content: "## AI Prompt System\n\n### Personalization Engine\n\nThe core of Reflectly is its AI prompt generation system, which creates deeply personalized reflection questions:\n\n- **Initial Calibration**: New users complete a brief onboarding questionnaire to establish baseline preferences and interests\n\n- **Adaptive Learning**: The system analyzes:  \n  - Previous journal entries (topics, sentiment, depth)  \n  - Response patterns (which prompts generate longer or more engaged responses)  \n  - Explicitly stated preferences and feedback  \n  - Time of day and contextual factors\n\n- **Prompt Categories**:  \n  - **Emotional Reflection**: Questions about feelings and reactions  \n  - **Growth & Goals**: Prompts related to personal development  \n  - **Gratitude**: Structured appreciation exercises  \n  - **Relationship**: Questions about interpersonal connections  \n  - **Creative**: Open-ended imaginative prompts  \n  - **Challenge**: Prompts that push comfort zones\n\n- **OpenAI Integration**: Leverages GPT models to generate novel, contextually relevant prompts while maintaining privacy\n\n### Sentiment Analysis\n\nThe app includes sophisticated emotion tracking:  \n\n- Real-time analysis of journal content to detect emotional states  \n- Tracking of emotional patterns over time  \n- Visualization of mood trends with actionable insights  \n- Adaptive prompt selection based on emotional state"
       },
       {
-        title: "Implementation Details",
-        content: "## Implementation Details\n\n**Livestock Monitoring Infrastructure**\n- **Posture Schema**: Flexible data structure for storing per-pig time-series posture scores\n- **Batch Segmentation**: Pigs are grouped by batch ID for comparative analysis\n- **Historical Data Indexing**: Each pig’s metrics are indexed by timestamp for fast querying\n- **Graph Integration**: Posture scores rendered using dynamic charts within the dashboard\n\n**Database Automation**\n- **Seed Scripts**: Populate your database with default test records and posture data\n- **Backup Strategy**: Git-integrated dump and restore scripts for portable development\n- **Replica Set Configuration**: rs0 initialized for high-availability and authentication\n\n**API Interaction Layer**\n- **RESTful Routes**: Fully documented endpoints for pig management, batch uploading, and posture analytics\n- **File Upload Support**: Accepts ZIPs of CSVs through a dedicated upload route\n- **Multer Integration**: Handles multipart/form-data for ZIP processing on the server\n- **Batch Insertions**: Optimized MongoDB bulk insert for large CSV files"
-      },
-      {
-        title: "Admin Dashboard",
-        content: "## Admin Dashboard\n\n**Dashboard Overview**\n\nThe Admin Dashboard is the primary control center for system administrators to view, manage, and interact with all facets of the application environment.\n\n1. **System Analytics**:\n   - Visualized metrics including farm count, active users, and recent database events\n   - Admin-only access to global configuration statistics and update logs\n\n2. **Farm Oversight**:\n   - Global view of all registered farms\n   - View/edit barn and stall metadata per farm\n   - Assign pigs to stalls and monitor posture activity\n\n3. **User Management**:\n   - Create and manage Farmer accounts\n   - Assign Farmers to specific farms\n   - Role control and user permissions for safe delegation\n\n4. **System Tools**:\n   - Access the automated backup interface\n   - View real-time logs from system services\n   - Trigger restore operations when needed\n\n**Administrative Interface**\n- **Modular Layout**: Cards, tables, and dropdowns allow for intuitive navigation\n- **Real-Time Insights**: Automatically refreshed components reflect database state\n- **Scoped Access**: All Admin tools are protected via authentication guardrails"
+        title: "Technical Architecture",
+        content: "## Technical Architecture\n\n### Frontend\n\n- **React Native**: Cross-platform mobile application with shared codebase\n- **Expo**: Streamlined development and deployment workflow\n- **TypeScript**: Type-safe code with enhanced developer experience\n- **Redux Toolkit**: State management with efficient updates\n- **React Navigation**: Smooth navigation between screens\n- **Reanimated**: Fluid animations and transitions\n- **Styled Components**: Component-based styling system\n\n### Backend\n\n- **Firebase**:  \n  - Authentication with multiple providers  \n  - Firestore for scalable data storage  \n  - Cloud Functions for serverless operations\n\n- **OpenAI API Integration**:  \n  - Secure proxy for API calls  \n  - Rate limiting and usage optimization  \n  - Prompt engineering and context management\n\n### Data Flow\n\n1. **User Authentication**: Secure login with multiple providers\n2. **Local Storage**: Entries saved locally first for offline support\n3. **Encryption**: Client-side encryption before cloud storage\n4. **Cloud Sync**: Background synchronization when online\n5. **AI Processing**: Secure, anonymized processing for insights\n\n### Privacy & Security\n\n- End-to-end encryption for all journal content\n- Zero-knowledge architecture where possible\n- Transparent data usage policies\n- Optional local-only mode with no cloud sync"
       },
       {
         title: "User Experience",
-        content: "## User Experience\n\n**Farmer Workflow**\n\n1. **Onboarding Experience**:\n   - Farmers are guided through a multi-step wizard to register their first farm, barn, and stall\n   - Smart prompts and validations ensure required metadata is complete\n\n2. **Daily Dashboard**:\n   - Displays live updates of pig posture data\n   - Aggregated analytics show average health scores, anomalies, and activity spikes\n\n3. **Data Interaction**:\n   - Users can filter posture data by time (7/30/90/180/365 days)\n   - Graphs support toggling pigs by ID and viewing historical posture trends\n\n4. **Mobile Optimization**:\n   - Touch-friendly chart views for quick scroll and swipe-based filtering\n   - Responsive cards and modals adjust to smaller devices\n   - Mobile-first workflows for farmers on the move\n\n**Performance & UX Optimizations**\n- Lazy loading of heavy data components\n- Indexed queries for all posture retrieval\n- CDN usage for static asset distribution\n- Dedicated WebSocket channels (future) for live posture event streams"
+        content: "## User Experience\n\n### Daily Flow\n\n1. **Daily Prompt**: Users receive a personalized prompt each day\n2. **Reflection Space**: Clean, distraction-free writing environment\n3. **Mood Selection**: Visual emotion tracking before and after journaling\n4. **Media Enrichment**: Option to add photos, voice notes, or drawings\n5. **Insights**: AI-generated observations about the entry\n6. **Streak Tracking**: Gentle motivation through consistency metrics\n\n### Design Philosophy\n\nReflectly embraces several key design principles:\n\n- **Calm Technology**: Minimizing cognitive load and creating a peaceful experience\n- **Progressive Disclosure**: Revealing features gradually as needed\n- **Emotional Design**: Using color, animation, and imagery to create an emotional connection\n- **Accessibility**: Ensuring the app is usable by people with diverse abilities\n\n### Micro-interactions\n\nThe app features numerous thoughtful micro-interactions:\n\n- Subtle animations when transitioning between screens\n- Haptic feedback for important actions\n- Dynamic color shifts based on mood selection\n- Breathing animation during loading states\n- Celebration animations for streaks and milestones"
+      },
+      {
+        title: "AI Insights & Features",
+        content: "## AI Insights & Features\n\n### Pattern Recognition\n\nThe AI analyzes journal entries over time to identify patterns:\n\n- **Emotional Trends**: Visualizations of mood patterns over time\n- **Topic Analysis**: Identification of recurring themes and subjects\n- **Behavioral Insights**: Recognition of habits and routines\n- **Language Patterns**: Analysis of writing style and emotional expression\n\n### Smart Reminders\n\nReflectly uses AI to create meaningful reminders:\n\n- **Optimal Timing**: Learning when users are most receptive to journaling\n- **Contextual Prompts**: Reminders that reference relevant past entries\n- **Gentle Accountability**: Non-judgmental nudges to maintain consistency\n\n### Spaced Repetition\n\nThe app strategically resurfaces past content:\n\n- **Growth Tracking**: Comparing responses to similar prompts over time\n- **Resolution Follow-up**: Checking in on past goals or intentions\n- **Gratitude Reinforcement**: Reminding users of things they've appreciated\n\n### Voice Features\n\n- **Voice-to-Text**: Hands-free journaling option\n- **Voice Analysis**: Optional tone analysis for additional emotional insights\n- **Guided Audio Reflections**: Spoken prompts and meditation guidance"
       }
     ]
-    
   },
 ];
