@@ -1,8 +1,6 @@
 
 # Professional Developer Portfolio
 
-![Portfolio Banner](public/og-image.png)
-
 ## 📋 Table of Contents
 
 - [Overview](#overview)
