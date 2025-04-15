@@ -247,46 +247,6 @@ The portfolio includes several performance optimizations:
 - **Minimal Dependencies**: Careful selection of lightweight libraries
 - **Tree Shaking**: Unused code is removed during the build process
 
-## ♿ Accessibility Features
-
-The portfolio is built with accessibility in mind:
-
-- **Semantic HTML**: Proper use of HTML elements
-- **ARIA Attributes**: Where appropriate for complex interactions
-- **Keyboard Navigation**: Full keyboard support for all interactive elements
-- **Focus Management**: Clear focus states for interactive elements
-- **Color Contrast**: Meets WCAG AA standards for text contrast
-- **Screen Reader Support**: Content is properly labeled for screen readers
-
-## 🌐 Browser Compatibility
-
-The portfolio is tested and compatible with:
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome for Android)
-
-## 📦 Deployment Options
-
-This portfolio can be deployed on various platforms:
-
-- **Vercel**: Recommended for ease of use and performance
-- **Netlify**: Great for continuous deployment from Git
-- **GitHub Pages**: Simple option for static hosting
-- **AWS Amplify**: Scalable option with additional AWS services
-- **Firebase Hosting**: Fast and secure hosting with Google
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📄 License
 
