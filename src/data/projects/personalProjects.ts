@@ -1,9 +1,10 @@
 
 import { Project } from './types';
-import PAALCOVER from '../../../public/PAAL/cover.png'
+import cover from '../../../public/articleTranslator/cover.png';
+import coverGL from '../../../public/webGL/cover.png'
 
 export const personalProjects: Project[] = [
-  
+
   {
     title: "Precision Automated Agricultural Lab Web application",
     description: "PAAL (Precision Agriculture and Animal Livestock) Monitoring System is a comprehensive web application designed for agricultural operations management. This system provides real-time monitoring, data analytics, and management tools for farms, barns, stalls, and livestock.",
@@ -20,15 +21,15 @@ export const personalProjects: Project[] = [
       "Ensured secure data handling and compliance with agricultural regulations",
     ],
     images: [
-      PAALCOVER,
-      "../../../public/PAAL/login.png",
-      "../../../public/PAAL/dashboard.png",
-      "../../../public/PAAL/adminDash.png",
-      "../../../public/PAAL/adminControl.png",
-      "../../../public/PAAL/addFarm.png",
-      "../../../public/PAAL/pigtwo.png",
+      "/PAAL/cover.webp",
+      "/PAAL/login.webp",
+      "/PAAL/dashboard.webp",
+      "/PAAL/adminDash.webp",
+      "/PAAL/adminControl.webp",
+      "/PAAL/addFarm.webp",
+      "/PAAL/pigtwo.webp",
     ],
-    image: "https://private-user-images.githubusercontent.com/127979848/433558697-da037532-0020-4eb0-9b76-4258d6ba896f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjU5NjEsIm5iZiI6MTc0NDY2NTY2MSwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTU4Njk3LWRhMDM3NTMyLTAwMjAtNGViMC05Yjc2LTQyNThkNmJhODk2Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTIxMDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYzVjMGZmNWE3MjBjMWIzMjhhOWNiZDgxZjU0MzEzMTE3NzI0OTM0M2YyY2MzNmFlZGNhZTE2YjM2ZWQwODA1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.IBaq02t30OslpacnbTGguP0FDjqXaV2_kGjVKjAdy5U",
+    image: "/PAAL/cover.webp",
     githubUrl: "https://github.com",
     documentation: [
       {
@@ -74,12 +75,12 @@ export const personalProjects: Project[] = [
       "Designed an intuitive timeline view for journal entries with rich metadata"
     ],
     images: [
-      "../../../public/JournalingApp/cover.png",
-      "../../../public/JournalingApp/home.png",
-      "../../../public/JournalingApp/welcome.png",
-      "../../../public/JournalingApp/entries.png",
-      "../../../public/JournalingApp/newentry.png",
-      "../../../public/JournalingApp/sidebar.png",
+      "/JournalingApp/cover.webp",
+      "/JournalingApp/home.webp",
+      "/JournalingApp/welcome.webp",
+      "/JournalingApp/entries.webp",
+      "/JournalingApp/newentry.webp",
+      "/JournalingApp/sidebar.webp",
     ],
     image: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1470&auto=format&fit=crop",
     githubUrl: "https://github.com/brodynelly/Web-Journaling-Application-",
@@ -123,11 +124,11 @@ export const personalProjects: Project[] = [
       "Implemented error handling for API requests and user input validation",
     ],
     images: [
-      "../../../public/articleTranslator/cover.png",
-      "../../../public/articleTranslator/home.png",
-      "../../../public/articleTranslator/translate.png",
+      cover,
+      "/articleTranslator/home.webp",
+      "/articleTranslator/translate.webp",
     ],
-    image: "../../../public/articleTranslator/cover.png",
+    image: "https://images.unsplash.com/photo-1523726491678-bf852e717f6a?q=80&w=1470&auto=format&fit=crop",
     githubUrl: "https://github.com/brodynelly/translation-website",
     liveUrl: "https://brodynelly.github.io/admin/dashboard",
     documentation:[
@@ -171,14 +172,14 @@ export const personalProjects: Project[] = [
       "Integrated multiple Django apps for modular functionality while maintaining data consistency",
     ],
     images: [
-      "../../../public/ICARE/cover.png",
-      "../../../public/ICARE/home.png",
-      "../../../public/ICARE/patientlist.png",
-      '../../../public/iCARE/DocumentTypes.png',
-      "../../../public/iCARE/DocumentCreation.png",
-      "../../../public/iCARE/Admin.png",
+      "/ICARE/cover.webp",
+      "/ICARE/home.webp",
+      "/ICARE/patientlist.webp",
+      '/ICARE/DocumentTypes.webp',
+      "/ICARE/DocumentCreation.webp",
+      "/ICARE/Admin.webp",
     ],
-    image: "https://sdmntpreastus2.oaiusercontent.com/files/00000000-bdf0-61f6-bd6a-72eaa06cad91/raw?se=2025-04-14T20%3A45%3A57Z&sp=r&sv=2024-08-04&sr=b&scid=1e42519b-139b-538a-98fb-7378ae1064c0&skoid=3f3a9132-9530-48ef-96b7-fee5a811733f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-14T11%3A30%3A06Z&ske=2025-04-15T11%3A30%3A06Z&sks=b&skv=2024-08-04&sig=E%2BljvvrCUVD3ftVTJh492pOWDTz5nSQR7o%2BxUACQBTI%3D",
+    image: "/ICARE/cover.webp",
 
     githubUrl: "https://github.com/brodynelly/iCAREProject-Public",
     // liveUrl: "https://example.com",
@@ -216,10 +217,10 @@ export const personalProjects: Project[] = [
       "Built responsive controls for camera manipulation and object interaction",
     ],
     images: [
-      "../../../public/webGL/cover.png",
-      "../../../public/webGL/screenshot.png",
+      coverGL,
+      "/webGL/screenshot.webp",
     ],
-    image: "https://private-user-images.githubusercontent.com/127979848/433564426-90df8e67-0660-4c98-b995-f39477c5095e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ2NjczNTAsIm5iZiI6MTc0NDY2NzA1MCwicGF0aCI6Ii8xMjc5Nzk4NDgvNDMzNTY0NDI2LTkwZGY4ZTY3LTA2NjAtNGM5OC1iOTk1LWYzOTQ3N2M1MDk1ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQxNFQyMTQ0MTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMjBkYWE2NzI3ZjAxMWFiM2ZhZWQwNGJlMmYwNTYxN2JlNWMyNjAyMDFiNzVhZmY2OTVmZGViNTFhNTUxM2FjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.QZQwKNnwBKbKfm9qWype1Ly1NMEk4Z1uoL0_vrhxQyw",
+    image: "/webGL/cover.webp",
     githubUrl: "https://github.com/brodynelly/Three.js-WebGL-",
     liveUrl: "https://stalwart-kelpie-24b105.netlify.app/",
     documentation: [
@@ -265,14 +266,14 @@ export const personalProjects: Project[] = [
       "Integrated spaced repetition algorithms to resurface important past reflections",
     ],
     images: [
-      "../../../public/reflectly/cover.png",
-      "../../../public/reflectly/home.png",
-      "../../../public/reflectly/prompt.png",
-      "../../../public/reflectly/entry.png",
-      "../../../public/reflectly/insights.png",
-      "../../../public/reflectly/settings.png",
+      "/reflectly/cover.webp",
+      "/reflectly/home.webp",
+      "/reflectly/prompt.webp",
+      "/reflectly/entry.webp",
+      "/reflectly/insights.webp",
+      "/reflectly/settings.webp",
     ],
-    image: "../../../public/reflectly/cover.png",
+    image: "/reflectly/cover.webp",
     githubUrl: "https://github.com/brodynelly/reflectly-app",
     liveUrl: "https://reflectly-demo.netlify.app",
     documentation: [

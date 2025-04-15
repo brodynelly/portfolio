@@ -7,7 +7,6 @@ import {
   CarouselPrevious,
   type CarouselApi
 } from "@/components/ui/carousel";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import { SingleImage } from './carousel/SingleImage';
 import { ThumbnailNavigation } from './carousel/ThumbnailNavigation';

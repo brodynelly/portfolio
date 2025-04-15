@@ -1,5 +1,7 @@
 
 import { Project } from './types';
+import cover  from '../../../public/studentmanagement/cover.png';
+import coverCalc from '../../../public/calculator/cover.png'
 
 export const academicProjects: Project[] = [
   {
@@ -16,10 +18,10 @@ export const academicProjects: Project[] = [
       "Designed a user-friendly layout with keyboard shortcuts",
     ],
 
-    image: "../../../public/calculator/cover.png",
+    image: coverCalc,
     githubUrl: "https://github.com/brodynelly/CalculatorC-Sharp-/tree/main",
   },
- 
+
   {
     title: "Student Management System",
     description: "A comprehensive WPF application for managing undergraduate and graduate students, their enrolled courses, and GPA calculations. Built for Module 11, this system implements inheritance, data validation, and serialization with a clean, intuitive user interface.",
@@ -37,7 +39,7 @@ export const academicProjects: Project[] = [
       "Built persistence through JSON serialization for saving and loading student data",
       "Implemented intelligent sorting for both students and courses",
     ],
-    image: "../../../public/studentmanagement/cover.png",
+    image: cover,
     githubUrl: "https://github.com/brodynelly/Student-Management-System",
     documentation: [
       {
@@ -74,12 +76,12 @@ export const academicProjects: Project[] = [
       "Built intelligent file path handling with persistence of last used locations",
     ],
     images: [
-      "../../../public/texteditor/cover.png",
-      "../../../public/texteditor/one.png",
-      "../../../public/texteditor/two.png",
-      "../../../public/texteditor/three.png",
+      "/texteditor/cover.webp",
+      "/texteditor/one.webp",
+      "/texteditor/two.webp",
+      "/texteditor/three.webp",
     ],
-    image: "../../../public/texteditor/cover.png",
+    image: "/texteditor/cover.webp",
     githubUrl: "https://github.com/brodynelly/TextFileEditorWPF/tree/main",
     documentation: [
       {
@@ -115,7 +117,7 @@ export const academicProjects: Project[] = [
       "Developed a transaction system for tracking book checkouts and returns",
     ],
 
-    image: "../../../public/LibraryManagement/screenshot.png",
+    image: "/LibraryManagement/screenshot.webp",
     githubUrl: "https://github.com/brodynelly/Library-Database-Mangement",
     documentation: [
       {
@@ -150,7 +152,7 @@ export const academicProjects: Project[] = [
       "Optimized memory allocation and deallocation to prevent memory leaks",
       "Created comprehensive error handling for edge cases",
     ],
-    image: "../../../public/Datastructures/PQueue.png",
+    image: "/Datastructures/PQueue.webp",
     githubUrl: "https://github.com/brodynelly/data-structure-basics/tree/main/PQueue%20funct/lab",
     documentation: [
       {
@@ -181,7 +183,7 @@ export const academicProjects: Project[] = [
       "Created comprehensive traversal methods for different use cases",
       "Designed self-balancing mechanisms to prevent performance degradation",
     ],
-    image: "../../../public/Datastructures/binarytree.png",
+    image: "/Datastructures/binarytree.webp",
     githubUrl: "https://github.com/brodynelly/data-structure-basics/tree/main/binary%20search%20(BST)",
     documentation: [
       {
@@ -213,7 +215,7 @@ export const academicProjects: Project[] = [
       "Created robust error handling for edge cases in list manipulation",
       "Developed specialized operations like cycle detection and in-place reversal",
     ],
-    image: "../../../public/Datastructures/linkedlist.png",
+    image: "/Datastructures/linkedlist.webp",
     githubUrl: "https://github.com/brodynelly/data-structure-basics/tree/main/Linked%20List%20Function",
     documentation: [
       {
@@ -246,7 +248,7 @@ export const academicProjects: Project[] = [
       "Optimized string search algorithms for large text processing",
       "Designed buffer overflow protection for all string operations",
     ],
-    image: "../../../public/Datastructures/stringUtility.png",
+    image: "/Datastructures/stringUtility.webp",
     githubUrl: "https://github.com/brodynelly/data-structure-basics/tree/main/String%20Utility%20Functions",
     documentation: [
       {
@@ -263,9 +265,9 @@ export const academicProjects: Project[] = [
       }
     ]
   },
-  
-  
-  
+
+
+
   {
     title: "Algorithm Visualization Tool",
     description: "An educational web application that visually demonstrates common sorting and searching algorithms.",

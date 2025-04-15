@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from 'lucide-react';
@@ -12,12 +11,12 @@ interface ProjectCardImageProps {
   isHovered: boolean;
 }
 
-export default function ProjectCardImage({ 
-  title, 
-  image, 
+export default function ProjectCardImage({
+  title,
+  image,
   images,
-  projectUrl, 
-  isHovered 
+  projectUrl,
+  isHovered
 }: ProjectCardImageProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const hasMultipleImages = images && images.length > 1;
@@ -36,13 +35,13 @@ export default function ProjectCardImage({
           )}
           onLoad={() => setImageLoaded(true)}
         />
-        
+
         {!imageLoaded && (
           <div className="absolute inset-0 flex items-center justify-center bg-muted">
             <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
           </div>
         )}
-        
+
         {/* Multiple images indicator */}
         {hasMultipleImages && (
           <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md flex items-center z-10">
@@ -50,8 +49,8 @@ export default function ProjectCardImage({
             {images.length}
           </div>
         )}
-        
-        <div 
+
+        <div
           className={cn(
             "absolute inset-0 bg-primary/10 backdrop-blur-sm transition-opacity duration-250 flex items-center justify-center",
             isHovered ? "opacity-100" : "opacity-0"
