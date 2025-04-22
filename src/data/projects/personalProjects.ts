@@ -1,9 +1,62 @@
 
 import { Project } from './types';
-import cover from '../../../public/articleTranslator/cover.png';
-import coverGL from '../../../public/webGL/cover.png'
+import  coverStock  from '../../../public/stockPrediction/cover.png'
+import prediction from '../../../public/stockPrediction/prediction.png'
+import stocks from '../../../public/stockPrediction/stocks.png'
+import coverSpanish from '../../../public/articleTranslator/cover.png'
+import coverWEBGL from '../../../public/webGL/cover.png'
 
 export const personalProjects: Project[] = [
+  {
+    title: "AI Stock Prediction Web App",
+    description: "A powerful web application that uses machine learning to forecast stock prices. Built with Streamlit, Prophet, and yfinance for real-time data analysis and interactive visualizations.",
+    tech: [
+      { name: "Python", category: "language" },
+      { name: "Streamlit", category: "frontend" },
+      { name: "Prophet", category: "backend" },
+      { name: "yfinance", category: "backend" },
+      { name: "Plotly", category: "frontend" },
+      { name: "Machine Learning", category: "backend" },
+    ],
+    challenges: [
+      "Implemented Facebook's Prophet algorithm for accurate time series forecasting",
+      "Created interactive visualizations for complex financial data analysis",
+      "Developed a responsive UI that adapts to different forecast periods",
+      "Integrated real-time stock data fetching with error handling and caching",
+      "Optimized performance for handling large datasets and complex calculations",
+      "Designed component analysis views to explain prediction factors",
+    ],
+    images: [
+      coverStock,
+      prediction, 
+      stocks,
+    ],
+    image: coverStock,
+    githubUrl: "https://github.com/brodynelly/AI_StockPredictionWeb",
+    liveUrl: "https://stockpredictionapp.streamlit.app/",
+    documentation: [
+      {
+        title: "Overview",
+        content: "# AI Stock Prediction Web App\n\nA powerful web application that uses machine learning to forecast stock prices. Built with Streamlit, Prophet, and yfinance, this app provides interactive visualizations and AI-powered predictions for stock market analysis.\n\n## Key Features\n\n- **Real-time Stock Data**: Fetch the latest stock data from Yahoo Finance\n- **Interactive Visualizations**: Explore historical stock prices with interactive charts\n- **AI-Powered Forecasting**: Predict future stock prices using Facebook's Prophet algorithm\n- **Customizable Predictions**: Adjust the forecast period from 1 to 4 years\n- **Data Transparency**: View the raw data and forecasted values\n- **Component Analysis**: Understand trend and seasonal factors affecting stock prices"
+      },
+      {
+        title: "Technical Architecture",
+        content: "## Technical Architecture\n\n### Core Components\n\n- **Data Acquisition Layer**:\n  - yfinance API integration for fetching historical stock data\n  - Caching mechanism for optimized performance\n  - Error handling for API failures and data inconsistencies\n\n- **Forecasting Engine**:\n  - Prophet time series model for prediction\n  - Custom parameter tuning based on stock volatility\n  - Trend, seasonality, and holiday effect modeling\n\n- **Visualization Framework**:\n  - Plotly for interactive charts and graphs\n  - Custom color schemes for different data components\n  - Responsive layouts for different screen sizes\n\n- **User Interface**:\n  - Streamlit components for interactive controls\n  - Sidebar for parameter adjustments\n  - Tabbed interface for organizing different views\n\n### Data Flow\n\n1. User selects a stock and forecast parameters\n2. Application fetches historical data (cached when possible)\n3. Prophet model processes the data and generates predictions\n4. Results are visualized through interactive charts\n5. Component breakdown shows factors influencing the forecast"
+      },
+      {
+        title: "Implementation Details",
+        content: "## Implementation Details\n\n### Prophet Model Configuration\n\nThe application uses Facebook's Prophet model with custom configurations:\n\n```python\nmodel = Prophet(\n    changepoint_prior_scale=0.05,  # Flexibility in trend changes\n    seasonality_prior_scale=10,    # Strength of seasonality\n    daily_seasonality=False,       # Disable daily patterns for stocks\n    weekly_seasonality=True,       # Enable weekly patterns\n    yearly_seasonality=True        # Enable yearly patterns\n)\n\n# Add stock market holidays\nmodel.add_country_holidays(country_name='US')\n```\n\n### Data Processing Pipeline\n\n1. **Data Cleaning**:\n   - Handling missing values in stock data\n   - Resampling to appropriate intervals\n   - Normalizing data for consistent analysis\n\n2. **Feature Engineering**:\n   - Creating date-based features (day of week, month, etc.)\n   - Calculating technical indicators (moving averages, etc.)\n   - Preparing data in Prophet's required format (ds/y columns)\n\n3. **Forecast Generation**:\n   - Training the model on historical data\n   - Generating future dates for prediction\n   - Creating confidence intervals for predictions\n\n### Visualization Techniques\n\n- **Interactive Time Series**:\n  Custom Plotly charts with hover information and zoom capabilities\n\n- **Component Plots**:\n  Breakdown of trend, weekly, and yearly patterns\n\n- **Forecast vs Actual**:\n  Overlay of predictions on historical data for validation"
+      },
+      {
+        title: "User Guide",
+        content: "## User Guide\n\n### Getting Started\n\n1. **Select a Stock**:\n   - Choose from popular options (AAPL, GOOG, MSFT, GME)\n   - Or enter a custom stock ticker\n\n2. **Adjust Forecast Parameters**:\n   - Use the slider to set prediction period (1-4 years)\n   - Toggle additional options for visualization\n\n3. **Explore the Data**:\n   - View historical stock prices\n   - Analyze the forecast with confidence intervals\n   - Examine component breakdowns\n\n### Understanding the Forecast\n\n- **Blue Line**: Historical stock prices\n- **Red Line**: Forecasted values\n- **Shaded Area**: Prediction confidence interval (wider = less certain)\n\n### Component Analysis\n\n- **Trend**: Long-term direction of the stock\n- **Weekly**: Patterns that repeat every week (market day effects)\n- **Yearly**: Seasonal patterns over the course of a year\n- **Holidays**: Effects of market holidays on stock prices\n\n### Tips for Best Results\n\n- Longer historical data provides better forecasts\n- Volatile stocks have wider confidence intervals\n- Market disruptions may not be predictable\n- Use the component analysis to understand what drives the forecast"
+      },
+      {
+        title: "Development Process",
+        content: "## Development Process\n\n### Project Evolution\n\nThis project evolved through several phases:\n\n1. **Initial Prototype**:\n   - Basic Streamlit interface with minimal styling\n   - Simple Prophet implementation with default parameters\n   - Limited to a few pre-selected stocks\n\n2. **Enhanced Forecasting**:\n   - Customized Prophet parameters for financial data\n   - Added component analysis for deeper insights\n   - Implemented error handling for API failures\n\n3. **UI Refinement**:\n   - Redesigned interface with improved user experience\n   - Added interactive elements and tooltips\n   - Created responsive layouts for different devices\n\n4. **Performance Optimization**:\n   - Implemented caching for faster data retrieval\n   - Optimized chart rendering for large datasets\n   - Reduced memory usage for resource-intensive operations\n\n### Challenges Overcome\n\n- **Data Consistency**: Handling irregular trading days and market closures\n- **Model Tuning**: Finding optimal Prophet parameters for different stock types\n- **UI Responsiveness**: Ensuring smooth experience despite complex calculations\n- **Deployment Constraints**: Working within Streamlit Cloud resource limitations\n\n### Future Directions\n\n- Integration of additional technical indicators\n- Comparison view for multiple stocks simultaneously\n- Backtesting framework to evaluate prediction accuracy\n- Advanced user settings for model parameter customization"
+      }
+    ]
+  },
 
   {
     title: "Precision Automated Agricultural Lab Web application",
@@ -124,7 +177,7 @@ export const personalProjects: Project[] = [
       "Implemented error handling for API requests and user input validation",
     ],
     images: [
-      cover,
+      coverSpanish,
       "/articleTranslator/home.webp",
       "/articleTranslator/translate.webp",
     ],
@@ -217,7 +270,7 @@ export const personalProjects: Project[] = [
       "Built responsive controls for camera manipulation and object interaction",
     ],
     images: [
-      coverGL,
+      coverWEBGL,
       "/webGL/screenshot.webp",
     ],
     image: "/webGL/cover.webp",
