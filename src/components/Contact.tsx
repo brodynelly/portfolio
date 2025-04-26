@@ -85,21 +85,7 @@ export default function Contact() {
                       <span>View Online</span>
                       <ExternalLink className="h-4 w-4 ml-2" />
                     </Button>
-                  </div>
-                  
-                  <div className="bg-secondary/50 rounded-lg p-4">
-                    <h4 className="font-medium text-sm mb-2">Additional Documents</h4>
-                    <div className="space-y-2 text-sm">
-                      <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                        <FileText className="h-4 w-4" />
-                        <span>Cover Letter Template</span>
-                      </a>
-                      <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                        <FileText className="h-4 w-4" />
-                        <span>Project Portfolio</span>
-                      </a>
-                    </div>
-                  </div>
+                  </div>           
                 </div>
               </CardContent>
             </Card>
