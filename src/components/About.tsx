@@ -13,7 +13,7 @@ export default function About() {
   const timelineItems = [
     {
       date: "2025 - Present",
-      title: "Co-President of The Mizzou Satellite Club",
+      title: "Co-Presdent of The Mizzou Satellite Club",
       description: "The active co-presedint of the Mizzou Satellite Club, where I am responsible for leading the development of the Ground Station Controll Interface and Web Development."
     },
     {
@@ -60,9 +60,9 @@ export default function About() {
           >
             <h3 className="heading-sm text-primary">Professional Journey</h3>
             <AnimatedSection animation="fade-in" delay={400} className="text-muted-foreground leading-relaxed">
-            I'm currently pursuing a Bachelor of Science in Computer Science at the University of Missouri, with a semester abroad completed at the University of Westminster in London. My focus lies in systems and application development using languages and frameworks such as C, C#/.NET, JavaScript, Node.js, and Python. This technical foundation supports a professional mindset driven by curiosity, problem-solving, and a commitment to pushing the boundaries of agricultural technology through continuous learning and innovation.            </AnimatedSection>
+            Hi there! I'm currently pursuing a  Computer Science degree at the University of Missouri. I really enjoy diving into systems and application development, mostly using C/C++, C#/.NET, JavaScript, Node.js, and Python. Beyond the code itself, I'm driven by curiosity and a love for problem-solving. I'm especially excited about finding new ways technology can help advance the next-generation of software development, so I'm always learning and exploring innovations in that space.       </AnimatedSection>
             <AnimatedSection animation="fade-in" delay={500} className="text-muted-foreground leading-relaxed">
-            As a Software Engineer with the Percision Digital Agriculture Research Lab at Mizzou CAFNR, I’m leading the development of a full-stack web app integrating AI to enhance analytics for agricultural research, contributing to the advancement of data-driven decision-making in farming. on developing cutting-edge applications to revolutionize agricultural research.
+            As a Software Engineer with the Percision Digital Agriculture Research Lab at Mizzou CAFNR, I’m leading the development of a full-stack web app integrating AI to enhance analytics for agricultural research, contributing to the advancement of data-driven decision-making in farming. Developing cutting-edge applications to revolutionize agricultural research.
             </AnimatedSection>
             <AnimatedSection animation="fade-in" delay={600} className="text-muted-foreground leading-relaxed">
               My approach to development focuses on clean code, performance optimization, and thoughtful user experiences. I'm continuously expanding my knowledge in modern web technologies and software architecture.
