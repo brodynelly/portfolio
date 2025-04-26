@@ -114,7 +114,7 @@ export default function Hero() {
             )}
             style={{ transitionDelay: '900ms' }}
           >
-            I build modern, scalable web applications with meticulous attention to detail. Specializing in React, TypeScript, and advanced backend systems.
+            I spend my day expanding my knowledge in Computer Science..
           </p>
 
           <div
