@@ -13,7 +13,7 @@ export default function About() {
   const timelineItems = [
     {
       date: "2025 - Present",
-      title: "Co-Presedent of The Mizzou Satellite Club",
+      title: "Co-President of The Mizzou Satellite Club",
       description: "The active co-presedint of the Mizzou Satellite Club, where I am responsible for leading the development of the Ground Station Controll Interface and Web Development."
     },
     {

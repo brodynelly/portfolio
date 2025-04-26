@@ -33,7 +33,7 @@ export const personalProjects: Project[] = [
     ],
     image: coverStock,
     githubUrl: "https://github.com/brodynelly/AI_StockPredictionWeb",
-    liveUrl: "https://stockpredictionapp.streamlit.app/",
+    liveUrl: "https://brodynelly-ai-stockpredictionweb-main-fmirxg.streamlit.app/",
     documentation: [
       {
         title: "Overview",
@@ -327,8 +327,7 @@ export const personalProjects: Project[] = [
       "/reflectly/settings.webp",
     ],
     image: "/reflectly/cover.webp",
-    githubUrl: "https://github.com/brodynelly/reflectly-app",
-    liveUrl: "https://reflectly-demo.netlify.app",
+    githubUrl: "https://github.com/brodynelly/reflectlyMobileApp",
     documentation: [
       {
         title: "Overview",
