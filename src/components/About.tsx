@@ -13,18 +13,18 @@ export default function About() {
   const timelineItems = [
     {
       date: "2025 - Present",
-      title: "Co-Presdent of The Mizzou Satellite Club",
-      description: "The active co-presedint of the Mizzou Satellite Club, where I am responsible for leading the development of the Ground Station Controll Interface and Web Development."
+      title: "Co-Presdent of The Missouri Satellite Research Group",
+      description: "Co-President of the Missouri Satellite Research Group (MizzouSat), where I am responsible for leading the development of the Ground Station Controll Interface and Web Development."
     },
     {
       date: "2025 - Present",
       title: "Micro-Credential in AI-empowered Spacial Computing",
-      description: "Awarded from UMKC Data Science and Innovation Center for the completion of a specialized course focused on AI-empowered spacial computing."
+      description: "Awarded from UMKC Data Science and Innovation Center and Department Of Education for the completion of a specialized course focused on AI-empowered spacial computing."
     },
     {
       date: "2024 - Present",
       title: "Software Engineer, Precision Digital Agriculture Research Lab",
-      description: "Where I am leading the development of a full-stack web app integrating AI to enhance analytics for agricultural research."
+      description: "Leading the development of a full-stack web app integrating AI to enhance analytics for agricultural research."
     },
     {
       date: "2023 - 2024",
