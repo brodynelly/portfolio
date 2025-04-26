@@ -9,14 +9,23 @@ import ProjectsGrid from '@/components/projects/ProjectsGrid';
 import ProjectsList from '@/components/projects/ProjectsList';
 import FilterInfo from '@/components/projects/FilterInfo';
 import EmptyState from '@/components/projects/EmptyState';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export default function AllProjects() {
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [selectedClass, setSelectedClass] = useState<string>('all');
+  const [isLoading, setIsLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Set a small delay to ensure all components are properly loaded
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const classes = [
@@ -31,6 +40,17 @@ export default function AllProjects() {
   const filteredProjects = selectedClass === 'all'
     ? projectsWithClassInfo
     : projectsWithClassInfo.filter(project => project.classId === selectedClass);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="animate-pulse text-center">
+          <div className="h-8 w-48 bg-gray-200 rounded mb-4 mx-auto"></div>
+          <div className="h-4 w-64 bg-gray-200 rounded mx-auto"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
