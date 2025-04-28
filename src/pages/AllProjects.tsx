@@ -15,15 +15,20 @@ export default function AllProjects() {
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [selectedClass, setSelectedClass] = useState<string>('all');
   const [isLoading, setIsLoading] = useState(true);
+  const [projectsReady, setProjectsReady] = useState(false);
   const isMobile = useIsMobile();
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Set projects ready immediately to avoid waiting for loading state
+    setProjectsReady(true);
+    
     // Set a small delay to ensure all components are properly loaded
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 300); // Reduced from 500ms to 300ms for faster loading
     
     return () => clearTimeout(timer);
   }, []);
@@ -72,7 +77,7 @@ export default function AllProjects() {
               projectCount={filteredProjects.length}
             />
 
-            {filteredProjects.length > 0 ? (
+            {projectsReady && filteredProjects.length > 0 ? (
               view === 'grid' ? (
                 <ProjectsGrid projects={filteredProjects} />
               ) : (

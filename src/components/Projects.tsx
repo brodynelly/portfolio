@@ -5,8 +5,11 @@ import { Button } from './ui/button';
 import { ChevronRight } from 'lucide-react';
 import { ScrollToTopLink } from '@/components/ui/scroll-to-top-link';
 import { projects } from '@/data/projects';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export default function Projects() {
+  const isMobile = useIsMobile();
+
   return (
     <section id="projects" className="section-padding bg-secondary relative overflow-hidden">
       {/* Decorative elements */}
@@ -35,7 +38,7 @@ export default function Projects() {
             <AnimatedSection
               key={project.title}
               animation="fade-in-right"
-              delay={300 * index}
+              delay={isMobile ? 25 * index : 300 * index}
               className="h-full"
             >
               <ProjectCard {...project} />

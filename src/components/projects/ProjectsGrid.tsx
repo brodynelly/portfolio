@@ -16,8 +16,9 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
       {projects.map((project, index) => (
         <AnimatedSection 
           key={project.title} 
-          animation="fade-in-right" 
-          delay={isMobile ? 50 : 150 * index}
+          animation="fade-in"
+          // Use smaller delays on mobile for better performance
+          delay={isMobile ? 25 * index : 150 * index}
           className="h-full"
         >
           <ProjectCard {...project} />
