@@ -4,7 +4,20 @@ import * as React from "react"
 const MOBILE_BREAKPOINT = 768
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
+  // Initialize with a default value based on current window width
+  const [isMobile, setIsMobile] = React.useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const mobile = window.innerWidth < MOBILE_BREAKPOINT;
+      
+      // Add mobile-device class immediately if on mobile
+      if (mobile) {
+        document.body.classList.add('mobile-device');
+      }
+      
+      return mobile;
+    }
+    return false;
+  });
 
   React.useEffect(() => {
     const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
@@ -23,11 +36,11 @@ export function useIsMobile() {
     
     mql.addEventListener("change", onChange)
     
-    // Initial check
+    // Initial check to ensure correct state
     onChange();
     
     return () => mql.removeEventListener("change", onChange)
-  }, [])
+  }, []);
 
-  return !!isMobile
+  return isMobile;
 }

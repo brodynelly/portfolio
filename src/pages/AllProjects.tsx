@@ -14,23 +14,17 @@ import { useIsMobile } from '@/hooks/use-mobile';
 export default function AllProjects() {
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [selectedClass, setSelectedClass] = useState<string>('all');
-  const [isLoading, setIsLoading] = useState(true);
-  const [projectsReady, setProjectsReady] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Changed to false so content loads immediately
+  const [projectsReady, setProjectsReady] = useState(true); // Changed to true so projects show immediately
   const isMobile = useIsMobile();
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
     
-    // Set projects ready immediately to avoid waiting for loading state
+    // No need for a loading delay - everything should render immediately
     setProjectsReady(true);
-    
-    // Set a small delay to ensure all components are properly loaded
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 300); // Reduced from 500ms to 300ms for faster loading
-    
-    return () => clearTimeout(timer);
+    setIsLoading(false);
   }, []);
 
   const classes = [
@@ -70,14 +64,14 @@ export default function AllProjects() {
             classes={classes}
           />
 
-          <AnimatedSection animation="fade-in" delay={300}>
+          <AnimatedSection animation="fade-in" delay={100}>
             <FilterInfo
               selectedClass={selectedClass}
               classes={classes}
               projectCount={filteredProjects.length}
             />
 
-            {projectsReady && filteredProjects.length > 0 ? (
+            {filteredProjects.length > 0 ? (
               view === 'grid' ? (
                 <ProjectsGrid projects={filteredProjects} />
               ) : (
