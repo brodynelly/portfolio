@@ -137,7 +137,7 @@ export default function ProjectDetail() {
               {/* Project Details */}
               <div className="lg:col-span-1">
                 <Tabs defaultValue="challenges" className="w-full">
-                  <TabsList className="w-full grid grid-cols-2 mb-6">
+                  <TabsList className={cn("w-full grid grid-cols-2 mb-6", isMobile && "mx-auto max-w-[250px]")}>
                     <TabsTrigger value="challenges">Challenges</TabsTrigger>
                     <TabsTrigger value="details">Details</TabsTrigger>
                   </TabsList>

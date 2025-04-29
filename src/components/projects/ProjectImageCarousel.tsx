@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import {
   Carousel,
@@ -11,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { SingleImage } from './carousel/SingleImage';
 import { ThumbnailNavigation } from './carousel/ThumbnailNavigation';
 import { Loader2 } from 'lucide-react';
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ProjectImageCarouselProps {
   images: string[];
@@ -20,6 +22,7 @@ interface ProjectImageCarouselProps {
 export default function ProjectImageCarousel({ images, title }: ProjectImageCarouselProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [activeIndex, setActiveIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   // Handle API changes and update active index
   useEffect(() => {
@@ -91,12 +94,12 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
             );
           })}
         </CarouselContent>
-        <CarouselPrevious className="bg-white" />
-        <CarouselNext className="bg-white" />
+        <CarouselPrevious className={isMobile ? "" : "bg-white"} />
+        <CarouselNext className={isMobile ? "" : "bg-white"} />
       </Carousel>
 
       {/* Thumbnail navigation */}
-      {images.length > 1 && (
+      {images.length > 1 && !isMobile && (
         <ThumbnailNavigation
           images={images}
           activeIndex={activeIndex}

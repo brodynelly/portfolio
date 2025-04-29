@@ -4,20 +4,25 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { useCarousel } from "./carousel-context"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
+  const isMobile = useIsMobile()
 
   return (
     <Button
       ref={ref}
-      variant={variant}
+      variant={isMobile ? "secondary" : variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full",
+        "absolute rounded-full",
+        isMobile
+          ? "h-7 w-7 bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 border-0"
+          : "h-8 w-8",
         orientation === "horizontal"
           ? "left-2 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -27,7 +32,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
+      <ArrowLeft className={cn("h-4 w-4", isMobile && "h-3.5 w-3.5")} />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -39,14 +44,18 @@ const CarouselNext = React.forwardRef<
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
+  const isMobile = useIsMobile()
 
   return (
     <Button
       ref={ref}
-      variant={variant}
+      variant={isMobile ? "secondary" : variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full",
+        "absolute rounded-full",
+        isMobile
+          ? "h-7 w-7 bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 border-0"
+          : "h-8 w-8",
         orientation === "horizontal"
           ? "right-2 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -56,7 +65,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
+      <ArrowRight className={cn("h-4 w-4", isMobile && "h-3.5 w-3.5")} />
       <span className="sr-only">Next slide</span>
     </Button>
   )

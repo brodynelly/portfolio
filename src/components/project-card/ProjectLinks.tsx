@@ -2,6 +2,7 @@
 import { ExternalLink, Code2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ScrollToTopLink } from '@/components/ui/scroll-to-top-link';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ProjectLinksProps {
   projectUrl: string;
@@ -16,13 +17,19 @@ export default function ProjectLinks({
   liveUrl,
   isHovered
 }: ProjectLinksProps) {
+  const isMobile = useIsMobile();
+
   return (
-    <div className="flex space-x-3">
+    <div className={cn(
+      "flex",
+      isMobile ? "flex-wrap gap-y-2" : "space-x-3"
+    )}>
       <ScrollToTopLink
         to={projectUrl}
         className={cn(
           "inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-all duration-500",
-          isHovered ? "translate-x-2" : "translate-x-0"
+          isHovered ? "translate-x-2" : "translate-x-0",
+          isMobile && "mr-3"
         )}
       >
         <span>View Details</span>
@@ -34,7 +41,8 @@ export default function ProjectLinks({
         rel="noopener noreferrer"
         className={cn(
           "inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-all duration-500",
-          isHovered ? "translate-x-2" : "translate-x-0"
+          isHovered ? "translate-x-2" : "translate-x-0",
+          isMobile && "mr-3"
         )}
         style={{
           transitionDelay: isHovered ? '100ms' : '0ms'
