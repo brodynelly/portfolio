@@ -61,7 +61,7 @@ export default function ChallengesList({ challenges, isHovered }: ChallengesList
               }}
             >
               <span className={cn(
-                "mr-2 text-primary animate-pulse",
+                "mr-2 text-primary",
                 isMobile && "mt-1"
               )}>•</span>
               {challenge}

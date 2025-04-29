@@ -29,7 +29,7 @@ export default function ProjectLinks({
         className={cn(
           "inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-all duration-500",
           isHovered ? "translate-x-2" : "translate-x-0",
-          isMobile && "mr-3"
+          isMobile && "mr-3 mb-2"
         )}
       >
         <span>View Details</span>
@@ -42,7 +42,7 @@ export default function ProjectLinks({
         className={cn(
           "inline-flex items-center space-x-1 text-sm font-medium text-primary hover:underline transition-all duration-500",
           isHovered ? "translate-x-2" : "translate-x-0",
-          isMobile && "mr-3"
+          isMobile && "mr-3 mb-2"
         )}
         style={{
           transitionDelay: isHovered ? '100ms' : '0ms'

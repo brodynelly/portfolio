@@ -137,9 +137,16 @@ export default function ProjectDetail() {
               {/* Project Details */}
               <div className="lg:col-span-1">
                 <Tabs defaultValue="challenges" className="w-full">
-                  <TabsList className={cn("w-full grid grid-cols-2 mb-6", isMobile && "mx-auto max-w-[250px]")}>
-                    <TabsTrigger value="challenges">Challenges</TabsTrigger>
-                    <TabsTrigger value="details">Details</TabsTrigger>
+                  <TabsList className={cn(
+                    "w-full mb-6",
+                    isMobile ? "flex justify-center" : "grid grid-cols-2"
+                  )}>
+                    <TabsTrigger value="challenges" className={isMobile ? "flex-1 max-w-[120px]" : ""}>
+                      Challenges
+                    </TabsTrigger>
+                    <TabsTrigger value="details" className={isMobile ? "flex-1 max-w-[120px]" : ""}>
+                      Details
+                    </TabsTrigger>
                   </TabsList>
 
                   <TabsContent value="challenges" className="space-y-4">
