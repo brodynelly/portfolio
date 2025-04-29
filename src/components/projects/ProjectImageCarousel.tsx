@@ -98,8 +98,8 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
         <CarouselNext className={isMobile ? "" : "bg-white"} />
       </Carousel>
 
-      {/* Thumbnail navigation */}
-      {images.length > 1 && !isMobile && (
+      {/* Thumbnail navigation - now visible on all devices */}
+      {images.length > 1 && (
         <ThumbnailNavigation
           images={images}
           activeIndex={activeIndex}

@@ -1,7 +1,9 @@
+
 import { useState } from 'react';
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import { Loader2 } from 'lucide-react';
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ThumbnailNavigationProps {
   images: string[];
@@ -14,6 +16,8 @@ export function ThumbnailNavigation({
   activeIndex,
   onThumbnailClick
 }: ThumbnailNavigationProps) {
+  const isMobile = useIsMobile();
+  
   return (
     <ScrollArea className="w-full">
       <div className="flex gap-2 py-2">
@@ -26,8 +30,9 @@ export function ThumbnailNavigation({
               key={index}
               onClick={() => onThumbnailClick(index)}
               className={cn(
-                "h-16 w-24 rounded-md overflow-hidden flex-shrink-0 transition-all duration-200 opacity-70 hover:opacity-100 relative bg-muted/30",
-                activeIndex === index && "ring-2 ring-primary opacity-100"
+                "overflow-hidden flex-shrink-0 transition-all duration-200 opacity-70 hover:opacity-100 relative bg-muted/30",
+                activeIndex === index && "ring-2 ring-primary opacity-100",
+                isMobile ? "h-12 w-16 rounded-sm" : "h-16 w-24 rounded-md"
               )}
             >
               {isLoading && (
