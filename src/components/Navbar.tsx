@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Link, useLocation } from 'react-router-dom';
 import { ScrollToTopLink } from '@/components/ui/scroll-to-top-link';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,6 +12,7 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
+  const isMobile = useIsMobile();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 

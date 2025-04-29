@@ -144,3 +144,12 @@ html {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+/* Mobile device specifics */
+.mobile-device .custom-cursor {
+  display: none !important;
+}
+
+.mobile-device * {
+  cursor: auto !important;
+}
