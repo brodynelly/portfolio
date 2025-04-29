@@ -250,17 +250,4 @@ The portfolio includes several performance optimizations:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📬 Contact
-
-For any questions or suggestions, please reach out:
-
-- Email: contact@example.com
-- LinkedIn: [LinkedIn Profile](https://linkedin.com)
-- GitHub: [GitHub Profile](https://github.com)
-- Twitter: [Twitter Profile](https://twitter.com)
-
----
-
-Built with ❤️ using [Lovable](https://lovable.dev)
+This project is licensed under the MIT License - see the LICENSE file for 
