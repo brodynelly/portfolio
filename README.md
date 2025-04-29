@@ -1,33 +1,5 @@
 
 # Professional Developer Portfolio
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Live Demo](#live-demo)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Component Architecture](#component-architecture)
-- [Animation System](#animation-system)
-- [Design Principles](#design-principles)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Development Server](#development-server)
-  - [Building for Production](#building-for-production)
-- [Customization Guide](#customization-guide)
-  - [Updating Personal Information](#updating-personal-information)
-  - [Modifying the Theme](#modifying-the-theme)
-  - [Adding Projects](#adding-projects)
-- [Performance Optimization](#performance-optimization)
-- [Accessibility Features](#accessibility-features)
-- [Browser Compatibility](#browser-compatibility)
-- [Deployment Options](#deployment-options)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
 ## 🌟 Overview
 
 This professional developer portfolio showcases skills, projects, and experience in a modern, responsive, and visually appealing web application. It features smooth animations, a clean design, and a user-friendly interface that effectively communicates technical expertise and professional accomplishments.
