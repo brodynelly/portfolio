@@ -1,16 +1,16 @@
 
 # Professional Developer Portfolio
-## 🌟 Overview
+## Overview
 
 This professional developer portfolio showcases skills, projects, and experience in a modern, responsive, and visually appealing web application. It features smooth animations, a clean design, and a user-friendly interface that effectively communicates technical expertise and professional accomplishments.
 
 The portfolio is built with React, TypeScript, and Tailwind CSS, offering a performant and accessible experience across all devices and browsers.
 
-## 🔗 Live Demo
+## Live Demo
 
 Experience the live portfolio: [https://lovable.dev/projects/7a156186-8822-4943-a677-1594de083959](https://lovable.dev/projects/7a156186-8822-4943-a677-1594de083959)
 
-## ✨ Features
+## Features
 
 - **Responsive Design**: Fully optimized for all device sizes from mobile to desktop
 - **Modern UI/UX**: Clean, professional interface with intuitive navigation
@@ -24,7 +24,7 @@ Experience the live portfolio: [https://lovable.dev/projects/7a156186-8822-4943-
 - **Accessibility Compliant**: Follows WCAG guidelines for maximum accessibility
 - **SEO Friendly**: Optimized metadata for better search engine visibility
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **React**: JavaScript library for building user interfaces
 - **TypeScript**: Typed JavaScript for more reliable code
@@ -36,7 +36,7 @@ Experience the live portfolio: [https://lovable.dev/projects/7a156186-8822-4943-
 - **React Router**: Navigation and routing for React applications
 - **Recharts**: Composable charting library for React
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 portfolio/
@@ -59,7 +59,7 @@ portfolio/
 └── vite.config.ts        # Vite configuration
 ```
 
-## 🧩 Component Architecture
+## Component Architecture
 
 The application follows a component-based architecture with a focus on reusability, maintainability, and performance:
 
@@ -75,7 +75,7 @@ Each component is designed to be:
 - **Typed**: Fully typed with TypeScript for better development experience
 - **Accessible**: Built with accessibility in mind
 
-## ✨ Animation System
+## Animation System
 
 The portfolio utilizes a custom animation system built on CSS animations and React hooks:
 
@@ -104,7 +104,7 @@ Available animations include:
 - `blur-in`: Fade in with blur effect
 - `scale-in`: Scale in animation
 
-## 🎨 Design Principles
+## Design Principles
 
 The portfolio design follows these core principles:
 
@@ -113,56 +113,9 @@ The portfolio design follows these core principles:
 - **Typography**: Clear, readable typography with appropriate scaling
 - **Color Theory**: Thoughtful color palette that enhances the user experience
 - **Consistency**: Uniform design patterns throughout the application
-- **Mobile-First**: Designed for mobile devices first, then enhanced for larger screens
+- **Mobile-First**: Designed for mobile devices first, then enhanced for larger 
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm or yarn package manager
-
-### Installation
-
-```bash
-# Clone the repository
-git clone <YOUR_GIT_URL>
-
-# Navigate to the project directory
-cd <PROJECT_NAME>
-
-# Install dependencies
-npm install
-# or
-yarn install
-```
-
-### Development Server
-
-```bash
-# Start the development server
-npm run dev
-# or
-yarn dev
-```
-
-This will start the development server at `http://localhost:8080`.
-
-### Building for Production
-
-```bash
-# Build for production
-npm run build
-# or
-yarn build
-
-# Preview the production build locally
-npm run preview
-# or
-yarn preview
-```
-
-## 🔧 Customization Guide
+## Customization Guide
 
 ### Updating Personal Information
 
