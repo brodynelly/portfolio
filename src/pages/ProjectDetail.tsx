@@ -12,12 +12,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 import ProjectImageCarousel from '@/components/projects/ProjectImageCarousel';
 import Documentation from '@/components/documentation/Documentation';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export default function ProjectDetail() {
   const { projectId } = useParams();
   const [project, setProject] = useState(
     projectsWithClassInfo.find(p => p.title.replace(/\s+/g, '-').toLowerCase() === projectId)
   );
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,7 +29,7 @@ export default function ProjectDetail() {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <main className="pt-28 pb-16">
+        <main className={cn("pt-16 pb-16", !isMobile && "pt-28")}>
           <div className="container-width text-center py-24">
             <h1 className="heading-lg mb-4">Project Not Found</h1>
             <p className="text-muted-foreground mb-8">
@@ -65,15 +67,15 @@ export default function ProjectDetail() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="pt-28 pb-16">
-        <div className="container-width">
+      <main className={cn("pb-16", isMobile ? "pt-6" : "pt-28")}>
+        <div className="container-width px-4 md:px-0">
           <AnimatedSection animation="fade-in">
             <ScrollToTopLink to="/projects" className="inline-flex items-center text-sm font-medium text-primary hover:underline mb-8">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Projects
             </ScrollToTopLink>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12 mb-12">
               {/* Project Image Carousel and Basic Info */}
               <div className="lg:col-span-2">
                 {/* Image Carousel */}
@@ -82,7 +84,9 @@ export default function ProjectDetail() {
                   title={project.title}
                 />
 
-                <h1 className="heading-lg mb-4">{project.title}</h1>
+                <h1 className={cn("heading-lg mb-4", isMobile && "text-3xl")}>
+                  {project.title}
+                </h1>
                 <p className="text-lg text-muted-foreground mb-8">{project.description}</p>
 
                 <div className="flex flex-wrap gap-3 mb-8">
@@ -91,10 +95,11 @@ export default function ProjectDetail() {
                       key={item.name}
                       className={cn(
                         "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm",
+                        isMobile ? "text-xs py-1" : "",
                         getCategoryColor(item.category)
                       )}
                     >
-                      <Tag className="w-3.5 h-3.5" />
+                      <Tag className={cn("w-3.5 h-3.5", isMobile && "w-3 h-3")} />
                       {item.name}
                     </span>
                   ))}

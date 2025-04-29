@@ -14,6 +14,11 @@ export default function Navbar() {
   const location = useLocation();
   const isMobile = useIsMobile();
 
+  // Hide navbar completely on mobile
+  if (isMobile) {
+    return null;
+  }
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   useEffect(() => {
