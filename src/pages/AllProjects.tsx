@@ -14,18 +14,24 @@ import { useIsMobile } from '@/hooks/use-mobile';
 export default function AllProjects() {
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [selectedClass, setSelectedClass] = useState<string>('all');
-  const [isLoading, setIsLoading] = useState(false); // Changed to false so content loads immediately
-  const [projectsReady, setProjectsReady] = useState(true); // Changed to true so projects show immediately
   const isMobile = useIsMobile();
+  const [isLoading, setIsLoading] = useState(false);
+  const [projectsReady, setProjectsReady] = useState(true);
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
     
-    // No need for a loading delay - everything should render immediately
-    setProjectsReady(true);
-    setIsLoading(false);
-  }, []);
+    // Immediately show projects on mobile devices
+    if (isMobile) {
+      setProjectsReady(true);
+      setIsLoading(false);
+    } else {
+      // For desktop, still use the same logic as before
+      setProjectsReady(true);
+      setIsLoading(false);
+    }
+  }, [isMobile]);
 
   const classes = [
     { id: 'all', name: 'All Projects' },
@@ -71,7 +77,7 @@ export default function AllProjects() {
               projectCount={filteredProjects.length}
             />
 
-            {filteredProjects.length > 0 ? (
+            {projectsReady && filteredProjects.length > 0 ? (
               view === 'grid' ? (
                 <ProjectsGrid projects={filteredProjects} />
               ) : (
