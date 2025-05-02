@@ -16,7 +16,7 @@ export default function AllProjects() {
   const [selectedClass, setSelectedClass] = useState<string>('all');
   const isMobile = useIsMobile();
   const [isLoading, setIsLoading] = useState(false);
-  const [projectsReady, setProjectsReady] = useState(true);
+  const [projectsReady, setProjectsReady] = useState(false); // Set to false initially
 
   // Scroll to top when component mounts
   useEffect(() => {
