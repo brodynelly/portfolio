@@ -92,13 +92,16 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
                     <img
                       src={image}
                       alt={`${title} screenshot ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain md:object-cover"
                       onLoad={() => setIsLoading(false)}
                       onError={() => {
                         setIsLoading(false);
                         setHasError(true);
                       }}
-                      style={{ display: isLoading ? 'none' : 'block' }}
+                      style={{ 
+                        display: isLoading ? 'none' : 'block',
+                        maxHeight: '70vh'
+                      }}
                     />
                   )}
                 </div>

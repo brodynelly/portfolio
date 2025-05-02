@@ -33,6 +33,9 @@ export function ThumbnailNavigation({
     }
   }, [activeIndex, isMobile]);
 
+  // Calculate how many thumbnails to show
+  const visibleThumbnails = isMobile ? 3 : images.length;
+  
   return (
     <ScrollArea className="w-full">
       <div 
@@ -68,7 +71,7 @@ export function ThumbnailNavigation({
                 <img
                   src={image}
                   alt={`Thumbnail ${index + 1}`}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                   onLoad={() => setIsLoading(false)}
                   onError={() => {
                     setIsLoading(false);

@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 
@@ -26,13 +27,13 @@ export function SingleImage({ image, title }: SingleImageProps) {
         <img
           src={image}
           alt={`${title} screenshot`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain md:object-cover"
           onLoad={() => setIsLoading(false)}
           onError={() => {
             setIsLoading(false);
             setHasError(true);
           }}
-          style={{ display: isLoading ? 'none' : 'block' }}
+          style={{ display: isLoading ? 'none' : 'block', maxHeight: '70vh' }}
         />
       )}
     </div>
