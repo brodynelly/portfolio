@@ -11,7 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 import { SingleImage } from './carousel/SingleImage';
 import { ThumbnailNavigation } from './carousel/ThumbnailNavigation';
-import { Loader2 } from 'lucide-react';
+import { Loader2, ChevronRight } from 'lucide-react';
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ProjectImageCarouselProps {
@@ -23,6 +23,7 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
   const [api, setApi] = useState<CarouselApi>();
   const [activeIndex, setActiveIndex] = useState(0);
   const isMobile = useIsMobile();
+  const [showScrollHint, setShowScrollHint] = useState(true);
 
   // Handle API changes and update active index
   useEffect(() => {
@@ -41,6 +42,17 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
       api.off("select", onSelect);
     };
   }, [api]);
+
+  // Hide scroll hint after a delay
+  useEffect(() => {
+    if (isMobile && images.length > 3) {
+      const timer = setTimeout(() => {
+        setShowScrollHint(false);
+      }, 3000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile, images.length]);
 
   // Edge cases handling
   if (!images || images.length === 0) {
@@ -98,16 +110,26 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
         <CarouselNext className={isMobile ? "" : "bg-white"} />
       </Carousel>
 
-      {/* Thumbnail navigation - now visible on all devices */}
+      {/* Thumbnail navigation section */}
       {images.length > 1 && (
-        <ThumbnailNavigation
-          images={images}
-          activeIndex={activeIndex}
-          onThumbnailClick={(index) => {
-            if (api) api.scrollTo(index);
-            setActiveIndex(index);
-          }}
-        />
+        <div className="relative">
+          <ThumbnailNavigation
+            images={images}
+            activeIndex={activeIndex}
+            onThumbnailClick={(index) => {
+              if (api) api.scrollTo(index);
+              setActiveIndex(index);
+            }}
+          />
+          
+          {/* Scroll hint for mobile */}
+          {isMobile && images.length > 3 && showScrollHint && (
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/30 backdrop-blur-sm text-white rounded-l-md px-2 py-1 flex items-center text-xs animate-pulse">
+              <span className="mr-1">Scroll</span>
+              <ChevronRight className="h-3 w-3" />
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

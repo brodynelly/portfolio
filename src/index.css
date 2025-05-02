@@ -200,4 +200,21 @@ html {
   .bg-secondary\/50 {
     margin-bottom: 1rem;
   }
+  
+  /* Thumbnail navigation scrolling */
+  .ScrollArea {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Hide scrollbar for thumbnail navigation on mobile */
+@media (max-width: 768px) {
+  div[style*="overflow-x: auto"]::-webkit-scrollbar {
+    display: none;
+  }
+  
+  div[style*="overflow-x: auto"] {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
