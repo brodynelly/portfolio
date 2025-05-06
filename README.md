@@ -4,7 +4,7 @@
 
 This professional developer portfolio showcases skills, projects, and experience in a modern, responsive, and visually appealing web application. It features smooth animations, a clean design, and a user-friendly interface that effectively communicates technical expertise and professional accomplishments.
 
-The portfolio is built with React, TypeScript, and Tailwind CSS, offering a performant and accessible experience across all devices and browsers.
+The portfolio is built with React, TypeScript, and Tailwind CSS, offering a performant and accessible experience across all devices and browsers
 
 ## Live Demo
 
