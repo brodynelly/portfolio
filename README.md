@@ -1,21 +1,50 @@
+# Brody Nelson — Developer Portfolio
 
-# Professional Developer Portfolio
-## Overview
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![CI](https://github.com/brodynelly/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/brodynelly/portfolio/actions/workflows/ci.yml) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
 
-The portfolio is built with React, TypeScript, and Tailwind CSS, offering a performant and accessible experience across all devices and browsers
+Source code for [brodynelly.com](https://www.brodynelly.com) — my personal developer portfolio. Built with React, TypeScript, and Tailwind CSS.
 
-## Live Demo
+## Tech Stack
 
-live portfolio: www.Brodynelly.com
+- **React 18** + **TypeScript** — UI and type safety
+- **Vite** — fast dev server and build tooling
+- **Tailwind CSS** — utility-first styling
+- **shadcn/ui** — accessible component library (Radix UI under the hood)
+- **Framer Motion** — page and component animations
+- **React Router** — client-side navigation
+- **Recharts** — skills/stats visualizations
 
-## Technology Stack
+## Getting Started
 
-- **React**: JavaScript library for building user interfaces
-- **TypeScript**: Typed JavaScript for more reliable code
-- **Vite**: Next-generation frontend build tool
-- **Tailwind CSS**: Utility-first CSS framework
-- **shadcn/ui**: High-quality UI components built on Radix UI
-- **Lucide Icons**: Beautiful, consistent icon set
-- **Framer Motion**: Animation library for React
-- **React Router**: Navigation and routing for React applications
-- **Recharts**: Composable charting library for React
+**Prerequisites:** Node.js 18+, npm
+
+```bash
+git clone https://github.com/brodynelly/portfolio
+cd portfolio
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser.
+
+**Build for production:**
+
+```bash
+npm run build
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── components/     # Shared UI components
+├── pages/          # Route-level views (About, Projects, Contact)
+├── data/           # Static project/skills data
+└── main.tsx        # App entry point
+public/             # Static assets
+```
+
+## License
+
+MIT
