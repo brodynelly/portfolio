@@ -13,13 +13,13 @@ export default function About() {
   const timelineItems = [
     {
       date: "2025 - Present",
-      title: "Co-Presdent of The Missouri Satellite Research Group",
-      description: "Co-President of the Missouri Satellite Research Group (MizzouSat), where I am responsible for leading the development of the Ground Station Controll Interface and Web Development."
+      title: "Co-President of The Missouri Satellite Research Group",
+      description: "Co-President of the Missouri Satellite Research Group (MizzouSat), where I am responsible for leading the development of the Ground Station Control Interface and Web Development."
     },
     {
       date: "2025 - Present",
-      title: "Micro-Credential in AI-empowered Spacial Computing",
-      description: "Awarded from UMKC Data Science and Innovation Center and Department Of Education for the completion of a specialized course focused on AI-empowered spacial computing."
+      title: "Micro-Credential in AI-empowered Spatial Computing",
+      description: "Awarded from UMKC Data Science and Innovation Center and Department of Education for the completion of a specialized course focused on AI-empowered spatial computing."
     },
     {
       date: "2024 - Present",
@@ -29,7 +29,7 @@ export default function About() {
     {
       date: "2023 - 2024",
       title: "Study Abroad - Westminster, London",
-      description: "International academic experience where I spent 3 months studying at the University of Westminster in the heart of london."
+      description: "International academic experience where I spent 3 months studying at the University of Westminster in the heart of London."
     },
     {
       date: "2022 - Present",
@@ -62,7 +62,7 @@ export default function About() {
             <AnimatedSection animation="fade-in" delay={400} className="text-muted-foreground leading-relaxed">
             Hi there! I'm currently pursuing a  Computer Science degree at the University of Missouri. I really enjoy diving into systems and application development, mostly using C/C++, C#/.NET, JavaScript, Node.js, and Python. Beyond the code itself, I'm driven by curiosity and a love for problem-solving. I'm especially excited about finding new ways technology can help advance the next-generation of software development, so I'm always learning and exploring innovations in that space.       </AnimatedSection>
             <AnimatedSection animation="fade-in" delay={500} className="text-muted-foreground leading-relaxed">
-            As a Software Engineer with the Percision Digital Agriculture Research Lab at Mizzou CAFNR, I’m leading the development of a full-stack web app integrating AI to enhance analytics for agricultural research, contributing to the advancement of data-driven decision-making in farming. Developing cutting-edge applications to revolutionize agricultural research.
+            As a Software Engineer with the Precision Digital Agriculture Research Lab at Mizzou CAFNR, I’m leading the development of a full-stack web app integrating AI to enhance analytics for agricultural research, contributing to the advancement of data-driven decision-making in farming. Developing cutting-edge applications to revolutionize agricultural research.
             </AnimatedSection>
             <AnimatedSection animation="fade-in" delay={600} className="text-muted-foreground leading-relaxed">
               My approach to development focuses on clean code, performance optimization, and thoughtful user experiences. I'm continuously expanding my knowledge in modern web technologies and software architecture.
