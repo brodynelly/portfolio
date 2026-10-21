@@ -42,7 +42,7 @@ const DocDownload: React.FC<DocDownloadProps> = ({
         const contentDiv = document.createElement('div');
         
         // Simple markdown parsing for headings, paragraphs, lists, and code blocks
-        let html = section.content
+        const html = section.content
           // Code blocks
           .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
           // Headings

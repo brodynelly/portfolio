@@ -71,43 +71,9 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
         setApi={setApi}
       >
         <CarouselContent>
-          {images.map((image, index) => {
-            const [isLoading, setIsLoading] = useState(true);
-            const [hasError, setHasError] = useState(false);
-
-            return (
-              <CarouselItem key={index}>
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg relative bg-muted/30">
-                  {isLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-                    </div>
-                  )}
-
-                  {hasError ? (
-                    <div className="absolute inset-0 flex items-center justify-center flex-col p-4">
-                      <p className="text-muted-foreground text-sm text-center">Unable to load image</p>
-                    </div>
-                  ) : (
-                    <img
-                      src={image}
-                      alt={`${title} screenshot ${index + 1}`}
-                      className="w-full h-full object-contain md:object-cover"
-                      onLoad={() => setIsLoading(false)}
-                      onError={() => {
-                        setIsLoading(false);
-                        setHasError(true);
-                      }}
-                      style={{ 
-                        display: isLoading ? 'none' : 'block',
-                        maxHeight: '70vh'
-                      }}
-                    />
-                  )}
-                </div>
-              </CarouselItem>
-            );
-          })}
+          {images.map((image, index) => (
+            <CarouselSlide key={`${image}-${index}`} image={image} title={title} index={index} />
+          ))}
         </CarouselContent>
         <CarouselPrevious className={isMobile ? "" : "bg-white"} />
         <CarouselNext className={isMobile ? "" : "bg-white"} />
@@ -135,5 +101,39 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
         </div>
       )}
     </div>
+  );
+}
+
+function CarouselSlide({ image, title, index }: { image: string; title: string; index: number }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <CarouselItem>
+      <div className="aspect-video rounded-xl overflow-hidden shadow-lg relative bg-muted/30">
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+          </div>
+        )}
+        {hasError ? (
+          <div className="absolute inset-0 flex items-center justify-center flex-col p-4">
+            <p className="text-muted-foreground text-sm text-center">Unable to load image</p>
+          </div>
+        ) : (
+          <img
+            src={image}
+            alt={`${title} screenshot ${index + 1}`}
+            className="w-full h-full object-contain md:object-cover"
+            onLoad={() => setIsLoading(false)}
+            onError={() => {
+              setIsLoading(false);
+              setHasError(true);
+            }}
+            style={{ display: isLoading ? 'none' : 'block', maxHeight: '70vh' }}
+          />
+        )}
+      </div>
+    </CarouselItem>
   );
 }

@@ -10,7 +10,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className 
   // Simple markdown parsing for headings, paragraphs, lists, and code blocks
   const parseMarkdown = (markdown: string) => {
     // Convert markdown to HTML
-    let html = markdown
+    const html = markdown
       // Code blocks
       .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
       // Headings

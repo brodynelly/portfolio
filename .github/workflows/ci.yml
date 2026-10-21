@@ -7,7 +7,7 @@ on:
     branches: [main, master]
 
 jobs:
-  build:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,5 +16,9 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: npx tsc --noEmit 2>/dev/null || true
-      - run: npm test -- --passWithNoTests 2>/dev/null || true
+      - name: Type-check application
+        run: npx tsc --noEmit -p tsconfig.app.json
+      - name: Type-check Vite configuration
+        run: npx tsc --noEmit -p tsconfig.node.json
+      - run: npm run lint
+      - run: npm run build
