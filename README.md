@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![CI](https://github.com/brodynelly/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/brodynelly/portfolio/actions/workflows/ci.yml) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
 
-Source code for [brodynelly.com](https://www.brodynelly.com) — my personal developer portfolio. Built with React, TypeScript, and Tailwind CSS.
+Source code for my personal developer portfolio. Built with React, TypeScript, and Tailwind CSS using Vite.
 
 ## Tech Stack
 
@@ -21,7 +21,7 @@ Source code for [brodynelly.com](https://www.brodynelly.com) — my personal dev
 ```bash
 git clone https://github.com/brodynelly/portfolio
 cd portfolio
-npm install
+npm ci
 npm run dev
 ```
 
@@ -33,6 +33,10 @@ Open `http://localhost:5173` in your browser.
 npm run build
 npm run preview
 ```
+
+## Verification
+
+GitHub Actions installs from the lockfile, type-checks the application and Vite configuration, runs ESLint, and builds the production bundle. The repository does not currently define an automated test script, so CI does not report an empty test suite as a passing test run.
 
 ## Project Structure
 

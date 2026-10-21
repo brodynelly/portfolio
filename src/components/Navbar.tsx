@@ -14,11 +14,6 @@ export default function Navbar() {
   const location = useLocation();
   const isMobile = useIsMobile();
 
-  // Return empty fragment instead of null on mobile
-  if (isMobile) {
-    return <></>;
-  }
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   useEffect(() => {
@@ -47,6 +42,11 @@ export default function Navbar() {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
+
+  // Keep hooks in the same order on mobile and desktop renders.
+  if (isMobile) {
+    return null;
+  }
 
   const scrollToSection = (sectionId: string) => {
     setIsMenuOpen(false);

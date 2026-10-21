@@ -33,9 +33,6 @@ export function ThumbnailNavigation({
     }
   }, [activeIndex, isMobile]);
 
-  // Calculate how many thumbnails to show
-  const visibleThumbnails = isMobile ? 3 : images.length;
-  
   return (
     <ScrollArea className="w-full">
       <div 
@@ -46,51 +43,72 @@ export function ThumbnailNavigation({
         )}
         style={isMobile ? { maxWidth: '100%', overflowX: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none' } : {}}
       >
-        {images.map((image, index) => {
-          const [isLoading, setIsLoading] = useState(true);
-          const [hasError, setHasError] = useState(false);
-
-          return (
-            <button
-              key={index}
-              onClick={() => onThumbnailClick(index)}
-              className={cn(
-                "overflow-hidden flex-shrink-0 transition-all duration-200 opacity-70 hover:opacity-100 relative bg-muted/30",
-                activeIndex === index && "ring-2 ring-primary opacity-100",
-                isMobile ? "h-12 w-16 rounded-sm" : "h-16 w-24 rounded-md"
-              )}
-              style={isMobile ? { flexShrink: 0 } : {}}
-            >
-              {isLoading && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
-                </div>
-              )}
-
-              {!hasError && (
-                <img
-                  src={image}
-                  alt={`Thumbnail ${index + 1}`}
-                  className="h-full w-full object-contain"
-                  onLoad={() => setIsLoading(false)}
-                  onError={() => {
-                    setIsLoading(false);
-                    setHasError(true);
-                  }}
-                  style={{ display: isLoading ? 'none' : 'block' }}
-                />
-              )}
-
-              {/* Image number indicator for mobile */}
-              {isMobile && (
-                <span className="absolute bottom-0 right-0 text-[10px] bg-black/50 text-white px-1 rounded-tl-sm">
-                  {index + 1}
-                </span>
-              )}
-            </button>
-          );
-        })}
+        {images.map((image, index) => (
+          <ThumbnailButton
+            key={`${image}-${index}`}
+            image={image}
+            index={index}
+            active={activeIndex === index}
+            isMobile={isMobile}
+            onClick={() => onThumbnailClick(index)}
+          />
+        ))}
       </div>
     </ScrollArea>
+  );
+}
+
+function ThumbnailButton({
+  image,
+  index,
+  active,
+  isMobile,
+  onClick,
+}: {
+  image: string;
+  index: number;
+  active: boolean;
+  isMobile: boolean;
+  onClick: () => void;
+}) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <button
+      onClick={onClick}
+      className={cn(
+        "overflow-hidden flex-shrink-0 transition-all duration-200 opacity-70 hover:opacity-100 relative bg-muted/30",
+        active && "ring-2 ring-primary opacity-100",
+        isMobile ? "h-12 w-16 rounded-sm" : "h-16 w-24 rounded-md"
+      )}
+      style={isMobile ? { flexShrink: 0 } : {}}
+      aria-label={`Show screenshot ${index + 1}`}
+      aria-current={active ? 'true' : undefined}
+    >
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+        </div>
+      )}
+      {!hasError && (
+        <img
+          src={image}
+          alt=""
+          className="h-full w-full object-contain"
+          onLoad={() => setIsLoading(false)}
+          onError={() => {
+            setIsLoading(false);
+            setHasError(true);
+          }}
+          style={{ display: isLoading ? 'none' : 'block' }}
+        />
+      )}
+      {isMobile && (
+        <span className="absolute bottom-0 right-0 text-[10px] bg-black/50 text-white px-1 rounded-tl-sm">
+          {index + 1}
+        </span>
+      )}
+    </button>
   );
 }
